@@ -68,7 +68,31 @@ Technical challenges:
 ### August 10
   - Up and running on Heroku - **Nikki**
   - Build user authentication -  **Cade**
-  - Build the posts - **Artem**
+  - Build the posts backend and frontend - **Artem**
   - Frontend components set-up - **Victor**
   - Built nav bar and splash page - **Victor**
   - Build sign up and sign in forms - **Nikki** 
+  
+### Day 2
+  - Build categories, materials, and locations  **Cade**
+  - Backend Filtering and search - **Artem**
+  - Splash page styling - **Victor**
+  - About page and FAQ content and styling - **Nikki**
+  - Infographic - **Nikki**
+  
+### Day 3
+  - Frontend Filtering and search - **Artem**
+  - Build Hero Points feature? -  **Cade**
+  - Build Following feature? - **Nikki**
+  - Leaderboard logic and styling - **Victor**
+
+### Day 4
+  - Upcycle posts feature? - **Cade/Nikki**
+  - Update posts component with Points, Following, and Upcycling feature - **Cade/Nikki**
+  - Profile page styling - **Artem/Victor**
+  - Update all our Wiki pages - **Nikki**
+  
+### Day 5
+  - Finishing styling touches - **All Members**
+  - Debugging and pushing to Heroku - **All Members**
+  - Complete Production Readme - **All Members**
