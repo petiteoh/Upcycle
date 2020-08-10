@@ -4,20 +4,41 @@ const User = require("../../models/User");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
+const passport = require('passport');
+const validateRegisterInput = require ('../../validation/register');
+const validateLoginInput = require('../../validation/login');
+
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+
+router.get(
+    "/current",
+    passport.authenticate("jwt", {session: false}),
+    (req, res) => {
+        res.send(req.user);
+})
+
+
 router.post('/register', (req, res) => {
-    User.findOne({ email: req.body.email })
+    const { errors, isValid } = validateRegisterInput(req.body)
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
+    User.findOne({ email: req.body.email, handle: req.body.handle })
         .then(user => {
             if (user) {
-                return res.status(400).json({email: "Email already in use!"})
+                return res.status(400).json({
+                    email: "Email already in use!",
+                    handle: "Handle already in use!"})
         }   else {
             const newUser = new User({
                 handle: req.body.handle,
                 email: req.body.email,
                 password: req.body.password,
-                hero_points: req.body.hero_points
+                password2: req.body.password2
             })
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -33,10 +54,18 @@ router.post('/register', (req, res) => {
     })
 })
 
+
 router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  if(!isValid) { 
+      return res.status(400).json(errors)
+  }
+
   const email = req.body.email;
   const password = req.body.password;
 
+  
   User.findOne({ email }).then((user) => {
     if (!user) {
       return res.status(404).json({ email: "This user does not exist" });
@@ -63,5 +92,6 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
 
 module.exports = router;

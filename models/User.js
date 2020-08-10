@@ -6,6 +6,7 @@ const UserSchema = new Schema({
     handle: {
         type: String,
         required: true,
+        index: {unique: true}
     },
     email: {
         type: String,
