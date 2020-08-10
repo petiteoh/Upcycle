@@ -2,8 +2,7 @@
 /config/keys_dev.js
 /node_modules
 /sample_schema.md
-/frontend/public/assets/javascripts/bundle.js
-/frontend/public/assets/javascripts/bundle.js.map
+/frontend/public/assets/javascripts/*
 /.pnp
 .pnp.js
 
