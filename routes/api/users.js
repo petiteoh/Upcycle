@@ -27,12 +27,24 @@ router.post('/register', (req, res) => {
         return res.status(400).json(errors);
     }
 
-    User.findOne({ email: req.body.email, handle: req.body.handle })
+
+
+    // User.findOne({ handle: req.body.handle })
+    //     .then(user => {
+    //         if (user) { 
+    //             return res.status(400).json({
+    //                 handle: "Handle already in use!"
+    //             })
+    //         })
+        
+        
+
+    User.findOne({email: req.body.email, handle: req.body.handle })
         .then(user => {
             if (user) {
                 return res.status(400).json({
                     email: "Email already in use!",
-                    handle: "Handle already in use!"})
+            })
         }   else {
             const newUser = new User({
                 handle: req.body.handle,
@@ -65,7 +77,7 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  
+
   User.findOne({ email }).then((user) => {
     if (!user) {
       return res.status(404).json({ email: "This user does not exist" });

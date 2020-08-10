@@ -22,11 +22,11 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if (!Validator.isEmail(data.email)) {
-        errors.email = "Email is invalid!"
+        errors.email = "Email is invalid"
     }
 
     if (Validator.isEmpty(data.password)) {
-        errors.password = "You must enter a password!"
+        errors.password = "You must enter a password"
     }
 
     if (!Validator.isLength(data.password, { min: 2, max: 25 })) {
@@ -34,7 +34,7 @@ module.exports = function validateRegisterInput(data) {
     }
 
     if(!Validator.equals(data.password, data.password2)) {
-        errors.password2 = "Passwords must match!"
+        errors.password2 = "Passwords must match"
     }
 
     return {
