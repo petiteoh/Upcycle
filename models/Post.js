@@ -20,17 +20,20 @@ const PostSchema = new Schema({
     },
     category_id: {
         type: Schema.Types.ObjectId,
-        ref: 'categories'
+        ref: 'categories',
+        required: true
     },
     material_ids: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'materials'
+            ref: 'materials',
+            required: true
         }
     ],
     location_id: {
         type: Schema.Types.ObjectId,
-        ref: 'locations'
+        ref: 'locations',
+        required: true
     },
     timeCreated: {
         type: Date,
