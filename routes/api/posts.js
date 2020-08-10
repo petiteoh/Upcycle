@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
 router.post('/',
     (req, res) => {
         const newPost = new Post({
-            creator: req.user.id,
+            creator_id: req.user.id,
             image: req.body.image,
             title: req.body.title,
             description: req.body.description,

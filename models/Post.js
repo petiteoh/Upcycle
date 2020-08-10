@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-    creator: {
+    creator_id: {
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
