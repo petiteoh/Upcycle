@@ -22,7 +22,7 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'categories'
     },
-    material_id: [
+    material_ids: [
         {
             type: Schema.Types.ObjectId,
             ref: 'materials'
