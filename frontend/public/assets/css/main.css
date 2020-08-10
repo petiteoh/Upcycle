@@ -16,18 +16,97 @@
   /* IE9 Compat Modes */
 }
 
-@import url("./splash/splash.css");
 
-/* main {
-  margin: 0 10vw;
-} */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 .main-app-container {
   /* margin: 0 10vw; */
-  margin-left: 20%;
-  margin-right: 5%;
+  margin-left: 20vw;
+  margin-right: 5vw;
 }
 
 h1 {
-  font-family: "Arvo Bold";
+  font-family: "Arvo Regular";
 }
+h2 {
+  font-family: "Arvo Regular";
+}
+h3 {
+  font-family: "Arvo Regular";
+}
+
+/* @import "./splash/splash.css"; */
+/* @import "./nav/nav.css"; */
+
+/* !MOVE TO INDIVIDUAL FILES LATER */
+/* NAV */
+nav {
+  position: fixed;
+  top: 50%;
+  left: 75px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.nav-menu-link {
+
+}
+
+.header-logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  left: auto;
+}
+
+.header-logo a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+.header-logo a:visited{
+  text-decoration: none;
+  color:black;
+}
+/* !MOVE TO INDIVIDUAL FILES LATER */
+/* Splash CSS */
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+.hero {
+  display: flex;
+  background-image: url('../images/upcycle.png');
+  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 4px;
+}
+
+.parallax:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-1px) scale(1.5);
+    background-size: 100%;
+    z-index: -1;
+}
+.mega-section {
+  width: 100%;
+}
+
+/* !MOVE TO INDIVIDUAL FILES LATER */

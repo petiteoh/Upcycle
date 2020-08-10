@@ -2,11 +2,11 @@ import React from "react";
 import { Link, Redirect, Route, Switch, HashRouter } from "react-router-dom";
 
 import SplashContainer from "./splash/splash_container";
-
+import NavContainer from './nav/nav_container';
 const App = () => (
   <div>
     <header>
-      //NOTE: Nav will go here
+      <NavContainer />
     </header>
     <Switch>
       <main className="main-app-container">
