@@ -5,7 +5,9 @@ import SplashContainer from "./splash/splash_container";
 
 const App = () => (
   <div>
-    <header>//NOTE: Nav will go here</header>
+    <header>
+      //NOTE: Nav will go here
+    </header>
     <Switch>
       <main>
         <Route exact path="/" component={SplashContainer} />
