@@ -35,7 +35,7 @@ router.post('/',
             title: req.body.title,
             description: req.body.description,
             category_id: req.body.category_id,
-            material_id: req.body.material_id,
+            material_ids: req.body.material_id,
             location_id: req.body.lacation_id
         });
 
