@@ -1,8 +1,8 @@
-# Upcycle
+# Upcycled
 
 ## Background and Overview
 
-At our core, Upcycle is a social sharing and media service designed to enable and inspire creative reuse of everyday "waste" into something of higher value! On Upcycle, users -- or as we call it Zero Heroes, are rewarded with badges by accumulating Hero Points based on their upcycled projects and engagements. Join our community of Zero Heroes to discover unimaginable upcycled creations shared by the world for the world we love.
+At our core, Upcycled is a social sharing and media service designed to enable and inspire creative reuse of everyday "waste" into something of higher value! On Upcycled, users -- or as we call it Zero Heroes, are rewarded with badges by accumulating Hero Points based on their upcycled projects and engagements. Join our community of Zero Heroes to discover unimaginable upcycled creations shared by the world for the world we love.
 
 ## Functionality & MVP
 
@@ -87,7 +87,7 @@ Technical challenges:
   - Leaderboard logic and styling - **Victor**
 
 ### Day 4
-  - Upcycle posts feature? - **Cade/Nikki**
+  - Upcycled posts feature? - **Cade/Nikki**
   - Update posts component with Points, Following, and Upcycling feature - **Cade/Nikki**
   - Profile page styling - **Artem/Victor**
   - Update all our Wiki pages - **Nikki**
