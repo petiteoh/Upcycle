@@ -2,7 +2,7 @@
   "name": "Upcycle",
   "version": "1.0.0",
   "description": "The Upcycle Team!",
-    "scripts": {
+  "scripts": {
     "webpack": "webpack --mode=development",
     "watch": "webpack --mode=development --watch",
     "postinstall": "webpack"

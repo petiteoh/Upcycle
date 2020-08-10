@@ -86,7 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
 /***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
@@ -35191,14 +35190,11 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
-=======
->>>>>>> master
 /***/ "./src/upcycle.jsx":
 /*!*************************!*\
   !*** ./src/upcycle.jsx ***!
   \*************************/
 /*! no exports provided */
-<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -35220,11 +35216,6 @@ document.addEventListener('DOMContentLoaded', function () {
     store: store
   }), root);
 });
-=======
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/home/dashv/Programming/App Academy SWE/MERN Project/Upcycle/frontend/src/upcycle.jsx'");
->>>>>>> master
 
 /***/ })
 
