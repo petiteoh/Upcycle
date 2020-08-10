@@ -44,7 +44,7 @@ Technical challenges:
 ### Backend: MongoDB/Express 
 
 Technical challenges: 
-  - TBD 
+  - DB accepting duplicate handles
   
 
 ### Frontend: React/Node.js 
@@ -67,28 +67,29 @@ Technical challenges:
 
 ### August 10
   - Up and running on Heroku - **Nikki**
-  - Build user authentication -  **Cade**
+  - Backend user authentication(login/register) -  **Cade**
+  - User model/validations; API endpoints; DB setup and config (MongoDB) -  **Cade**
   - Build the posts backend and frontend - **Artem**
   - Frontend components set-up - **Victor**
   - Built nav bar and splash page - **Victor**
   - Build sign up and sign in forms - **Nikki** 
   
 ### Day 2
-  - Build categories, materials, and locations  **Cade**
-  - Backend Filtering and search - **Artem**
+  - Frontend user authentication(login/register) - **Nikki**
+  - Build Hero Points/following/upcycle feature?  **Cade**
+  - Backend filtering and search - **Artem**
   - Splash page styling - **Victor**
   - About page and FAQ content and styling - **Nikki**
-  - Infographic - **Nikki**
   
 ### Day 3
-  - Frontend Filtering and search - **Artem**
-  - Build Hero Points feature? -  **Cade**
-  - Build Following feature? - **Nikki**
+  - Frontend filtering and search - **Artem**
+  - Build Hero Points/following feature? -  **Cade**
+  - Infographic - **Nikki**
   - Leaderboard logic and styling - **Victor**
 
 ### Day 4
   - Upcycled posts feature? - **Cade/Nikki**
-  - Update posts component with Points, Following, and Upcycling feature - **Cade/Nikki**
+  - Update posts component with Points, Following, and upcycle feature - **Cade/Nikki**
   - Profile page styling - **Artem/Victor**
   - Update all our Wiki pages - **Nikki**
   
