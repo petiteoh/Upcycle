@@ -6,6 +6,7 @@
 .pnp.js
 /public/assets/javascripts/bundle.js
 /public/assets/javascripts/bundle.js.map
+public/assets/javascripts/*
 # testing
 /coverage
 
