@@ -9,7 +9,7 @@ const App = () => (
       //NOTE: Nav will go here
     </header>
     <Switch>
-      <main>
+      <main className="main-app-container">
         <Route exact path="/" component={SplashContainer} />
       </main>
     </Switch>

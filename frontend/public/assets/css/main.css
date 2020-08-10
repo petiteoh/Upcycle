@@ -1,2 +1,33 @@
-@import './splash/splash.css'
+@font-face {
+  font-family: 'Arvo Bold';
+  src: url('../Fonts/Arvo/Arvo-Bold.ttf');
+  /* IE9 Compat Modes */
+}
 
+@font-face {
+  font-family: 'Arvo Regular';
+  src: url('../Fonts/Arvo/Arvo-Regular.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Italic';
+  src: url('../Fonts/Arvo/Arvo-BoldItalic.ttf');
+  /* IE9 Compat Modes */
+}
+
+@import url("./splash/splash.css");
+
+/* main {
+  margin: 0 10vw;
+} */
+
+.main-app-container {
+  /* margin: 0 10vw; */
+  margin-left: 20%;
+  margin-right: 5%;
+}
+
+h1 {
+  font-family: "Arvo Bold";
+}
