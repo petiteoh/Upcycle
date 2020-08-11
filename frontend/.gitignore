@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/frontend/public/assets/javascripts/bundle.js
+/frontend/public/assets/javascripts/bundle.js.map
+
 
 # testing
 /coverage
