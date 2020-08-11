@@ -72,6 +72,9 @@ nav h3:hover {
 
 .nav-menu-link-list-item {
   list-style-type: none;
+  font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: ;
 }
 .header-logo {
   position: fixed;
@@ -99,18 +102,18 @@ nav h3:hover {
 .header-logo a:hover {
   color: #5dd39e;
 }
-/* !MOVE TO INDIVIDUAL FILES LATER */
-/* Splash CSS */
-/* .wrapper {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 2px;
-} */
+
+.header-logo-img {
+  height: 75px;
+}
+
+.header-logo-img:hover {
+  color: #5dd39e;
+  background-color:#5dd39e;
+}
 
 .hero {
   display: flex;
-  /* background-image: url('../images/upcycle.png'); */
   background-repeat: no-repeat;
   background-size: 50%;
   background-position: center;

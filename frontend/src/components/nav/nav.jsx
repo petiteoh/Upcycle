@@ -24,7 +24,7 @@ export default class Nav extends Component {
             <MegaMenu />
           </this.MegaMenu>
         </nav>
-        <div className="header-logo"> <a href="/"><h1>Upcycle</h1></a></div>
+        <div className="header-logo"> <a href="/"><img className="header-logo-img" src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png" height="100px" alt="Upcycled"/></a></div>
       </>
     );
   }
