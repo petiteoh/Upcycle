@@ -6,7 +6,9 @@ router.get('/', (req, res) => {
     Post.find()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
-        .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+        .catch(err => {
+            debugger
+            res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
 router.get('/user/:creator_id', (req, res) => {

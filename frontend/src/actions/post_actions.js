@@ -47,20 +47,26 @@ export const fetchPost = (id) => (dispatch) => (
         dispatch(receiveErrors(err.response.data)))
 );
 
-export const fetchPosts = () => (dispatch) => (
+export const fetchPosts = () => (dispatch) => {
+debugger
+  return (
   PostAPIUtil.getPosts()
     .then((posts) => 
         dispatch(receivePosts(posts)))
-    .catch(err => 
-        dispatch(receiveErrors(err.response.data)))
-);
+    .catch(err => {
+      debugger
+      return (
+        dispatch(receiveErrors(err.response.data)))})
+)};
 
 export const fetchUserPosts = (id) => (dispatch) =>
   PostAPIUtil.getPosts(id)
     .then((posts) => 
         dispatch(receiveUserPosts(posts)))
-    .catch((err) => 
-        dispatch(receiveErrors(err.response.data))
+    .catch((err) => {
+      // debugger
+      return (
+        dispatch(receiveErrors(err.response.data)))}
 );
 
 export const creatPost = (data) => (dispatch) =>
