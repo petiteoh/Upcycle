@@ -2,8 +2,21 @@
 /config/keys_dev.js
 /node_modules
 /sample_schema.md
+<<<<<<< HEAD
 /frontend/public/assets/javascripts/bundle.js
 /frontend/public/assets/javascripts/bundle.js.map
+=======
+<<<<<<< HEAD
+/frontend/public/assets/javascript/bundle.js
+/frontend/public/assets/javascript/bundle.js.map
+=======
+/node_modules
+/frontend/public/assets/javascripts/bundle.js
+/frontend/public/assets/javascripts/bundle.js.map
+
+
+>>>>>>> c8c4ce2475ec0e6889c9888fde06b69bb5a594f8
+>>>>>>> master
 /.pnp
 .pnp.js
 

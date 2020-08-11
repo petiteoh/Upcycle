@@ -4,9 +4,19 @@
 /node_modules
 /.pnp
 .pnp.js
+<<<<<<< HEAD
 /public/assets/javascripts/bundle.js
 /public/assets/javascripts/bundle.js.map
+<<<<<<< HEAD
 public/assets/javascripts/*
+=======
+=======
+/frontend/public/assets/javascripts/bundle.js
+/frontend/public/assets/javascripts/bundle.js.map
+
+
+>>>>>>> c8c4ce2475ec0e6889c9888fde06b69bb5a594f8
+>>>>>>> master
 # testing
 /coverage
 
