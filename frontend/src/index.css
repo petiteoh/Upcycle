@@ -23,6 +23,14 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
 .main-app-container {
   /* margin: 0 10vw; */
   margin-left: 20vw;
@@ -58,15 +66,23 @@ nav {
   cursor: pointer;
 }
 
-nav h3 {
-  font-family: "Arvo Regular";
+.menu-active-link {
+  border-bottom: 3px solid #5dd39e;
+  border-bottom-color: #5dd39e;
 }
 
 nav h3:hover {
   color: #5dd39e;
+  border-bottom: 3px solid #5dd39e;
+  border-bottom-color: #5dd39e;
 }
 
-.nav-menu-link li{
+.nav-menu-links h3{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-menu-links li{
   
 }
 
@@ -74,7 +90,6 @@ nav h3:hover {
   list-style-type: none;
   font-family: "Arvo Regular";
   font-weight: 700;
-  font-size: ;
 }
 .header-logo {
   position: fixed;
@@ -130,3 +145,6 @@ nav h3:hover {
 }
 
 /* !MOVE TO INDIVIDUAL FILES LATER */
+.top-section h1 {
+  max-width: 75%;
+}
