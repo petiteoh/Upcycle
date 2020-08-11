@@ -30,13 +30,19 @@
 }
 
 h1 {
-  font-family: "Arvo Regular";
+  font-family: "Arvo Bold";
+  font-weight: 700;
+  font-size: 3.25em;
 }
 h2 {
   font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: 2.25em;
 }
 h3 {
   font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: 1.55em;
 }
 
 /* @import "./splash/splash.css"; */
@@ -52,15 +58,31 @@ nav {
   cursor: pointer;
 }
 
-.nav-menu-link {
-
+nav h3 {
+  font-family: "Arvo Regular";
 }
 
+nav h3:hover {
+  color: #5dd39e;
+}
+
+.nav-menu-link li{
+  
+}
+
+.nav-menu-link-list-item {
+  list-style-type: none;
+}
 .header-logo {
   position: fixed;
   top: 20px;
   right: 20px;
   left: auto;
+  z-index: 900;
+}
+
+.header-logo h1 {
+  font-size: 35px;
 }
 
 .header-logo a{
@@ -73,38 +95,33 @@ nav {
   text-decoration: none;
   color:black;
 }
+
+.header-logo a:hover {
+  color: #5dd39e;
+}
 /* !MOVE TO INDIVIDUAL FILES LATER */
 /* Splash CSS */
-.wrapper {
+/* .wrapper {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 2px;
-}
+} */
 
 .hero {
   display: flex;
-  background-image: url('../images/upcycle.png');
+  /* background-image: url('../images/upcycle.png'); */
   background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
   align-items: center;
   justify-content: center;
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 4px;
+  overflow-y: hidden;
+  perspective: 2px;
 }
 
-.parallax:after {
-    content: " ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: translateZ(-1px) scale(1.5);
-    background-size: 100%;
-    z-index: -1;
-}
 .mega-section {
   width: 100%;
 }

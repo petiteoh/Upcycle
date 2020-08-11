@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavItem = (props) => {
     return(
-      <li>
+      <li className="nav-menu-link-list-item">
         <p>{props.name}</p>
       </li>
     );
