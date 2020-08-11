@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getPost = () => {
+export const getPost = (id) => {
   return axios.get(`/api/posts/${id}`);
 };
 
@@ -16,6 +16,6 @@ export const creatPost = (data) => {
   return axios.post("/api/posts/", data);
 };
 
-export const deletePost = (data) => {
-  return axios.delete(`/api/posts/${id}`, data);
+export const deletePost = (id) => {
+  return axios.delete(`/api/posts/${id}`);
 };
