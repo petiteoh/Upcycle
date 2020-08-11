@@ -15,13 +15,17 @@ export default function (state = initialState, action) {
     case RECEIVE_USER_SIGN_IN:
       return {
         isAuthenticated: true,
-        // user: action.currentUser,
-      }
-    case RECEIVE_CURRENT_USER:
-      return {
-        isAuthenticated: true,
         user: action.currentUser,
       }
+    case RECEIVE_CURRENT_USER:
+      debugger
+      return {
+        isAuthenticated: true,
+        user: {
+          email: action.currentUser.data.email,
+          handle: action.currentUser.data.handle,
+        },
+      };
     default:
       return state;
   }
