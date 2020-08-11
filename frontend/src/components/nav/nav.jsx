@@ -16,7 +16,7 @@ export default class Nav extends Component {
         return (
           <>
             <p>{`Hi, ${props.user.handle}`}</p>
-            <Link to="/" onClick={props.logout()}>Logout</Link>
+            <Link to="/" onClick={props.logout}>Logout</Link>
           </>
         );
       } else {
