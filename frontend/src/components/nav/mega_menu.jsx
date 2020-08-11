@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavItem from "./nav_item";
 
 const MegaMenu = (props) => {
