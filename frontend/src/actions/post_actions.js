@@ -5,6 +5,7 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_USER_POSTS = "RECEIVE_USER_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const REMOVE_POST = "REMOVE_POST";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receivePost = (post) => ({
   type: RECEIVE_POST,
@@ -31,17 +32,49 @@ export const deletePost = (postId) => ({
   postId
 });
 
+export const receiveErrors = (errors) => ({
+  type: RECEIVE_ERRORS,
+  errors
+});
+
 // 
 
 export const fetchPost = (id) => (dispatch) => (
   PostAPIUtil.getPost(id)
-    .then((post) => dispatch(getPost(post)))
-    .catch((err) => console.log(err))
+    .then((post) => 
+        dispatch(receivePost(post)))
+    .catch(err => 
+        dispatch(receiveErrors(err.response.data)))
 );
 
 export const fetchPosts = () => (dispatch) => (
-    PostAPIUtil.getPosts()
-        .then((posts) => dispatch(getPosts(posts)))
-        .catch((err) => console.log(err))
+  PostAPIUtil.getPosts()
+    .then((posts) => 
+        dispatch(receivePosts(posts)))
+    .catch(err => 
+        dispatch(receiveErrors(err.response.data)))
 );
 
+export const fetchUserPosts = (id) => (dispatch) =>
+  PostAPIUtil.getPosts(id)
+    .then((posts) => 
+        dispatch(receiveUserPosts(posts)))
+    .catch((err) => 
+        dispatch(receiveErrors(err.response.data))
+);
+
+export const creatPost = (data) => (dispatch) =>
+  PostAPIUtil.createPost(data)
+    .then((post) => 
+        dispatch(createNewPost(post)))
+    .catch((err) => 
+        dispatch(receiveErrors(err.response.data))
+);
+
+export const deletePost = (id) => (dispatch) =>
+  PostAPIUtil.deletePost(id)
+    .then((postId) => 
+        dispatch(deletePost(postId)))
+    .catch((err) => 
+        dispatch(receiveErrors(err.response.data))
+);
