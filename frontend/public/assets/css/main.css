@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'Arvo Bold';
+  src: url('../Fonts/Arvo/Arvo-Bold.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Regular';
+  src: url('../Fonts/Arvo/Arvo-Regular.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Italic';
+  src: url('../Fonts/Arvo/Arvo-BoldItalic.ttf');
+  /* IE9 Compat Modes */
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-app-container {
+  /* margin: 0 10vw; */
+  margin-left: 20vw;
+  margin-right: 5vw;
+}
+
+h1 {
+  font-family: "Arvo Bold";
+  font-weight: 700;
+  font-size: 3.25em;
+}
+h2 {
+  font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: 2.25em;
+}
+h3 {
+  font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: 1.55em;
+}
+
+/* @import "./splash/splash.css"; */
+/* @import "./nav/nav.css"; */
+
+/* !MOVE TO INDIVIDUAL FILES LATER */
+/* NAV */
+nav {
+  position: fixed;
+  top: 50%;
+  left: 75px;
+  height: 500px;
+  cursor: pointer;
+}
+
+nav h3 {
+  font-family: "Arvo Regular";
+}
+
+nav h3:hover {
+  color: #5dd39e;
+}
+
+.nav-menu-link li{
+  
+}
+
+.nav-menu-link-list-item {
+  list-style-type: none;
+}
+.header-logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  left: auto;
+  z-index: 900;
+}
+
+.header-logo h1 {
+  font-size: 35px;
+}
+
+.header-logo a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+.header-logo a:visited{
+  text-decoration: none;
+  color:black;
+}
+
+.header-logo a:hover {
+  color: #5dd39e;
+}
+/* !MOVE TO INDIVIDUAL FILES LATER */
+/* Splash CSS */
+/* .wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+} */
+
+.hero {
+  display: flex;
+  /* background-image: url('../images/upcycle.png'); */
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  perspective: 2px;
+}
+
+.mega-section {
+  width: 100%;
+}
+
+/* !MOVE TO INDIVIDUAL FILES LATER */

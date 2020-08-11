@@ -1,0 +1,23 @@
+nav {
+  position: absolute;
+}
+
+.nav-menu-link {
+
+}
+
+.header-logo {
+  position: absolute;
+  height: 50vh;
+}
+
+.header-logo a{
+  font-size: 40px;
+  color: black;
+}
+
+.header-logo a:visited{
+  text-decoration: none;
+  color:black;
+}
+
