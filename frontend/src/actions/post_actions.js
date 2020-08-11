@@ -27,7 +27,7 @@ export const createNewPost = (post) => ({
   post
 });
 
-export const deletePost = (postId) => ({
+export const removePost = (postId) => ({
   type: REMOVE_POST,
   postId
 });
@@ -74,7 +74,7 @@ export const creatPost = (data) => (dispatch) =>
 export const deletePost = (id) => (dispatch) =>
   PostAPIUtil.deletePost(id)
     .then((postId) => 
-        dispatch(deletePost(postId)))
+        dispatch(removePost(postId)))
     .catch((err) => 
         dispatch(receiveErrors(err.response.data))
 );

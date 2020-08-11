@@ -4,7 +4,7 @@ import {
   CREATE_POST
 } from "../actions/post_actions";
 
-const PostReducer = ( state, action ) => {
+const PostReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
 

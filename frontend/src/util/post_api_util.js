@@ -12,7 +12,7 @@ export const getUserPosts = (id) => {
   return axios.get(`/api/posts/user/${id}`);
 };
 
-export const creatPost = (data) => {
+export const createPost = (data) => {
   return axios.post("/api/posts/", data);
 };
 
