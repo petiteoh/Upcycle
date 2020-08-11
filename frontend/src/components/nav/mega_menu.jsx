@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavItem from './nav_item';
 
 const MegaMenu = props => {
-  cosnt [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="nav-mega-menu">
