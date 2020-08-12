@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
+const categories = require("./routes/api/categories")
 const bodyParser = require("body-parser");
 const User = require("./models/User");
 const Post = require("./models/Post")
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {res.send("Hello Team!")});
 
 app.use("/api/users", users);
 app.use("/api/posts", posts);
+app.use("/api/categories", categories);
 
 app.use(express.static(__dirname + "/public"));
 
