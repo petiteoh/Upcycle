@@ -36,10 +36,15 @@ router.post('/',
             description: req.body.description,
             category_id: req.body.category_id,
             material_ids: req.body.material_id,
-            location_id: req.body.lacation_id
+            location_id: req.body.location_id
         });
 
-        newPost.save().then(post => res.json(post));
+        newPost.save().then(post => res.json(post))
+        .then(
+        db.users.update(
+            {id: req.user.id},
+            {$set: {'hero_points': user.hero_points += 5}}
+        ))
     }
 );
 

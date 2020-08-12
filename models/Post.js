@@ -15,7 +15,7 @@ const PostSchema = new Schema({
         required: true
     },
     description: {
-        type: Text,
+        type: String,
         required: true
     },
     category_id: {
