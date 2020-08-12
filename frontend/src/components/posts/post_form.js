@@ -5,13 +5,13 @@ class PostForm extends React.Component {
     super(props);
 
     this.state = {
-      creator_id: props.currentUser.id,
+      creator_id: "5f32ef5e19bc9c43916e885d",
       title: "",
       description: "",
       image: "",
-      category_id: "1",
-      materials_id: ["1"],
-      location_id: "2",
+      category_id: "5f3387049c03638d3400c1af",
+      materials_id: ["5f3387369c03638d3400c1b0"],
+      location_id: "5f3386a89c03638d3400c1ae",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

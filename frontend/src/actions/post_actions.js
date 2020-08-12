@@ -50,18 +50,16 @@ export const fetchPost = (id) => (dispatch) => (
 );
 
 export const fetchPosts = () => (dispatch) => {
-// debugger
+debugger
   return (
   PostAPIUtil.getPosts()
     .then((posts) => 
         dispatch(receivePosts(posts)))
-    .catch(err => {
-      // debugger
-      return (
-        dispatch(receiveErrors(err.response.data)))})
-)};
+    .catch(err =>
+        dispatch(receiveErrors(err.response.data))))
+};
 
-export const fetchUserPosts = (id) => (dispatch) =>
+export const fetchUserPosts = (id) => (dispatch) => (
   PostAPIUtil.getPosts(id)
     .then((posts) => 
         dispatch(receiveUserPosts(posts)))
@@ -69,10 +67,11 @@ export const fetchUserPosts = (id) => (dispatch) =>
       // debugger
       return (
         dispatch(receiveErrors(err.response.data)))}
+  )
 );
 
 export const createPost = (data) => (dispatch) => {
-debugger
+// debugger
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 
@@ -81,10 +80,11 @@ debugger
         dispatch(receiveErrors(err.response.data)))
 )};
 
-export const deletePost = (id) => (dispatch) =>
+export const deletePost = (id) => (dispatch) => (
   PostAPIUtil.deletePost(id)
     .then((postId) => 
         dispatch(removePost(postId)))
     .catch((err) => 
         dispatch(receiveErrors(err.response.data))
+  )
 );
