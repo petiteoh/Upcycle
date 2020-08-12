@@ -8,10 +8,7 @@ export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receivePost = (post) => {
-<<<<<<< HEAD
-=======
   // debugger
->>>>>>> master
   return {
   type: RECEIVE_POST,
   post
@@ -71,10 +68,7 @@ export const fetchUserPosts = (id) => (dispatch) => (
 );
 
 export const createPost = (data) => (dispatch) => {
-<<<<<<< HEAD
-=======
 // debugger
->>>>>>> master
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 

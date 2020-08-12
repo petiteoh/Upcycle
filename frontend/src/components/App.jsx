@@ -9,7 +9,7 @@ import SplashContainer from "./splash/splash_container";
 import NavContainer from './nav/nav_container';
 
 import PostsContainer from './posts/posts_container';
-import PostsFormContainer from './posts/post_form_conatainer';
+import PostsFormContainer from './posts/post_form_container';
 import LeaderboardContainer from './leaderboard/leaderboard_container';
 
 const App = () => (
