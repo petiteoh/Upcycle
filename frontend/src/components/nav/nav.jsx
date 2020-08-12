@@ -50,8 +50,8 @@ export default class Nav extends Component {
           <a href="/">
             <img
               className="header-logo-img"
-              // src="../../images/Upcycledlogo.svg"
-              src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
+              src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.svg"
+              // src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
               height="100px"
               alt="Upcycled"
             />
