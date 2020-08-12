@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
 router.post('/',
     (req, res) => {
         const newPost = new Post({
-            creator_id: req.user.id,
+            creator_id: req.body.creator_id,
             image: req.body.image,
             title: req.body.title,
             description: req.body.description,
@@ -40,11 +40,11 @@ router.post('/',
         });
 
         newPost.save().then(post => res.json(post))
-        .then(
-        db.users.update(
-            {id: req.user.id},
-            {$set: {'hero_points': user.hero_points += 5}}
-        ))
+        // .then(
+        // db.users.update(
+        //     {id: req.user.id},
+        //     {$set: {'hero_points': user.hero_points += 5}}
+        // ))
     }
 );
 
