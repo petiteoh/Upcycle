@@ -5,7 +5,7 @@ export const getPost = (id) => {
 };
 
 export const getPosts = () => {
-debugger
+// debugger
   return axios.get("/api/posts");
 };
 
