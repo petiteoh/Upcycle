@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => {
-            debugger
+            // debugger
             res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
@@ -41,7 +41,7 @@ router.post('/create-post',
             material_ids: req.body.material_id,
             location_id: req.body.lacation_id
         });
-
+debugger
         newPost.save().then(post => res.json(post));
     }
 );

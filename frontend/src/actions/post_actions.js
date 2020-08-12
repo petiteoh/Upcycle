@@ -7,10 +7,12 @@ export const CREATE_POST = "CREATE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const receivePost = (post) => ({
+export const receivePost = (post) => {
+  debugger
+  return {
   type: RECEIVE_POST,
   post
-});
+}};
 
 export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
@@ -48,13 +50,13 @@ export const fetchPost = (id) => (dispatch) => (
 );
 
 export const fetchPosts = () => (dispatch) => {
-debugger
+// debugger
   return (
   PostAPIUtil.getPosts()
     .then((posts) => 
         dispatch(receivePosts(posts)))
     .catch(err => {
-      debugger
+      // debugger
       return (
         dispatch(receiveErrors(err.response.data)))})
 )};
@@ -69,13 +71,15 @@ export const fetchUserPosts = (id) => (dispatch) =>
         dispatch(receiveErrors(err.response.data)))}
 );
 
-export const creatPost = (data) => (dispatch) =>
+export const createPost = (data) => (dispatch) => {
+debugger
+  return (
   PostAPIUtil.createPost(data)
     .then((post) => 
-        dispatch(createNewPost(post)))
+        dispatch(receivePost(post)))
     .catch((err) => 
-        dispatch(receiveErrors(err.response.data))
-);
+        dispatch(receiveErrors(err.response.data)))
+)};
 
 export const deletePost = (id) => (dispatch) =>
   PostAPIUtil.deletePost(id)

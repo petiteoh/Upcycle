@@ -7,10 +7,15 @@ import Root from '../src/components/root';
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
+import { createPost } from './util/post_api_util'
 
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
+
+//TEST
+window.create = createPost;
+//TEST
 
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);

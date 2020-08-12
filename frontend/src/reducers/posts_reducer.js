@@ -1,22 +1,27 @@
 import {
   RECEIVE_POSTS,
   RECEIVE_USER_POSTS,
-  CREATE_POST
+  CREATE_POST,
+  RECEIVE_POST
 } from "../actions/post_actions";
 
 const PostReducer = ( state = {}, action ) => {
   Object.freeze(state);
-  let newState = Object.assign({}, state);
-
+  let newState;
+   
+  debugger
   switch (action.type) {
+    case RECEIVE_POST:
+      newState = Object.assign({}, state, action.post.data);
+      return newState;
     case RECEIVE_POSTS:
-      newState = action.posts.data;
+      newState = Object.assign({}, state, action.post.data);
       return newState;
     case RECEIVE_USER_POSTS:
-      newState = action.posts.data;
+      newState = Object.assign({}, state, action.post.data);
       return newState;
     case CREATE_POST:
-      newState = action.post.data;
+      newState = Object.assign({}, state, action.post.data);
       return newState;
     default:
       return state;
