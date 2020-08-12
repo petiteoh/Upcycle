@@ -111,11 +111,29 @@ router.get("/leaderboard", (req, res) => {
     User.find()
       .sort({ hero_points: -1})
       .limit(5)
-      .then(users => res.json(users))
+      .then(users => {
+        const payload = users.map(user => {
+          const { hero_points, _id, handle, badge_ids} = user;
+          return {
+            _id,
+            handle,
+            hero_points,
+            badge_ids
+          };
+        });
+        res.json(payload)
+      })
       .catch(err => {
         res.status(404).json({ noleaderboardinfo: "No leaderboard info found"})
       })
 });
 
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => {
+        res.status(404).json({ nouserfound: "User does not exist."})
+    });
+});
 
 module.exports = router;
