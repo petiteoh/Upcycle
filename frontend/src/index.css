@@ -16,6 +16,17 @@
   /* IE9 Compat Modes */
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto/Roboto-Regular.ttf');
+  /* IE9 Compat Modes */
+}
+
+
+/* Colors
+  Brown -> #2B1E18
+*/
+
 
 * {
   box-sizing: border-box;
@@ -25,16 +36,22 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: #2B1E18;
+}
+
+p {
+  font-family: "Roboto", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 16px;
+  color: #2B1E18;
 }
 
 a:visited {
   text-decoration: none;
 }
 .main-app-container {
-  /* margin: 0 10vw; */
   margin-left: 20vw;
-  margin-right: 5vw;
+  /* margin-right: 5vw; */
+  /* background-color: rgb(231, 231, 231); */
 }
 
 h1 {
@@ -64,12 +81,15 @@ h3 {
   background-repeat: no-repeat;
   background-size: 50%;
   background-position: center;
+  background-color: white;
   align-items: center;
   justify-content: center;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
   perspective: 2px;
+  margin-right: 5vw;
+  margin-left: 5vw;
 }
 
 .mega-section {

@@ -12,17 +12,21 @@ export default class Nav extends Component {
     const [open, setOpen] = useState(false);
 
     const profileDash = () => {
-      if(props.user){
+      if(props.isAuthenticated){
         return (
           <>
-            <p>{`Hi, ${props.user.handle}`}</p>
-            <Link to="/" onClick={props.logout}>Logout</Link>
+            <div className="profile-dash">
+              <img src="https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg" alt=""/>
+              <p>{`Hi, ${props.user.handle}`}</p>
+              <p> <span className="dash-points"> <span className="dash-icon">♲</span>2340</span> Hero Points</p>
+              <Link to="/" onClick={props.logout}>Logout</Link>
+            </div>
           </>
         );
       } else {
         return (
           <>
-            <Link to="/login"><h3>Log In</h3></Link>
+            <Link to="/login"><h3>Login</h3></Link>
             <Link to="/signup"><h3>Sign Up</h3></Link>
           </>
         );  
@@ -42,7 +46,7 @@ export default class Nav extends Component {
     return (
       <>
         <nav>
-          <this.MegaMenu user={this.props.user} logout={this.props.logout} >
+          <this.MegaMenu user={this.props.user} isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} >
             <MegaMenu />
           </this.MegaMenu>
         </nav>
@@ -50,8 +54,8 @@ export default class Nav extends Component {
           <a href="/">
             <img
               className="header-logo-img"
-              // src="../../images/Upcycledlogo.svg"
               src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
+              // src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.svg"
               height="100px"
               alt="Upcycled"
             />
