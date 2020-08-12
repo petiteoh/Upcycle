@@ -38,3 +38,5 @@ yarn-error.log*
 
 /frontend/public/assets/javascrips/bundle.js
 /frontend/public/assets/javascrips/bundle.js.map
+
+/package-lock.json

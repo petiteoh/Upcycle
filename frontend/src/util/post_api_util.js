@@ -5,6 +5,7 @@ export const getPost = (id) => {
 };
 
 export const getPosts = () => {
+// debugger
   return axios.get("/api/posts");
 };
 
@@ -12,8 +13,9 @@ export const getUserPosts = (id) => {
   return axios.get(`/api/posts/user/${id}`);
 };
 
-export const creatPost = (data) => {
-  return axios.post("/api/posts/", data);
+export const createPost = (data) => {
+  debugger
+  return axios.post("/api/posts/create-post", data);
 };
 
 export const deletePost = (id) => {
