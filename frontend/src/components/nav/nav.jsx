@@ -26,7 +26,7 @@ export default class Nav extends Component {
       } else {
         return (
           <>
-            <Link to="/login"><h3>Log In</h3></Link>
+            <Link to="/login"><h3>Login</h3></Link>
             <Link to="/signup"><h3>Sign Up</h3></Link>
           </>
         );  

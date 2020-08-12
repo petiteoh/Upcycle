@@ -22,6 +22,14 @@ const UserSchema = new Schema({
         required: true,
         default: 0
     },
+    posts: {
+        type: Schema.Types.ObjectId,
+        references: 'posts'
+    },
+    comments: {
+        type: Schema.Types.ObjectId,
+        references: 'comments'
+    }
   },
   {
     timestamps: true,

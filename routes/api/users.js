@@ -44,6 +44,7 @@ router.post('/register', (req, res) => {
             if (user) {
                 return res.status(400).json({
                     email: "Email already in use!",
+                    handle: "Handle already in use!"
             })
         }   else {
             const newUser = new User({
@@ -76,6 +77,7 @@ router.post("/login", (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
+  
 
 
   User.findOne({ email }).then((user) => {
@@ -85,7 +87,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, handle: user.handle, email: user.email };
+        const payload = { id: user.id, handle: user.handle };
 
         jwt.sign(
           payload,
@@ -103,6 +105,16 @@ router.post("/login", (req, res) => {
       }
     });
   });
+});
+
+router.get("/leaderboard", (req, res) => {
+    User.find()
+      .sort({ hero_points: -1})
+      .limit(5)
+      .then(users => res.json(users))
+      .catch(err => {
+        res.status(404).json({ noleaderboardinfo: "No leaderboard info found"})
+      })
 });
 
 

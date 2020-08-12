@@ -22,33 +22,38 @@
     color: #2b1e18;
     font-family: "Arvo Regular";
 
-    box-sizing: border-box;
+    /* box-sizing: border-box;
 
     scroll-snap-type: mandatory;
     scroll-snap-points-y: repeat(100vh);
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y mandatory; */
 }
 
 .hero-parallax-container section {
     padding: 50px 50px 50px 50px;
     
-    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid white;
     padding: 1rem;
     height: 100vh;
     scroll-snap-align: start;
     text-align: center;
-    position: relative;
+    position: relative; */
 }
 
-.hero-parallax-container > h1 {
-    position: absolute;
+.hero-parallax-container h1 {
+    /* position: absolute;
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
     color: white;
     width: 100%;
     left: 0;
-    font-size: calc(1rem + 3vw);
+    font-size: calc(1rem + 3vw); */
+    line-height: 80px;
+}
+
+.hero-parallax-container p {
+    line-height: 50px;
 }
 
 .splash-section {
@@ -62,11 +67,40 @@
     height: 700px;
 }
 
+.main-header-content-container > h1 {
+}
+
+.demo-button-container {
+    width: 100px;
+    height: 30px;
+    border-radius: 25px;
+    border: none;
+    padding: inherit;
+    color: #5DD39E;
+    background-color: #2b1e18;
+    margin-bottom: 20px;
+}
+
+.demo-button-container > .demo-button {
+    color: #5DD39E;
+}
+
+.demo-button-container:hover {
+    cursor: pointer;
+    color: #2b1e18;
+    background-color: #5DD39E;
+}
+
+.demo-button-container > .demo-button:hover {
+    color: #2b1e18;
+}
+
 .infographic-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 700px;
+    text-align: right;
 }
 
 .highlight-section {
@@ -81,4 +115,5 @@
     flex-direction: column;
     justify-content: center;
     height: 700px;
+    text-align: right;
 }
