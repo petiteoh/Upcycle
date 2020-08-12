@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -37,14 +37,18 @@ class LoginForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.login(user);
+    this.props.login(user).then((response) => {
+              this.props.history.push("/posts")
+    })
   }
 
   renderErrors() {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li className="sign-up-errors" key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
         ))}
       </ul>
     );
@@ -52,9 +56,18 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className="signup-form-container">
+        <Link to="/" className="signup-exit">
+          x
+        </Link>
+        <div className="signup-greeting-container">
+          <h1 className="signup-form-container-header">
+            Welcome
+            <br /> back to
+            <br /> Upcycled!
+          </h1>
+          <h3 className="signup-form-container-subheader">Login below</h3>
+          <form className="signup-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
               value={this.state.email}
@@ -63,16 +76,30 @@ class LoginForm extends React.Component {
             />
             <br />
             <input
+              className="signup-password-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
             <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <div className="signup-errors-container">{this.renderErrors()}</div>
+            <input
+              className="signup-input-button"
+              type="submit"
+              value="Login"
+            />
+          </form>
+          <div className="link-to-login-container">
+            <p className="link-to-login-p">
+              Create an Account?{" "}
+              <Link to="/signup" className="link-to-login">
+                Sign Up
+              </Link>
+              .
+            </p>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

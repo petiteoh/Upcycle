@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Arvo Bold';
+  src: url('./fonts/Arvo/Arvo-Bold.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Regular';
+  src: url('./fonts/Arvo/Arvo-Regular.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Italic';
+  src: url('./fonts/Arvo/Arvo-Italic.ttf');
+  /* IE9 Compat Modes */
+}
+
+.hero-parallax-container {
+    display: flex;
+    flex-direction: column;
+    color: #2b1e18;
+    font-family: "Arvo Regular";
+
+    box-sizing: border-box;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+}
+
+.hero-parallax-container section {
+    padding: 50px 50px 50px 50px;
+    
+    border-bottom: 1px solid white;
+    padding: 1rem;
+    height: 100vh;
+    scroll-snap-align: start;
+    text-align: center;
+    position: relative;
+}
+
+.hero-parallax-container > h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
+    width: 100%;
+    left: 0;
+    font-size: calc(1rem + 3vw);
+}
+
+.splash-section {
+
+}
+
+.main-header-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+}
+
+.infographic-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+}
+
+.highlight-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+}
+
+.leaderboard-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+}

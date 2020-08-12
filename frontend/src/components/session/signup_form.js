@@ -41,7 +41,11 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
     };
 
-    this.props.signup(user1);
+    this.props.signup(user1).then(
+      (response) => {
+        this.props.history.push("/posts");
+      }
+    );;
   }
 
   renderErrors() {
@@ -60,10 +64,9 @@ class SignupForm extends React.Component {
         <Link to="/" className="signup-exit">x</Link>
         <div className="signup-greeting-container">
           <h1 className="signup-form-container-header">Welcome to Upcycled!</h1>
-          <h3 className="signup-form-container-subheader">Sign up below:</h3>
+          <h3 className="signup-form-container-subheader">Signup below</h3>
           <form className="signup-form" onSubmit={this.handleSubmit}>
             <input
-              
               className="signup-email-input"
               type="text"
               value={this.state.email}
