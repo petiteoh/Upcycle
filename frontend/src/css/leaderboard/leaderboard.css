@@ -113,3 +113,9 @@
   border: 2px solid brown;
   background-color: brown;
 }
+
+/* Badges */
+.badge-list {
+  display: flex;
+  flex-direction: row;
+}

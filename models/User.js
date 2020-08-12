@@ -31,8 +31,8 @@ const UserSchema = new Schema({
         references: 'comments'
     },
     badge_ids: {
-       type: Array,
-       default: [1,2,3,4,5,6,7,8,9] 
+        type: Array,
+        default: [1,2,3,4,5,6,7,8,9] 
     }
   },
   {
