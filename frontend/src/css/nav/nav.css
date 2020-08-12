@@ -2,17 +2,25 @@ nav {
   position: fixed;
   left: 75px;
   height: 500px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  /* -webkit-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75); */
+  /* -moz-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75); */
+  /* box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75); */
+  /* border-left: none; */
 }
 
 nav h3:hover {
   color: #5dd39e;
   border-bottom: 3px solid #5dd39e;
   border-bottom-color: #5dd39e;
+  cursor: pointer;
+}
+
+nav a {
+  cursor: pointer;
 }
 
 .menu-active-link {
@@ -66,7 +74,68 @@ nav h3:hover {
   color: green;
 }
 
+.header-logo-img img {
+  color: black;
+}
+
 .header-logo-img:hover {
   color: #5dd39e;
   background-color:#5dd39e;
+}
+
+
+/* Profile Dash */
+.profile-dash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: #5dd39e7c; */
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 3px;
+  /* border: 1px solid #5dd39e; */
+  width: 200px;
+  -webkit-box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
+
+}
+
+.profile-dash img {
+  width: 70px;
+  border-radius: 50px;
+  border: 1px solid green;
+}
+
+.profile-dash img:hover {
+  width: 70px;
+  /* border: 1px solid #2B1E18; */
+  border-radius: 50px;
+}
+
+.profile-dash a {
+  font-family: "Arvo Regular";
+  font-weight: 700;
+  padding-top: 10px;
+  border-bottom: 3px solid #5dd39e;
+}
+.profile-dash a:hover {
+  color: #5dd39e;
+}
+
+.profile-dash p {
+  font-family: "Arvo Regular";
+  padding-top: 10px;
+}
+
+.dash-points {
+  color: green;
+  font-weight: 700;
+}
+
+.dash-icon {
+  color: rgb(5, 129, 22);
+  font-size: 20px;
+  font-weight: 700;
 }
