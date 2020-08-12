@@ -117,5 +117,13 @@ router.get("/leaderboard", (req, res) => {
       })
 });
 
+router.get("/:id", (req, res) => {
+  debugger
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => {
+        res.status(404).json({ nouserfound: "User does not exist."})
+    });
+});
 
 module.exports = router;
