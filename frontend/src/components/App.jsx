@@ -19,7 +19,7 @@ const App = () => (
     </header>
     <Switch>
       <main className="main-app-container">
-        <AuthRoute exact path="/" component={SplashContainer} />
+        <Route exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
