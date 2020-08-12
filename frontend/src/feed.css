@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Arvo Bold';
+  src: url('./fonts/Arvo/Arvo-Bold.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Regular';
+  src: url('./fonts/Arvo/Arvo-Regular.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Italic';
+  src: url('./fonts/Arvo/Arvo-Italic.ttf');
+  /* IE9 Compat Modes */
+}
+
