@@ -113,12 +113,12 @@ router.get("/leaderboard", (req, res) => {
       .limit(5)
       .then(users => {
         const payload = users.map(user => {
-          const { hero_points, _id, handle, badgesIds } = user;
+          const { hero_points, _id, handle, badge_ids } = user;
           return {
             _id,
             handle,
             hero_points,
-            badgesIds
+            badge_ids
           };
         });
         res.json(payload);

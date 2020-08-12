@@ -15,16 +15,14 @@ export default class Leaderboard extends Component {
 
   componentDidUpdate(prevProps){
     if (prevProps.leaderboard !== this.props.leaderboard){
-      debugger
       const users = Object.values(this.props.leaderboard);
       return this.setState(users);
     }
   }
 
   render() {
-    // Check props and state after second reload
     const users = Object.values(this.state);
-    debugger
+
     if (users.length > 0) {
       return (
         <>
