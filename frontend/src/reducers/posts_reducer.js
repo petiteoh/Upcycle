@@ -8,8 +8,7 @@ import {
 const PostReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState;
-   
-  debugger
+
   switch (action.type) {
     case RECEIVE_POST:
       newState = Object.assign({}, state, action.post.data);

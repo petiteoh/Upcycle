@@ -21,15 +21,6 @@ class PostForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-// debugger
-    // let post = {
-    //   title: this.state.title,
-    //   description: this.state.description,
-    //   image: this.state.image,
-    //   category_id: this.state.category_id,
-    //   materials_id: this.state.materials_id,
-    //   location_id: this.state.location_id
-    // };
 
     this.props.createPost(this.state);
   }

@@ -10,7 +10,7 @@ import NavContainer from './nav/nav_container';
 
 import PostsContainer from './posts/posts_container';
 import PostsFormContainer from './posts/post_form_conatainer';
-
+import LeaderboardContainer from './leaderboard/leaderboard_container';
 
 const App = () => (
   <div>
@@ -25,6 +25,7 @@ const App = () => (
 
         <ProtectedRoute exact path="/posts" component={PostsContainer} />
         <ProtectedRoute exact path="/create-post" component={PostsFormContainer} />
+        <ProtectedRoute exact path="/leaderboard" component={LeaderboardContainer} />
       </main>
     </Switch>
   </div>
