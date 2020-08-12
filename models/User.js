@@ -29,7 +29,10 @@ const UserSchema = new Schema({
     comments: {
         type: Schema.Types.ObjectId,
         references: 'comments'
-    }
+    },
+    badges: [
+        Number
+    ]
   },
   {
     timestamps: true,
