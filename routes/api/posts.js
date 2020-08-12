@@ -29,7 +29,8 @@ router.get('/:id', (req, res) => {
         );
 });
 
-router.post('/',
+// router.post('/',
+router.post('/create-post',
     (req, res) => {
         const newPost = new Post({
             creator_id: req.user.id,
