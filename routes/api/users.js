@@ -107,13 +107,15 @@ router.post("/login", (req, res) => {
   });
 });
 
-// router.patch("/update", (req, res) => {
-//     User.findById(req.body.creator_Id), (err, user) => {
-//       if (user) {
-//         user.
-//       }
-//     }
-// })
+router.get("/leaderboard", (req, res) => {
+    User.find()
+      .sort({ hero_points: -1})
+      .limit(5)
+      .then(users => res.json(users))
+      .catch(err => {
+        res.status(404).json({ noleaderboardinfo: "No leaderboard info found"})
+      })
+});
 
 
 module.exports = router;
