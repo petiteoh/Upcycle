@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 import "../../splash.css";
 import scrollSnapPolyfill from "css-scroll-snap-polyfill";
 
@@ -17,6 +18,7 @@ export default class Splash extends Component {
 
     init();
   }
+
 //   gra (min, max) {
 //     return Math.random() * (max - min) + min;
 // }
@@ -30,16 +32,30 @@ export default class Splash extends Component {
 // init();
 
   render() {
+    const demoLoginButton = () => {
+      if (!this.props.isAuthenticated) {
+        return (
+          <button className="demo-button-container" onClick={this.props.login}>
+            <Link className="demo-button" to="/login">
+              Demo Login
+            </Link>
+          </button>
+        );
+      }
+    };
+
     return (
       <>
         <section className="hero-parallax-container">
           <section className="main-header-section">
-            <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
-            <p>
-              Our mission at Upcycled is to inspire the creative reuse of
-              "waste." Let's heal our planet one upcycle at a time!
-            </p>
-            <p>Click here to explore!</p>
+            <div className="main-header-content-container">
+              <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
+              <p>
+                Our mission at Upcycled is to inspire the creative reuse of
+                "waste." Let's heal our planet one upcycle at a time!
+              </p>
+              <p>{demoLoginButton()}</p>
+            </div>
           </section>
           <section className="infographic-section">
             <h1>Infographic</h1>
