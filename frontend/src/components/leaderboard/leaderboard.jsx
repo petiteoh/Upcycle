@@ -6,12 +6,22 @@ export default class Leaderboard extends Component {
   constructor(props){
     super(props)
 
-    this.state = this.props.leaders;
+    this.state = [];
   }
 
   componentDidMount(){
-    this.setState(this.props.getLeaderboard());
+    this.props.fetchLeaderboard();
   }
+
+  componentWillReceiveProps(newState){
+    this.setState(newState)
+  }
+  // componentDidUpdate(prevProps){
+  //   if (prevProps.Leaderboard !== this.props.Leaderboard){
+  //     debugger
+  //     return this.setState(this.props.Leaderboard);
+  //   }
+  // }
 
   render() {
     // Check props and state after second reload
@@ -26,7 +36,7 @@ export default class Leaderboard extends Component {
             </div>
             {
               // Create a this.props.leaders and map through each one
-              this.props.leaders.map((user, i) => {
+              this.state.map((user, i) => {
                 return (
                   <li key={i}>
                     <LeaderboardItem user={user} rank={i + 1} />

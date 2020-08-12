@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import Leaderboard from "./leaderboard";
-import { getLeaderboard } from '../../util/user_api_util';
+import { fetchLeaderboard } from '../../actions/leaderboard_actions';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  leaderboard: state.leaderboard
+});
 
 const mapDispatchToProps = (dispatch) => {
   //  Here add the fetchleaders from the backend
@@ -36,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     leaders: exampleLeaders,
-    getLeaderboard: () => dispatch(getLeaderboard())
+    fetchLeaderboard: () => dispatch(fetchLeaderboard())
   };
 };
 
