@@ -3,7 +3,19 @@ import LeaderboardItem from "./leaderboard_item";
 import "../../css/leaderboard/leaderboard.css";
 
 export default class Leaderboard extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = this.props.leaders;
+  }
+
+  componentDidMount(){
+    this.setState(this.props.getLeaderboard());
+  }
+
   render() {
+    // Check props and state after second reload
+    debugger
     return (
       <>
         <div className="leaderboard-rankings">

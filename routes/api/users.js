@@ -111,7 +111,18 @@ router.get("/leaderboard", (req, res) => {
     User.find()
       .sort({ hero_points: -1})
       .limit(5)
-      .then(users => res.json(users))
+      .then(users => {
+        const payload = users.map(user => {
+          const { hero_points, _id, handle, badgesIds } = user;
+          return {
+            _id,
+            handle,
+            hero_points,
+            badgesIds
+          };
+        });
+        res.json(payload);
+      })
       .catch(err => {
         res.status(404).json({ noleaderboardinfo: "No leaderboard info found"})
       })

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Leaderboard from "./leaderboard";
+import { getLeaderboard } from '../../util/user_api_util';
 
 const mapStateToProps = (state) => ({});
 
@@ -35,6 +36,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     leaders: exampleLeaders,
+    getLeaderboard: () => dispatch(getLeaderboard())
   };
 };
 
