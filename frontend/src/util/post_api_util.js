@@ -14,7 +14,7 @@ export const getUserPosts = (id) => {
 };
 
 export const createPost = (data) => {
-  debugger
+  // debugger
   return axios.post("/api/posts/create-post", data);
 };
 

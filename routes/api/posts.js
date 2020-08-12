@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../../models/Post');
+const Post = require("../../models/Post");
 
 router.get('/', (req, res) => {
+    // debugger
     Post.find()
+    // Post.all()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => {
@@ -32,17 +34,18 @@ router.get('/:id', (req, res) => {
 // router.post('/',
 router.post('/create-post',
     (req, res) => {
-        const newPost = new Post({
-            creator_id: req.user.id,
-            image: req.body.image,
-            title: req.body.title,
-            description: req.body.description,
-            category_id: req.body.category_id,
-            material_ids: req.body.material_id,
-            location_id: req.body.lacation_id
-        });
-debugger
-        newPost.save().then(post => res.json(post));
+        // debugger
+        const newPost = new Post(req.body);
+// debugger
+        newPost
+          .save()
+          .then((post) => {
+            return res.json(post);
+          })
+          .catch((err) =>
+            res.status(404).json({ nopostfound: "Post cannot be saved" })
+          );
+        
     }
 );
 

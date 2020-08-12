@@ -15,25 +15,25 @@ const PostSchema = new Schema({
         required: true
     },
     description: {
-        type: Text,
+        type: String,
         required: true
     },
     category_id: {
         type: Schema.Types.ObjectId,
         ref: 'categories',
-        required: true
+        required: false
     },
     material_ids: [
         {
             type: Schema.Types.ObjectId,
             ref: 'materials',
-            required: true
+            required: false
         }
     ],
     location_id: {
         type: Schema.Types.ObjectId,
         ref: 'locations',
-        required: true
+        required: false
     },
     timeCreated: {
         type: Date,
@@ -41,4 +41,4 @@ const PostSchema = new Schema({
     }
 });
 
-module.export = Post = mongoose.model('posts', PostSchema);
+module.exports = Post = mongoose.model('posts', PostSchema);
