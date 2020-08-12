@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../splash.css";
-import scrollSnapPolyfill from "css-scroll-snap-polyfill";
+// import scrollSnapPolyfill from "css-scroll-snap-polyfill";
 
 export const gra = function(min, max) {
     return Math.random() * (max - min) + min;
@@ -8,7 +8,7 @@ export const gra = function(min, max) {
 
 export const init = function(){
     let items = document.querySelectorAll('section');
-    scrollSnapPolyfill()
+    // scrollSnapPolyfill()
 }
 
 export default class Splash extends Component {

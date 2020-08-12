@@ -6,7 +6,9 @@ router.get('/', (req, res) => {
     Post.find()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
-        .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+        .catch(err => {
+            // debugger
+            res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
 router.get('/user/:creator_id', (req, res) => {
@@ -27,7 +29,8 @@ router.get('/:id', (req, res) => {
         );
 });
 
-router.post('/',
+// router.post('/',
+router.post('/create-post',
     (req, res) => {
         const newPost = new Post({
             creator_id: req.user.id,
@@ -38,7 +41,7 @@ router.post('/',
             material_ids: req.body.material_id,
             location_id: req.body.lacation_id
         });
-
+debugger
         newPost.save().then(post => res.json(post));
     }
 );
