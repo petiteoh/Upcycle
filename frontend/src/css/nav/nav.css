@@ -1,15 +1,10 @@
 nav {
   position: fixed;
-  left: 75px;
-  height: 500px;
+  left: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* -webkit-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75); */
-  /* -moz-box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75); */
-  /* box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75); */
-  /* border-left: none; */
 }
 
 nav h3:hover {
