@@ -1,0 +1,71 @@
+nav {
+  position: fixed;
+  left: 75px;
+  height: 500px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+nav h3:hover {
+  color: #5dd39e;
+  border-bottom: 3px solid #5dd39e;
+  border-bottom-color: #5dd39e;
+}
+
+.menu-active-link {
+  border-bottom: 3px solid #5dd39e;
+  border-bottom-color: #5dd39e;
+}
+
+.nav-menu-links h3{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.nav-menu-links li{
+  
+}
+
+.nav-menu-link-list-item {
+  list-style-type: none;
+  font-family: "Arvo Regular";
+  font-weight: 700;
+}
+.header-logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  left: auto;
+  z-index: 900;
+}
+
+.header-logo h1 {
+  font-size: 35px;
+}
+
+.header-logo a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+.header-logo a:visited{
+  text-decoration: none;
+  color:black;
+}
+
+.header-logo a:hover {
+  color: #5dd39e;
+}
+
+.header-logo-img {
+  height: 75px;
+}
+
+.header-logo-img:hover {
+  color: #5dd39e;
+  background-color:#5dd39e;
+}
