@@ -1,3 +1,5 @@
+@import "./sign-up-form/sign-up-form.css";
+
 @font-face {
   font-family: 'Arvo Bold';
   src: url('../Fonts/Arvo/Arvo-Bold.ttf');

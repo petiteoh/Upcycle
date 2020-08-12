@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Arvo Bold';
+  src: url('./fonts/Arvo/Arvo-Bold.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Regular';
+  src: url('./fonts/Arvo/Arvo-Regular.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'Arvo Italic';
+  src: url('./fonts/Arvo/Arvo-Italic.ttf');
+  /* IE9 Compat Modes */
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
+.main-app-container {
+  /* margin: 0 10vw; */
+  margin-left: 20vw;
+  margin-right: 5vw;
+}
+
+h1 {
+  font-family: "Arvo Bold";
+  font-weight: 700;
+  font-size: 3.25em;
+}
+h2 {
+  font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: 2.25em;
+}
+h3 {
+  font-family: "Arvo Regular";
+  font-weight: 700;
+  font-size: 1.55em;
+}
+
+/* @import "./splash/splash.css"; */
+/* @import "./nav/nav.css"; */
+
+/* !MOVE TO INDIVIDUAL FILES LATER */
+/* NAV */
+
+.hero {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  perspective: 2px;
+}
+
+.mega-section {
+  width: 100%;
+}
+
+/* !MOVE TO INDIVIDUAL FILES LATER */
+.top-section h1 {
+  max-width: 75%;
+}

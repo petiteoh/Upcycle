@@ -1,5 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import "../../../src/sign-up-form.css"
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li className="sign-up-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -56,10 +57,14 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
+        <Link to="/" className="signup-exit">x</Link>
+        <div className="signup-greeting-container">
+          <h1 className="signup-form-container-header">Welcome to Upcycled!</h1>
+          <h3 className="signup-form-container-subheader">Sign up below:</h3>
+          <form className="signup-form" onSubmit={this.handleSubmit}>
             <input
+              
+              className="signup-email-input"
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
@@ -67,6 +72,7 @@ class SignupForm extends React.Component {
             />
             <br />
             <input
+              className="signup-handle-input"
               type="text"
               value={this.state.handle}
               onChange={this.update("handle")}
@@ -74,6 +80,7 @@ class SignupForm extends React.Component {
             />
             <br />
             <input
+              className="signup-password-input"
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
@@ -81,16 +88,30 @@ class SignupForm extends React.Component {
             />
             <br />
             <input
+              className="signup-password2-input"
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
             <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <div className="signup-errors-container">{this.renderErrors()}</div>
+            <input
+              className="signup-input-button"
+              type="submit"
+              value="Signup"
+            />
+          </form>
+          <div className="link-to-login-container">
+            <p className="link-to-login-p">
+              Already a user?{" "}
+              <Link to="/login" className="link-to-login">
+                Login
+              </Link>
+              .
+            </p>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
