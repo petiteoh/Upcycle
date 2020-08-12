@@ -3,7 +3,7 @@ import React from "react";
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-
+// debugger
     this.state = {
       creator_id: props.currentUser.id,
       title: "",

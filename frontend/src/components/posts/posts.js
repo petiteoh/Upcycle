@@ -20,6 +20,7 @@ class Post extends React.Component {
   }
 
   render() {
+    // debugger
     if (this.state.posts.length === 0) {
       return (
         <div>
@@ -27,11 +28,12 @@ class Post extends React.Component {
         </div>
       );
     } else {
+
+      const allPosts = this.state.posts.map((post, idx) => (<PostItem key={idx} post={post} />))
+      // debugger
       return (
         <div>
-          {this.state.posts.map((post) => (
-            <PostItem key={post.id} text={post.description} />
-          ))}
+          {allPosts}
         </div>
       );
     }

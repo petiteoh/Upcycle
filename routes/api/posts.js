@@ -5,13 +5,13 @@ const User = require("../../models/User")
 
 
 router.get('/', (req, res) => {
-    debugger
+    // debugger
     Post.find()
     // Post.all()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => {
-            debugger
+            // debugger
             res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
@@ -36,19 +36,16 @@ router.get('/:id', (req, res) => {
 
 router.post('/create-post',
     (req, res) => {
-        debugger
         const newPost = new Post(req.body);
-        
         newPost
-        .save()
-        .then((post) => {
+          .save()
+          .then((post) => {
             return res.json(post);
         })
         .catch((err) =>
         res.status(404).json({ nopostfound: "Post cannot be saved" })
         );
         
-            
         User.findByIdAndUpdate(req.body.creator_id, {
           $inc: { hero_points: 5 } ,
         }).then((user) => {

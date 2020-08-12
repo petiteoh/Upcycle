@@ -8,7 +8,7 @@ export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const receivePost = (post) => {
-  debugger
+  // debugger
   return {
   type: RECEIVE_POST,
   post
