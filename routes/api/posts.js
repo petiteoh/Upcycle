@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Post = require("../../models/Post");
-const User = require("../../models/User")
+const User = require("../../models/User");
+const Category = require('../../models/Category');
+
 
 
 router.get('/', (req, res) => {
@@ -11,7 +13,6 @@ router.get('/', (req, res) => {
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => {
-            // debugger
             res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
@@ -66,5 +67,6 @@ router.post('/delete', (req, res) => {
         })
     }
 );
+
 
 module.exports = router;
