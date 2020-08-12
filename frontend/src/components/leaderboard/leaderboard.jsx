@@ -7,10 +7,10 @@ export default class Leaderboard extends Component {
     return (
       <>
         <div className="leaderboard-rankings">
-          <div>
+          {/* <div> */}
+            <img src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png" width="200" alt=""/>
             <h1>Leaderboard</h1>
-            <img src="" alt=""/>
-          </div>
+          {/* </div> */}
           <ul className="leaderboard-items">
             {
               // Create a this.props.leaders and map through each one
