@@ -5,7 +5,7 @@ class PostForm extends React.Component {
     super(props);
 
     this.state = {
-      creator_id: "5f32ef5e19bc9c43916e885d",
+      creator_id: props.currentUser.id,
       title: "",
       description: "",
       image: "",

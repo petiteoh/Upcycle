@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Post = require("../../models/Post");
+const User = require("../../models/User")
+
 
 router.get('/', (req, res) => {
     debugger
@@ -31,33 +33,27 @@ router.get('/:id', (req, res) => {
         );
 });
 
-// router.post('/',
+
 router.post('/create-post',
     (req, res) => {
         debugger
-        // const newPost = new Post({
-        //     // creator_id: req.body.id,
-        //     creator_id: req.body.creator_id,
-        //     image: req.body.image,
-        //     title: req.body.title,
-        //     description: req.body.description,
-        //     // category_id: req.body.category_id,
-        //     // material_ids: req.body.material_id,
-        //     // location_id: req.body.lacation_id
-        // });
         const newPost = new Post(req.body);
-debugger
-        // newPost.save().then(post => res.json(post));
-        newPost
-          .save()
-          .then((post) => {
-            // console.log(res.json(post))
-            return res.json(post);
-          })
-          .catch((err) =>
-            res.status(404).json({ nopostfound: "Post cannot be saved" })
-          );
         
+        newPost
+        .save()
+        .then((post) => {
+            return res.json(post);
+        })
+        .catch((err) =>
+        res.status(404).json({ nopostfound: "Post cannot be saved" })
+        );
+        
+            
+        User.findByIdAndUpdate(req.body.creator_id, {
+          $inc: { hero_points: 5 } ,
+        }).then((user) => {
+          user.save();
+        });
     }
 );
 
