@@ -1,16 +1,18 @@
 import {
-  RECEIVE_ERRORS
+  RECEIVE_ERRORS, RECEIVE_POSTS
 } from "../actions/post_actions";
 
-const PostErrorsReducer = (state = [], action) => {
+const nullErrors = [];
+
+const PostErrorsReducer = (state = nullErrors, action) => {
   Object.freeze(state);
-  let newState;
 
   debugger;
   switch (action.type) {
     case RECEIVE_ERRORS:
-      newState = Object.assign({}, state, action.errors);
-      return newState;
+      return action.errors;
+    case RECEIVE_POSTS:
+      return nullErrors;
     default:
       return state;
   }

@@ -3,11 +3,13 @@ const router = express.Router();
 const Post = require("../../models/Post");
 
 router.get('/', (req, res) => {
+    debugger
     Post.find()
+    // Post.all()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => {
-            // debugger
+            debugger
             res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
