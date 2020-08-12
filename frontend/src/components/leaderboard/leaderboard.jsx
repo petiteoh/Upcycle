@@ -6,28 +6,27 @@ export default class Leaderboard extends Component {
   constructor(props){
     super(props)
 
-    this.state = [];
+    this.state = this.props.leaderboard;
   }
 
   componentDidMount(){
     this.props.fetchLeaderboard();
   }
 
-  componentWillReceiveProps(newState){
-    this.setState(newState)
+  componentDidUpdate(prevProps){
+    if (prevProps.leaderboard !== this.props.leaderboard){
+      debugger
+      return this.setState(this.props.leaderboard);
+    }
   }
-  // componentDidUpdate(prevProps){
-  //   if (prevProps.Leaderboard !== this.props.Leaderboard){
-  //     debugger
-  //     return this.setState(this.props.Leaderboard);
-  //   }
-  // }
 
   render() {
     // Check props and state after second reload
     debugger
-    return (
-      <>
+
+    if (this.state.length > 0) {
+      return (
+        <>
         <div className="leaderboard-rankings">
           <ul className="leaderboard-items">
             <div className="leaderboard-banner">
@@ -35,8 +34,7 @@ export default class Leaderboard extends Component {
               <h1>Leaderboard</h1>
             </div>
             {
-              // Create a this.props.leaders and map through each one
-              this.state.map((user, i) => {
+              this.props.leaders.map((user, i) => {
                 return (
                   <li key={i}>
                     <LeaderboardItem user={user} rank={i + 1} />
@@ -47,6 +45,11 @@ export default class Leaderboard extends Component {
           </ul>
         </div>
       </>
-    );
+      );
+    } else {
+      return (
+        <p>No Leaderboard</p>
+      );
+    }
   }
 }
