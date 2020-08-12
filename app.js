@@ -7,6 +7,7 @@ const users = require("./routes/api/users");
 const posts = require("./routes/api/posts");
 const bodyParser = require("body-parser");
 const User = require("./models/User");
+const Post = require("./models/Post")
 
 const path = require("path");
 
@@ -30,7 +31,6 @@ app.get("/", (req, res) => {res.send("Hello Team!")});
 
 app.use("/api/users", users);
 app.use("/api/posts", posts);
-
 
 app.use(express.static(__dirname + "/public"));
 

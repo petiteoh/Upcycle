@@ -44,6 +44,7 @@ router.post('/register', (req, res) => {
             if (user) {
                 return res.status(400).json({
                     email: "Email already in use!",
+                    handle: "Handle already in use!"
             })
         }   else {
             const newUser = new User({
@@ -105,6 +106,14 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+// router.patch("/update", (req, res) => {
+//     User.findById(req.body.creator_Id), (err, user) => {
+//       if (user) {
+//         user.
+//       }
+//     }
+// })
 
 
 module.exports = router;

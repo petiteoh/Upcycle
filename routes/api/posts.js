@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Post = require("../../models/Post");
+const User = require("../../models/User")
+
 
 router.get('/', (req, res) => {
     // debugger
@@ -31,21 +33,24 @@ router.get('/:id', (req, res) => {
         );
 });
 
-// router.post('/',
+
 router.post('/create-post',
     (req, res) => {
-        // debugger
         const newPost = new Post(req.body);
-// debugger
         newPost
           .save()
           .then((post) => {
             return res.json(post);
-          })
-          .catch((err) =>
-            res.status(404).json({ nopostfound: "Post cannot be saved" })
-          );
+        })
+        .catch((err) =>
+        res.status(404).json({ nopostfound: "Post cannot be saved" })
+        );
         
+        User.findByIdAndUpdate(req.body.creator_id, {
+          $inc: { hero_points: 5 } ,
+        }).then((user) => {
+          user.save();
+        });
     }
 );
 
