@@ -37,7 +37,9 @@ class LoginForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.login(user);
+    this.props.login(user).then((response) => {
+              this.props.history.push("/posts")
+    })
   }
 
   renderErrors() {
@@ -85,14 +87,14 @@ class LoginForm extends React.Component {
             <input
               className="signup-input-button"
               type="submit"
-              value="Signup"
+              value="Login"
             />
           </form>
           <div className="link-to-login-container">
             <p className="link-to-login-p">
               Create an Account?{" "}
-              <Link to="/login" className="link-to-login">
-                Signup
+              <Link to="/signup" className="link-to-login">
+                Sign Up
               </Link>
               .
             </p>

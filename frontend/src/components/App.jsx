@@ -7,6 +7,12 @@ import SignupFormContainer from "./session/signup_form_container";
 
 import SplashContainer from "./splash/splash_container";
 import NavContainer from './nav/nav_container';
+
+import PostsContainer from './posts/posts_container';
+import PostsFormContainer from './posts/post_form_conatainer';
+// import PostsShowContainer from './posts/post_show_container';
+
+
 const App = () => (
   <div>
     <header>
@@ -14,9 +20,13 @@ const App = () => (
     </header>
     <Switch>
       <main className="main-app-container">
-        <AuthRoute exact path="/" component={SplashContainer} />
+        <Route exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+        <ProtectedRoute exact path="/posts" component={PostsContainer} />
+        <ProtectedRoute exact path="/create-post" component={PostsFormContainer} />
+        {/* <ProtectedRoute exact path="/posts/:id" component={PostsShowContainer} /> */}
       </main>
     </Switch>
   </div>

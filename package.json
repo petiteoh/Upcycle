@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "server:debug": "nodemon --inspect app.js",
     "start": "node app.js",
     "server": "nodemon app.js",
     "frontend-install": "npm install --prefix frontend",
@@ -27,6 +28,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
+    "css-scroll-snap-polyfill": "^0.1.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "install": "^0.13.0",
