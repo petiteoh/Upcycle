@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import * as ParallaxUtils from './parallax_utils';
 import { Link } from "react-router-dom";
 import "../../splash.css";
 import Leaderboard from '../leaderboard/leaderboard_container';
@@ -18,6 +19,23 @@ export default class Splash extends Component {
     init();
   }
 
+
+  componentDidMount(){
+    document.addEventListener("scroll", (e) => {
+      // const target = document.querySelector(" .parallax-img-1-before");
+      // const target2 = document.querySelector(" .parallax-img-1-after");
+
+      // let scrolled = window.pageYOffset;
+      // let rate = scrolled * 1.5;
+      // target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+      // target2.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+    });
+  }
+
+  componentWillUnmount(){
+    // document.removeEventListener("scroll");
+  }
+
   render() {
     const demoLoginButton = () => {
       if (!this.props.isAuthenticated) {
@@ -35,6 +53,8 @@ export default class Splash extends Component {
       <>
         <section className="hero-parallax-container">
           <section className="main-header-section">
+            {/* <img className="parallax-img-1-before image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canbefore.png" /> */}
+            {/* <img className="parallax-img-1-after image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canafter.png" /> */}
             <div className="main-header-content-container">
               <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
               <p>

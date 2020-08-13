@@ -7,7 +7,7 @@ import Root from '../src/components/root';
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
-import { createPost } from './util/post_api_util'
+import { createPost } from './util/post_api_util';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //TEST
 window.create = createPost;
+const toggleZoomScreen = () => {
+  document.body.style.zoom = "80%";
+};
+
+toggleZoomScreen();
 //TEST
 
   if (localStorage.jwtToken) {
