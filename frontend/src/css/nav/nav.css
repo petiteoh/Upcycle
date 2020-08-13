@@ -43,6 +43,7 @@ nav a {
   right: 20px;
   left: auto;
   z-index: 900;
+
 }
 
 .header-logo h1 {
@@ -64,7 +65,7 @@ nav a {
   color: #5dd39e;
 }
 
-.header-logo-img {
+/* .header-logo-img {
   height: 75px;
   color: green;
 }
@@ -76,7 +77,7 @@ nav a {
 .header-logo-img:hover {
   color: #5dd39e;
   background-color:#5dd39e;
-}
+} */
 
 
 /* Profile Dash */
