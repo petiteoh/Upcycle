@@ -106,6 +106,20 @@ router.post("/:id/create-upcycle",
       post.save();
       res.json(post);
   });
+
+//   const post = Post.findById(req.params.id)
+//     .then(console.log(post))
+//     .catch(err =>
+//         res.status(404).json({ nopostfound: 'No post found with that ID' })
+//     );
+
+//     debugger
+//   User.findByIdAndUpdate(post.creator_id, {
+//       $inc: {hero_points: 2}
+//   }).then(user => {
+//       user.save()
+//     .catch(err => res.status(404).json({ nopointupdate: "Points were not updated"}))
+//   });
   
   
 });
