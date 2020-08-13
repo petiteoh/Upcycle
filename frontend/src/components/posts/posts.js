@@ -23,7 +23,9 @@ class Post extends React.Component {
   };
 
   componentWillMount() {
+    // debugger
     this.props.fetchPosts();
+    this.props.fetchCategories();
   }
 
   componentWillReceiveProps(newState) {
@@ -37,7 +39,7 @@ class Post extends React.Component {
   render() {
     // debugger
     let filtered = this.state.posts.filter((post) => {
-      debugger
+      // debugger
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
