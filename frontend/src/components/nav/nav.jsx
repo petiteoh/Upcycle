@@ -12,6 +12,8 @@ export default class Nav extends Component {
     const [open, setOpen] = useState(false);
 
     const profileDash = () => {
+
+      debugger
       if(props.isAuthenticated){
         return (
           <>
