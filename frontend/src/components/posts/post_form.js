@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../../src/post-form.css";
-import { storage } from "../../firebase/firebase"
+import CategoryDD from "../../components/posts/category-dd-container";
 
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-// debugger
+    // debugger
     this.state = {
       creator_id: props.currentUser.id,
       title: "",
       description: "",
       image: null,
-      category_id: "5f3387049c03638d3400c1af",
-      materials_id: ["5f3387369c03638d3400c1b0"],
-      location_id: "5f3386a89c03638d3400c1ae",
+      category_id: "",
+      // materials_id: ["5f3387369c03638d3400c1b0"],
+      // location_id: "5f3386a89c03638d3400c1ae",
     };
 
-
-
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateCategoryId = this.updateCategoryId.bind(this);
   }
-  
 
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.createPost(this.state);
-  }
+    this.props.createPost(this.state).then(() => {
+      this.props.history.push("/posts")
+    })
+  };
+  
 
   update(field) {
     return (e) =>
@@ -36,36 +37,18 @@ class PostForm extends React.Component {
       });
   }
 
-  handleChange(e) {
-    const [setImage, image] = useState(null);
-    if (e.target.files[0]) {
-      setImage(e.target.files[0])
-    }
+  updateCategoryId(e) {
+    this.setState({
+      category_id: e.target.value,
+    });
   }
 
-  handleUpload() {
-    let snapshot;
-    const [setImage, image] = useState(null);
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      snapshot = {},
-      error => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then(url => {
-            // console.log(url);
-          });
-      }
-    );
-  };
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
 
   render() {
+    const { categories, categoryObjs, categoryIds } = this.props;
 
     return (
       <div className="create-post-container">
@@ -90,13 +73,29 @@ class PostForm extends React.Component {
                 placeholder="Description"
               />
               <br />
-              <input
+              {/* <input
                 className="create-post-input"
                 type="textarea"
                 value={this.state.image}
                 onChange={this.fileSelectedHandler}
                 placeholder="Select a Category"
-              />
+              /> */}
+              {/* <CategoryDD /> */}
+              <select className="dd-list" onChange={this.updateCategoryId}>
+                {categoryObjs.map((category, idx) => {
+                  return (
+                    <>
+                      <option
+                        key={idx}
+                        className="dd-list-item"
+                        value={category._id}
+                      >
+                        {category.name}
+                      </option>
+                    </>
+                  );
+                })}
+              </select>
               <br />
               {/* <input
                 type="dropdown"

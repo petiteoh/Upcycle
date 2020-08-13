@@ -8,6 +8,7 @@ const categories = require("./routes/api/categories");
 const upcycles = require("./routes/api/upcycles");
 const bodyParser = require("body-parser");
 const path = require("path");
+const upload = require("./routes/api/uploads");
 
 
 if (process.env.NODE_ENV === "production") {
@@ -33,11 +34,14 @@ app.use("/api/posts", posts);
 app.use("/api/categories", categories);
 app.use("/api/upcycles", upcycles);
 
+app.use("/api/uploads", upload);
 app.use(express.static(__dirname + "/public"));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
+
+// AWS route
 
 
 

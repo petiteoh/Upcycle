@@ -12,6 +12,7 @@ import PostsContainer from './posts/posts_container';
 import PostsFormContainer from './posts/post_form_container';
 import LeaderboardContainer from './leaderboard/leaderboard_container';
 import CategoriesDD from './posts/category-dd-container';
+import UploadContainer from './posts/upload_container';
 
 const App = () => (
   <div>
@@ -29,6 +30,7 @@ const App = () => (
         <ProtectedRoute exact path="/create-post" component={PostsFormContainer} />
         <ProtectedRoute exact path="/leaderboard" component={LeaderboardContainer} />
         {/* <ProtectedRoute exact path="/posts/:id" component={PostsShowContainer} /> */}
+        <Route path="/upload" component={UploadContainer} />
       </main>
     </Switch>
   </div>
