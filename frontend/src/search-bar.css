@@ -12,16 +12,11 @@
 
 .search-input-box {
     flex:1 1 auto;
-    min-height:0;
-    min-width:0;
     height:100%;
 }
 
 .search-icon {
     display:block;
-    fill: currentColor;
-    stroke-width:0;
-    /* vertical-align: middle; */
     color:#767676;
 }
 
@@ -43,19 +38,37 @@
 
 .search-container {
     display:flex;
-    flex-direction:row;
     border-radius:24px;
     background-color:#efefef;
-    box-sizing:border-box;
     height: 48px;
+    position:fixed;
+    width: 60%;
+}
+
+.search-box:hover {
+    background-color:rgba(201, 194, 194, 0.897);
 }
 
 .search {
-    flex:1 1 auto;
-    min-height:0;
-    min-width:0;
     padding-left:8px;
     padding-right:8px;
-    box-sizing:border-box;
-    min-width:407px
+    padding-top: 1.5%;
 }
+
+.radio {
+    position: fixed;
+    padding-top: 55px;
+}
+
+.span {
+    padding-left: 3px;
+}
+
+.filter-container {
+    padding-left: 30px;
+}
+
+.label {
+    padding-right: 10px;
+}
+

@@ -64,48 +64,57 @@ class Post extends React.Component {
       ));
       // debugger
       return (
-        <div className="search">
-          <div className="search-container">
-            <div className="search-box">
-              <div className="search-icon-box">
-                <img
-                  className="search-icon"
-                  src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-4.png"
-                  height="30"
-                  width="30"
-                ></img>
+        <div>
+          <div className="search">
+            <div className="search-container">
+              <div className="search-box">
+                <div className="search-icon-box">
+                  <img
+                    className="search-icon"
+                    src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-4.png"
+                    height="30"
+                    width="30"
+                  ></img>
+                </div>
+                <div className="search-input-box">
+                  <input
+                    className="search-input"
+                    type="text"
+                    value={this.state.search}
+                    onChange={this.updateSearch.bind(this)}
+                    placeholder="Search"
+                  />
+                </div>
               </div>
-              <div className="search-input-box">
-                <input
-                  className="search-input"
-                  type="text"
-                  value={this.state.search}
-                  onChange={this.updateSearch.bind(this)}
-                  placeholder="Search"
-                />
+              <div className="radio">
+                <div className="filter-container">
+                  <input
+                    id="opt1"
+                    type="radio"
+                    value="description"
+                    checked={this.state.filterSearch === "description"}
+                    onChange={this.onRadioChange}
+                  />
+                  <label for="opt1" className="label">
+                    <span className="span">Description</span>
+                  </label>
+                  <input
+                    id="opt2"
+                    type="radio"
+                    value="title"
+                    checked={this.state.filterSearch === "title"}
+                    onChange={this.onRadioChange}
+                  />
+                  <label for="opt2" className="label">
+                    <span className="span">Title</span>
+                  </label>
+                  <div />
+                </div>
               </div>
-            </div>
-            <div>
-              <input
-                type="radio"
-                value="description"
-                checked={this.state.filterSearch === "description"}
-                onChange={this.onRadioChange}
-              />
-              Description
-              <input
-                type="radio"
-                value="title"
-                checked={this.state.filterSearch === "title"}
-                onChange={this.onRadioChange}
-              />
-              Title
-              <div />
             </div>
           </div>
-          <div>{allPosts}</div>
+          <div className="">{allPosts}</div>
         </div>
-            
       );
     }
   }
