@@ -12,13 +12,14 @@ export default class Nav extends Component {
     const [open, setOpen] = useState(false);
 
     const profileDash = () => {
+
       if(props.isAuthenticated){
         return (
           <>
             <div className="profile-dash">
               <img src="https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg" alt=""/>
               <p>{`Hi, ${props.user.handle}`}</p>
-              <p><span className="dash-points"> <span className="dash-icon">♲</span>2340</span> Hero Points</p>
+              <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
               <Link to="/" onClick={props.logout}>Logout</Link>
             </div>
           </>
@@ -55,7 +56,6 @@ export default class Nav extends Component {
             <img
               className="header-logo-img"
               src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
-              // src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.svg"
               height="100px"
               alt="Upcycled"
             />
