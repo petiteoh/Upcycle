@@ -40,10 +40,10 @@ const UserSchema = new Schema(
       type: Array,
       default: [generateBadges(1,6), generateBadges(1,6), generateBadges(1,6)],
     },
-    upcycle_ids: [
+    upcycled_posts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "upcycles",
+        ref: "posts",
         required: false,
       },
     ],

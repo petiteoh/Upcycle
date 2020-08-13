@@ -98,6 +98,12 @@ router.post("/:id/create-upcycle",
       res.status(404).json({ noupcycle: "Upcycle was not created" })
     );
 
+  User.findByIdAndUpdate(req.user.id, {
+      $push: {upcycled_posts: req.params.id}
+    }).then(user => {
+      user.save();
+    })
+  ;
   
   
   Post.findByIdAndUpdate(req.params.id, {
