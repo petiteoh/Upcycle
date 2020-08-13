@@ -7,7 +7,7 @@ const MegaMenu = (props) => {
       <NavItem name={"Home"} link={"/"}/>
       <NavItem name={"About"} link={"/about"} />
       <NavItem name={"Upcycles"} link={"/posts"} />
-      <NavItem name={"Leaderboar"} link={"/leaderboard"} />
+      <NavItem name={"Leaderboard"} link={"/leaderboard"} />
     </div>
   );
 };
