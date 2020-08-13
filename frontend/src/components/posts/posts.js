@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import PostItem from "./post_item.jsx";
+import "../../search-bar.css";
 
 class Post extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Post extends React.Component {
     // debugger;
     this.state = {
       posts: [],
+      categories: [],
       search: "",
       filterSearch: "",
     };
@@ -29,7 +31,9 @@ class Post extends React.Component {
   }
 
   componentWillReceiveProps(newState) {
+    // debugger
     this.setState({ posts: newState.posts });
+    this.setState({ categories: newState.categories });
   }
 
   updateSearch(e) {
@@ -60,31 +64,48 @@ class Post extends React.Component {
       ));
       // debugger
       return (
-        <div>
-          <div>
-            <input
-              type="text"
-              value={this.state.search}
-              onChange={this.updateSearch.bind(this)}
-              placeholder="Search"
-            />
-            <input
-              type="radio"
-              value="description"
-              checked={this.state.filterSearch === "description"}
-              onChange={this.onRadioChange}
-            />
-            Description
-            <input
-              type="radio"
-              value="title"
-              checked={this.state.filterSearch === "title"}
-              onChange={this.onRadioChange}
-            />
-            Title
+        <div className="search">
+          <div className="search-container">
+            <div className="search-box">
+              <div className="search-icon-box">
+                <img
+                  className="search-icon"
+                  src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-4.png"
+                  height="30"
+                  width="30"
+                ></img>
+              </div>
+              <div className="search-input-box">
+                <input
+                  className="search-input"
+                  type="text"
+                  value={this.state.search}
+                  onChange={this.updateSearch.bind(this)}
+                  placeholder="Search"
+                />
+              </div>
+            </div>
+            <div>
+              <input
+                type="radio"
+                value="description"
+                checked={this.state.filterSearch === "description"}
+                onChange={this.onRadioChange}
+              />
+              Description
+              <input
+                type="radio"
+                value="title"
+                checked={this.state.filterSearch === "title"}
+                onChange={this.onRadioChange}
+              />
+              Title
+              <div />
+            </div>
           </div>
           <div>{allPosts}</div>
         </div>
+            
       );
     }
   }
