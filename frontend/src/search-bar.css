@@ -47,12 +47,17 @@
 
 .search-box:hover {
     background-color:rgba(201, 194, 194, 0.897);
+    border-radius:24px;
 }
 
 .search {
     padding-left:8px;
     padding-right:8px;
-    padding-top: 1.5%;
+    padding-top: 47px;
+    height: 100px;
+    background-color: rgba(250, 250, 250);
+    position: fixed;
+    width: 100%;
 }
 
 .radio {
@@ -72,3 +77,6 @@
     padding-right: 10px;
 }
 
+.posts {
+    padding-top: 150px
+}

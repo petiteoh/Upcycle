@@ -14,10 +14,13 @@ export default class Nav extends Component {
     const profileDash = () => {
 
       if(props.isAuthenticated){
+        // debugger
         return (
           <>
             <div className="profile-dash">
+              <Link to={`posts/user/${props.user.id}`}>
               <img src="https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg" alt=""/>
+              </Link>
               <p>{`Hi, ${props.user.handle}`}</p>
               <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
               <Link to="/" onClick={props.logout}>Logout</Link>
