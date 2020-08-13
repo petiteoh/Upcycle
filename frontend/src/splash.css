@@ -114,6 +114,5 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 700px;
     text-align: right;
 }
