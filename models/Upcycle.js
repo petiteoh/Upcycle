@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const UpcycleSchema = new Schema({
   post_id: {
     type: Schema.Types.ObjectId,
-    references: 'posts',
+    ref: 'posts',
     required: false,
   },
   upcycler: {
     type: Schema.Types.ObjectId,
-    references: 'users'
+    ref: 'users'
   },
   timeCreated: {
     type: Date,
