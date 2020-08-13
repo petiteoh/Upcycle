@@ -68,5 +68,19 @@ router.post('/delete', (req, res) => {
     }
 );
 
+router.post("/:id/create-upcycle", (req, res) => {
+  const upcycle = new Upcycle({
+    post_id: req.params.id,
+    // upcycler: req.user.id,
+  });
+  upcycle
+    .save()
+    .then((upcycle) => res.json(upcycle))
+    .catch((err) =>
+      res.status(404).json({ noupcycle: "Upcycle was not created" })
+    );
+    console.log(req)
+    console.log(upcycle)
+});
 
 module.exports = router;
