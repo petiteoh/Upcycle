@@ -51,7 +51,8 @@ router.post('/create-post',
         );
         
         User.findByIdAndUpdate(req.body.creator_id, {
-          $inc: { hero_points: 1 } ,
+          $push: {posts: newPost._id},
+          $inc: { hero_points: 5 }
         }).then((user) => {
           user.save();
         });
@@ -105,6 +106,8 @@ router.post("/:id/create-upcycle",
       post.save();
       res.json(post);
   });
+  
+  
 });
 
 module.exports = router;
