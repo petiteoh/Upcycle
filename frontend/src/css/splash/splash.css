@@ -1,3 +1,14 @@
-.mega-section {
-  width: 100%;
+.image-parallax img{
+  position: absolute;
+  transform-origin: 0 50%;
+  /* width: 420px; */
+  /* width: 200px; */
+  /* height: 420px; */
+}
+
+.parallax-bg-image {
+  transform: translateZ(0px) scale(1);
+  transform: translateZ(2px) scale(parallax-scale-factor(2));
+  position: absolute;
+  transform-origin: 0 50%;
 }

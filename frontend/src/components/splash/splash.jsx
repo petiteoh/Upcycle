@@ -35,6 +35,8 @@ export default class Splash extends Component {
       <>
         <section className="hero-parallax-container">
           <section className="main-header-section">
+            <img className="parallax-bg-image image-parallax" width="200px" src="https://medio-app-seed.s3.amazonaws.com/canbefore.png" />
+            <img className="parallax-bg-image image-parallax" width="200px" src="https://medio-app-seed.s3.amazonaws.com/canafter.png" />
             <div className="main-header-content-container">
               <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
               <p>
