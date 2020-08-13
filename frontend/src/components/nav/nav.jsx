@@ -43,6 +43,10 @@ export default class Nav extends Component {
     );
   }
 
+  logoChange(e){
+
+  }
+
   render() {
     return (
       <>
@@ -52,14 +56,16 @@ export default class Nav extends Component {
           </this.MegaMenu>
         </nav>
         <div className="header-logo">
-          <a href="/">
+          <Link href="/">
             <img
               className="header-logo-img"
               src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
               height="100px"
               alt="Upcycled"
+              onMouseOut={e => e.currentTarget.src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"}
+              onMouseOver={e => e.currentTarget.src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogohover1.png"}
             />
-          </a>
+          </Link>
         </div>
       </>
     );
