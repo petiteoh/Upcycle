@@ -4,9 +4,10 @@ import NavItem from "./nav_item";
 const MegaMenu = (props) => {
   return (
     <div className="nav-mega-menu">
-      <NavItem name={"Home"} />
-      <NavItem name={"About"} />
-      <NavItem name={"UpCycles"} />
+      <NavItem name={"Home"} link={"/"}/>
+      <NavItem name={"About"} link={"/about"} />
+      <NavItem name={"Upcycles"} link={"/posts"} />
+      <NavItem name={"Leaderboar"} link={"/leaderboard"} />
     </div>
   );
 };
