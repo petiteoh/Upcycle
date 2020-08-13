@@ -9,9 +9,7 @@ const Upcycle = require('../../models/Upcycle');
 
 
 router.get('/', (req, res) => {
-    // debugger
     Post.find()
-    // Post.all()
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err => {
@@ -24,7 +22,7 @@ router.get('/user/:creator_id', (req, res) => {
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err =>
-            res.status(404).json({ nopostsfound: 'This user have not posted anything yet.' }
+            res.status(404).json({ nopostsfound: 'This user has not posted anything yet.' }
             )
         );
 });
@@ -53,7 +51,7 @@ router.post('/create-post',
         );
         
         User.findByIdAndUpdate(req.body.creator_id, {
-          $inc: { hero_points: 5 } ,
+          $inc: { hero_points: 1 } ,
         }).then((user) => {
           user.save();
         });
@@ -87,11 +85,11 @@ router.get("/:id/upcycles", (req, res) => {
 router.post("/:id/create-upcycle", 
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-  debugger
   const upcycle = new Upcycle({
     post_id: req.params.id,
     upcycler: req.user.id
   });
+
   upcycle
     .save()
     .then((upcycle) => res.json(upcycle))
@@ -99,11 +97,13 @@ router.post("/:id/create-upcycle",
       res.status(404).json({ noupcycle: "Upcycle was not created" })
     );
 
-    // const post = Post.findOne({_id: req.params.id})
-    //   .then(post => res.json(post.creator_id))
-      
-    // console.log(post)
-
+  
+  
+  Post.findByIdAndUpdate(req.params.id, {
+      $push: { upcycler_ids: req.user.id },
+  }).then((post) => {
+      post.save();
+  });
 });
 
 module.exports = router;
