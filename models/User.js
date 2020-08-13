@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+function generateBadges(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+}
 
 const UserSchema = new Schema(
   {
@@ -33,7 +38,7 @@ const UserSchema = new Schema(
     },
     badge_ids: {
       type: Array,
-      default: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      default: [generateBadges(1,6), generateBadges(1,6), generateBadges(1,6)],
     },
     upcycle_ids: [
       {
