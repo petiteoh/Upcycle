@@ -5,7 +5,6 @@ import PostShow from "./post_show";
 const msp = (state, ownProps) => {
   const post = Object.values(state.posts).filter(
     (post) => post._id === ownProps.match.params.id)
-//   debugger
     return {
     post,
   };

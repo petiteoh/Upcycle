@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom"
+// import * as ParallaxUtils from './parallax_utils';
+import { Link } from "react-router-dom";
 import "../../splash.css";
-// import scrollSnapPolyfill from "css-scroll-snap-polyfill";
+import Leaderboard from '../leaderboard/leaderboard_container';
 
 export const gra = function(min, max) {
     return Math.random() * (max - min) + min;
@@ -9,7 +10,6 @@ export const gra = function(min, max) {
 
 export const init = function(){
     let items = document.querySelectorAll('section');
-    // scrollSnapPolyfill()
 }
 
 export default class Splash extends Component {
@@ -19,17 +19,22 @@ export default class Splash extends Component {
     init();
   }
 
-//   gra (min, max) {
-//     return Math.random() * (max - min) + min;
-// }
-//   init(){
-//     let items = document.querySelectorAll('section');
-//     for (let i = 0; i < items.length; i++){
-//         items[i].style.background = randomColor({luminosity: 'light'});
-//     }
-//     cssScrollSnapPolyfill()
-// }
-// init();
+
+  componentDidMount(){
+    document.addEventListener("scroll", (e) => {
+      // const target = document.querySelector(" .parallax-img-1-before");
+      // const target2 = document.querySelector(" .parallax-img-1-after");
+
+      // let scrolled = window.pageYOffset;
+      // let rate = scrolled * 1.5;
+      // target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+      // target2.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+    });
+  }
+
+  componentWillUnmount(){
+    // document.removeEventListener("scroll");
+  }
 
   render() {
     const demoLoginButton = () => {
@@ -48,6 +53,8 @@ export default class Splash extends Component {
       <>
         <section className="hero-parallax-container">
           <section className="main-header-section">
+            {/* <img className="parallax-img-1-before image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canbefore.png" /> */}
+            {/* <img className="parallax-img-1-after image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canafter.png" /> */}
             <div className="main-header-content-container">
               <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
               <p>
@@ -68,19 +75,9 @@ export default class Splash extends Component {
             <p>Upcycling Community</p>
           </section>
           <section className="leaderboard-section">
-            <h1>Zero Hero Leaderboard</h1>
-            <p>Nov 1, 2020</p>
-            <p>Upcycling Community</p>
+            { <Leaderboard /> }
           </section>
         </section>
-        {/* <div class="parallax-container">
-          <div class="wrapper">
-            <img
-              class="background__image"
-              src="https://img.pngio.com/recycling-symbol-computer-icons-upcycling-logo-others-png-clipart-upcycling-png-728_728.jpg"
-            ></img>
-          </div>
-        </div> */}
       </>
     );
   }

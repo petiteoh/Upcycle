@@ -10,6 +10,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const upload = require("./routes/api/uploads");
 
+const passport = require('passport');
+require('./config/passport')(passport);
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
@@ -18,12 +21,14 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
+mongoose.Promise = global.Promise;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
 
 
+app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

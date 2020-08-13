@@ -1,10 +1,12 @@
 nav {
   position: fixed;
-  left: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: flex-start;
+  height: 100%;
+  width: 13%;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 nav h3:hover {
@@ -27,7 +29,9 @@ nav a {
   padding-top: 15px;
   padding-bottom: 15px;
 }
-
+nav ul {
+  width: 100%;
+}
 .nav-menu-links li{
   
 }
@@ -43,6 +47,7 @@ nav a {
   right: 20px;
   left: auto;
   z-index: 900;
+
 }
 
 .header-logo h1 {
@@ -64,37 +69,18 @@ nav a {
   color: #5dd39e;
 }
 
-.header-logo-img {
-  height: 75px;
-  color: green;
-}
-
-.header-logo-img img {
-  color: black;
-}
-
-.header-logo-img:hover {
-  color: #5dd39e;
-  background-color:#5dd39e;
-}
-
-
 /* Profile Dash */
 .profile-dash {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background-color: #5dd39e7c; */
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 3px;
-  /* border: 1px solid #5dd39e; */
-  width: 200px;
   -webkit-box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
   -moz-box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
   box-shadow: inset 0px 0px 5px -2px rgba(0,0,0,0.75);
-
 }
 
 .profile-dash img {
