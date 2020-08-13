@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import PostItem from "./post_item";
+import PostItem from "./post_item.jsx";
 
 class Post extends React.Component {
   constructor(props) {
