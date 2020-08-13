@@ -42,6 +42,13 @@ const PostSchema = new Schema({
           required: false
         }
     ],
+    upcycle_ids: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'upcycles',
+          required: false
+        }
+    ],
     timeCreated: {
         type: Date,
         default: new Date()

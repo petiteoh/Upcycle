@@ -100,9 +100,10 @@ router.post("/:id/create-upcycle",
   
   
   Post.findByIdAndUpdate(req.params.id, {
-      $push: { upcycler_ids: req.user.id },
+      $push: { upcycler_ids: req.user.id, upcycle_ids: upcycle._id}
   }).then((post) => {
       post.save();
+      res.json(post);
   });
 });
 
