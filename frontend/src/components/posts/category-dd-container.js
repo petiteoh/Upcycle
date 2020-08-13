@@ -4,7 +4,7 @@ import CategoryDD from "./category-dd";
 
 const mapStateToProps = (state) => {
   return {
-    categories: [Fashion, Electronics, Homegoods, Clothing]
+    categories: ["Fashion", "Electronics", "Homegoods", "Clothing"]
   };
 };
 
