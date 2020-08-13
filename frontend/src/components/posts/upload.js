@@ -7,15 +7,21 @@ class Upload extends React.Component {
     super(props);
     this.state = {
       selectedFile: null,
+      selectedFiles: null,
+      imageUrl: null,
     };
   }
-
   singleFileChangedHandler = (event) => {
     this.setState({
       selectedFile: event.target.files[0],
     });
   };
-
+  multipleFileChangedHandler = (event) => {
+    this.setState({
+      selectedFiles: event.target.files,
+    });
+    console.log(event.target.files);
+  };
   singleFileUploadHandler = () => {
     const data = new FormData(); // If file selected
     if (this.state.selectedFile) {
@@ -33,6 +39,7 @@ class Upload extends React.Component {
           },
         })
         .then((response) => {
+            debugger
           if (200 === response.status) {
             // If file size is larger than expected.
             if (response.data.error) {
@@ -40,6 +47,52 @@ class Upload extends React.Component {
                 this.ocShowAlert("Max size: 2MB", "red");
               } else {
                 console.log(response.data); // If not the given file type
+                this.ocShowAlert(response.data.error, "red");
+              }
+            } else {
+              // Success
+              let fileName = response.data;
+              console.log("fileName", fileName);
+              this.ocShowAlert("File Uploaded", "#3089cf");
+              this.setState({imageUrl: response.data.location})
+            }
+          }
+        })
+        .catch((error) => {
+          // If another error
+          this.ocShowAlert(error, "red");
+        });
+    } else {
+      // if file not selected throw error
+      this.ocShowAlert("Please upload file", "red");
+    }
+  };
+  multipleFileUploadHandler = () => {
+    const data = new FormData();
+    let selectedFiles = this.state.selectedFiles; // If file selected
+    if (selectedFiles) {
+      for (let i = 0; i < selectedFiles.length; i++) {
+        data.append("galleryImage", selectedFiles[i], selectedFiles[i].name);
+      }
+      axios
+        .post("/api/uploads/multiple-file-upload", data, {
+          headers: {
+            accept: "application/json",
+            "Accept-Language": "en-US,en;q=0.8",
+            "Content-Type": `multipart/form-data; boundary=${data._boundary}`,
+          },
+        })
+        .then((response) => {
+          console.log("res", response);
+          if (200 === response.status) {
+            // If file size is larger than expected.
+            if (response.data.error) {
+              if ("LIMIT_FILE_SIZE" === response.data.error.code) {
+                this.ocShowAlert("Max size: 2MB", "red");
+              } else if ("LIMIT_UNEXPECTED_FILE" === response.data.error.code) {
+                this.ocShowAlert("Max 4 images allowed", "red");
+              } else {
+                // If not the given ile type
                 this.ocShowAlert(response.data.error, "red");
               }
             } else {
@@ -58,8 +111,7 @@ class Upload extends React.Component {
       // if file not selected throw error
       this.ocShowAlert("Please upload file", "red");
     }
-  };
-  // ShowAlert Function
+  }; // ShowAlert Function
   ocShowAlert = (message, background = "#3089cf") => {
     let alertContainer = document.querySelector("#oc-alert-container"),
       alertEl = document.createElement("div"),
@@ -74,12 +126,21 @@ class Upload extends React.Component {
     }, 3000);
   };
   render() {
+      const displayImage = () => {
+        if (this.state.imageUrl) {
+          return <img src={this.state.imageUrl}></img>
+        } else {
+          return <p>Upload an image</p>;
+        }
+      }
+
     return (
       <div>
         <div className="container">
           {/* For Alert box*/}
           <div id="oc-alert-container"></div>
           {/* Single File Upload*/}
+                
           <div
             className="card border-light mb-3 mt-5"
             style={{ boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)" }}
@@ -104,9 +165,11 @@ class Upload extends React.Component {
                 >
                   Upload!
                 </button>
+                {displayImage()}
               </div>
             </div>
           </div>
+    
         </div>
       </div>
     );
