@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //TEST
 window.create = createPost;
+const toggleZoomScreen = () => {
+  document.body.style.zoom = "80%";
+};
+
+toggleZoomScreen()
 //TEST
 
   if (localStorage.jwtToken) {
