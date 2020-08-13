@@ -11,6 +11,7 @@ import NavContainer from './nav/nav_container';
 import PostsContainer from './posts/posts_container';
 import PostsFormContainer from './posts/post_form_container';
 import LeaderboardContainer from './leaderboard/leaderboard_container';
+import CategoriesDD from './posts/category-dd-container';
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
     </header>
     <Switch>
       <main className="main-app-container">
+        <Route path="/categories" component={CategoriesDD} />
         <Route exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
