@@ -14,6 +14,8 @@ import LeaderboardContainer from './leaderboard/leaderboard_container';
 import CategoriesDD from './posts/category-dd-container';
 import UploadContainer from './posts/upload_container';
 
+import ProfileContainer from './profile/profile_container';
+
 const App = () => (
   <div>
     <header>
@@ -30,6 +32,8 @@ const App = () => (
         <ProtectedRoute exact path="/create-post" component={PostsFormContainer} />
         <ProtectedRoute exact path="/leaderboard" component={LeaderboardContainer} />
         {/* <ProtectedRoute exact path="/posts/:id" component={PostsShowContainer} /> */}
+
+        <ProtectedRoute exact path="/posts/user/:creator_id" component={ProfileContainer} />
         <Route path="/upload" component={UploadContainer} />
       </main>
     </Switch>
