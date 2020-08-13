@@ -18,7 +18,7 @@ export default class Nav extends Component {
             <div className="profile-dash">
               <img src="https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg" alt=""/>
               <p>{`Hi, ${props.user.handle}`}</p>
-              <p> <span className="dash-points"> <span className="dash-icon">♲</span>2340</span> Hero Points</p>
+              <p><span className="dash-points"> <span className="dash-icon">♲</span>2340</span> Hero Points</p>
               <Link to="/" onClick={props.logout}>Logout</Link>
             </div>
           </>
