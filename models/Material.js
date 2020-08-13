@@ -13,4 +13,4 @@ const MaterialSchema = new Schema({
     }
 });
 
-module.export = Material = mongoose.model('materials', MaterialSchema);
+module.exports = Material = mongoose.model('materials', MaterialSchema);

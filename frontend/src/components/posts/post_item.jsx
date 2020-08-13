@@ -8,6 +8,7 @@ class PostItem extends React.Component {
       <div>
         <p>{this.props.post.title}</p>
         <p>{this.props.post.description}</p>
+        <p>{this.props.post.category}</p>
         {/* <Link to={`/posts/${this.props.post._id}`}> */}
           <img src={this.props.post.image} height="20px" width="20px" />
         {/* </Link> */}
