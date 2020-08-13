@@ -21,7 +21,7 @@ export default class LeaderboardItem extends Component {
               this.state.badges.map((badge, i) => {
                 return (
                   <li key={i}>
-                    <p>Badge #{badge}</p>
+                    <img src={`https://medio-app-seed.s3.amazonaws.com/ZeroHeroBadge${badge}.png`} alt=""/>
                   </li>
                 );
               })
