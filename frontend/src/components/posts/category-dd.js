@@ -21,11 +21,11 @@ class CategoryDD extends React.Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-      if (prevState !== this.state ) {
-          this.setState(this.state.category_id)
-      };
-  }
+//   componentDidUpdate(prevProps, prevState) {
+//       if (prevState !== this.state ) {
+//           this.setState(this.state.category_id)
+//       };
+//   }
 
   handleClickOutside() {
     this.setState({
