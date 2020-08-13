@@ -13,7 +13,6 @@ export default class Nav extends Component {
 
     const profileDash = () => {
 
-      debugger
       if(props.isAuthenticated){
         return (
           <>
@@ -57,7 +56,6 @@ export default class Nav extends Component {
             <img
               className="header-logo-img"
               src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
-              // src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.svg"
               height="100px"
               alt="Upcycled"
             />
