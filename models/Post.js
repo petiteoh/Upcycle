@@ -35,10 +35,17 @@ const PostSchema = new Schema({
         ref: 'locations',
         required: false
     },
+    upcycle_ids: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'upcycles',
+          required: false
+        }
+    ],
     timeCreated: {
         type: Date,
         default: new Date()
-    }
+    },
 });
 
 module.exports = Post = mongoose.model('posts', PostSchema);
