@@ -28,22 +28,22 @@ const UserSchema = new Schema(
       required: true,
       default: 0,
     },
-    posts: {
+    posts: [{
       type: Schema.Types.ObjectId,
-      references: "posts",
-    },
+      ref: "posts",
+    }],
     comments: {
       type: Schema.Types.ObjectId,
-      references: "comments",
+      ref: "comments",
     },
     badge_ids: {
       type: Array,
       default: [generateBadges(1,6), generateBadges(1,6), generateBadges(1,6)],
     },
-    upcycle_ids: [
+    upcycled_posts: [
       {
         type: Schema.Types.ObjectId,
-        references: "upcycles",
+        ref: "posts",
         required: false,
       },
     ],

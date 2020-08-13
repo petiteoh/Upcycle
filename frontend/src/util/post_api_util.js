@@ -21,3 +21,11 @@ export const createPost = (data) => {
 export const deletePost = (id) => {
   return axios.delete(`/api/posts/${id}`);
 };
+
+export const getPostUpcycles = (id) => {
+  return axios.get(`/api/posts/${id}/upcycles`);
+};
+
+export const createPostUpcycle = (id) => {
+  return axios.post(`/api/posts/${id}/create-upcycle`)
+}

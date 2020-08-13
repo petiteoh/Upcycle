@@ -2,7 +2,8 @@ import {
   RECEIVE_POSTS,
   RECEIVE_USER_POSTS,
   CREATE_POST,
-  RECEIVE_POST
+  RECEIVE_POST,
+  RECEIVE_POST_UPCYCLES
 } from "../actions/post_actions";
 
 const PostReducer = ( state = {}, action ) => {
@@ -22,6 +23,9 @@ const PostReducer = ( state = {}, action ) => {
       return newState;
     case CREATE_POST:
       newState = Object.assign({}, state, action.post.data);
+      return newState;
+    case RECEIVE_POST_UPCYCLES:
+      newState = Object.assign({}, state, action.upcycles.data);
       return newState;
     default:
       return state;

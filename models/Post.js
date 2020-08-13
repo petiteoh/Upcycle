@@ -35,6 +35,13 @@ const PostSchema = new Schema({
         ref: 'locations',
         required: false
     },
+    upcycler_ids: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'users',
+          required: false
+        }
+    ],
     upcycle_ids: [
         {
           type: Schema.Types.ObjectId,

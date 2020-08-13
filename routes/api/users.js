@@ -16,7 +16,11 @@ router.get(
     "/current",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
-        res.send(req.user);
+        res.json({
+          id: req.user.id,
+          handle: req.user.handle,
+          email: req.user.email
+        });
 })
 
 
@@ -59,7 +63,11 @@ router.post('/register', (req, res) => {
                     if(err) throw err;
                     newUser.password = hash;
                     newUser.save()
-                        .then((user) => res.json(user))
+                        .then(res.json({
+                          id: newUser.id,
+                          handle: newUser.handle,
+                          email: newUser.email
+                        }))
                         .catch(err => console.log(err)) 
                 })
             })
@@ -131,7 +139,14 @@ router.get("/leaderboard", (req, res) => {
 
 router.get("/:id", (req, res) => {
   User.findById(req.params.id)
-    .then(user => res.json(user))
+    .then(user => res.json({ 
+      id: user.id, 
+      handle: user.handle, 
+      email: user.email,
+      badge_ids: user.badge_ids,
+      posts: user.posts,
+      upcycled_posts: user.upcycled_posts
+    }))
     .catch(err => {
         res.status(404).json({ nouserfound: "User does not exist."})
     });

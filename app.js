@@ -8,6 +8,10 @@ const categories = require("./routes/api/categories");
 const upcycles = require("./routes/api/upcycles");
 const bodyParser = require("body-parser");
 const path = require("path");
+const upload = require("./routes/api/uploads");
+
+const passport = require('passport');
+require('./config/passport')(passport);
 
 
 if (process.env.NODE_ENV === "production") {
@@ -17,12 +21,14 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
+mongoose.Promise = global.Promise;
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
 
 
+app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -33,11 +39,14 @@ app.use("/api/posts", posts);
 app.use("/api/categories", categories);
 app.use("/api/upcycles", upcycles);
 
+app.use("/api/uploads", upload);
 app.use(express.static(__dirname + "/public"));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
+
+// AWS route
 
 
 
