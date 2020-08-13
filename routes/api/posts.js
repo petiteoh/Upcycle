@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const passport = require("passport");
 const Post = require("../../models/Post");
 const User = require("../../models/User");
 const Category = require('../../models/Category');
-
+const Upcycle = require('../../models/Upcycle');
 
 
 router.get('/', (req, res) => {
@@ -16,6 +18,7 @@ router.get('/', (req, res) => {
             res.status(404).json({ nopostsfound: 'No posts found' })});
 });
 
+
 router.get('/user/:creator_id', (req, res) => {
     Post.find({ creator: req.params.creator_id })
         .sort({ date: -1 })
@@ -25,6 +28,7 @@ router.get('/user/:creator_id', (req, res) => {
             )
         );
 });
+
 
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id)
@@ -36,6 +40,7 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/create-post',
+    passport.authenticate("jwt", {session: false}),
     (req, res) => {
         const newPost = new Post(req.body);
         newPost
@@ -52,8 +57,10 @@ router.post('/create-post',
         }).then((user) => {
           user.save();
         });
+
     }
 );
+
 
 router.post('/delete', (req, res) => {
     Post.findByIdAndRemove(req.params.id)
@@ -68,10 +75,22 @@ router.post('/delete', (req, res) => {
     }
 );
 
-router.post("/:id/create-upcycle", (req, res) => {
+
+router.get("/:id/upcycles", (req, res) => {
+    Upcycle.find({post_id: req.params.id})
+        .sort({date: -1})
+        .then(upcycles => res.json(upcycles))
+        .catch(err => res.status(404).json({ nopostUpcycles: "There are no upcycles for this post"}))
+});
+
+
+router.post("/:id/create-upcycle", 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+  debugger
   const upcycle = new Upcycle({
     post_id: req.params.id,
-    // upcycler: User.findOne({email: req.body.email}).id
+    upcycler: req.user.id
   });
   upcycle
     .save()

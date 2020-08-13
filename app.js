@@ -8,6 +8,8 @@ const categories = require("./routes/api/categories");
 const upcycles = require("./routes/api/upcycles");
 const bodyParser = require("body-parser");
 const path = require("path");
+const passport = require('passport');
+require('./config/passport')(passport);
 
 
 if (process.env.NODE_ENV === "production") {
@@ -23,6 +25,7 @@ mongoose
   .catch((err) => console.log(err));
 
 
+app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
