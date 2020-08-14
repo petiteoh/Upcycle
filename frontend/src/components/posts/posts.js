@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import PostItem from "./post_item.jsx";
+import { Link } from "react-router-dom";
 import "../../search-bar.css";
 
 class Post extends React.Component {
@@ -126,6 +127,9 @@ class Post extends React.Component {
               </div>
             </div>
           </div>
+          <Link to="/create-post">
+            <div className="create-post">Create a post</div>
+          </Link>
           <div className="posts">{allPosts}</div>
         </div>
       );

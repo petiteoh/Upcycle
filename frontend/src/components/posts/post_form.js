@@ -51,7 +51,7 @@ class PostForm extends React.Component {
         })
         .then((response) => {
           if (200 === response.status) {
-            debugger;
+            // debugger;
             return this.setState({ image: response.data.location });
           }
         })

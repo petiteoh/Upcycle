@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import PostItem from "../posts/post_item";
 import "../../search-bar.css";
+import { Link } from "react-router-dom";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -78,7 +79,7 @@ class Profile extends React.Component {
         <PostItem key={idx} post={post} />
       ));
     // }
-      debugger
+      // debugger
       return (
         <div>
           <div className="search">
@@ -129,9 +130,12 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
+            <Link to="/create-post">
+              <div className="create-post">Create a post</div>
+            </Link>
           <div className="posts">User's posts below{allPosts}</div>
         </div>
-    );
+      );
   }
 }
 
