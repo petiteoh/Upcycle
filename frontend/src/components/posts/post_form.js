@@ -24,13 +24,18 @@ class PostForm extends React.Component {
     this.updateCategoryId = this.updateCategoryId.bind(this);
     this.singleFileChangedHandler = this.singleFileChangedHandler.bind(this);
     this.singleFileUploadHandler = this.singleFileUploadHandler.bind(this);
-    // this.ocShowAlert = this.ocShowAlert.bind(this);
   }
 
-  singleFileChangedHandler (event) {
-    this.setState({
-      selectedFile: event.target.files[0],
-    })
+  singleFileChangedHandler (e) {
+    e.preventDefault();
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ selectedFile: file, image: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   };
 
   singleFileUploadHandler () {
@@ -57,21 +62,6 @@ class PostForm extends React.Component {
         })
     }
   };
-  // ShowAlert Function
-  // ocShowAlert (message, background = "#3089cf") {
-  //   let alertContainer = document.getElementbyId("oc-alert-container"),
-  //     alertEl = document.createElement("div"),
-  //     textNode = document.createTextNode(message);
-  //   alertEl.setAttribute("className", "oc-alert-pop-up");
-  //   $(alertEl).css("background", background);
-  //   alertEl.appendChild(textNode);
-  //   
-  //   alertContainer.appendChild(alertEl);
-  //   setTimeout(function () {
-  //     $(alertEl).fadeOut("slow");
-  //     $(alertEl).remove();
-  //   }, 3000);
-  // };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -80,13 +70,6 @@ class PostForm extends React.Component {
       const post = this.state;
       return this.props.createPost(post)
     })
-    // .then(() => {
-      // return <Redirect to="/posts"/>
-      // this.props.history.push("/posts");
-    // })
-    // .catch((err) => {
-    //   this.props.history.push("/posts");
-    // })
   }
   
   update(field) {
@@ -106,13 +89,22 @@ class PostForm extends React.Component {
     this.props.fetchCategories();
   }
 
-  // onClick() {
-  //   this.handle
-  // }
-
   render() {
     const { categories, categoryObjs, categoryIds } = this.props;
-
+// debugger
+    const imagePreview =
+      this.state.image.length > 0 ? (
+        <img src={this.state.image} />
+      ) : (
+        <div className="df">
+          <img
+            id="photo"
+            className="w1"
+            src="https://cdn2.iconfinder.com/data/icons/gaming-and-beyond-part-2-1/80/Recycle_gray-512.png"
+          />
+        </div>
+      );
+// debugger
     return (
       <div className="create-post-container">
         <form className="create-post-form" onSubmit={this.handleSubmit}>
@@ -120,7 +112,7 @@ class PostForm extends React.Component {
           <div className="all-field-container">
             <div className="create-post-field-container">
               <input
-                className="create-post-input"
+                className="create-post-input oN bs"
                 type="text"
                 value={this.state.title}
                 onChange={this.update("title")}
@@ -128,23 +120,17 @@ class PostForm extends React.Component {
               />
               <br />
               <textarea
-                className="create-post-input"
-                id="create-post-input-description"
+                className="create-post-input textarea oN bs"
                 type="textarea"
                 value={this.state.description}
                 onChange={this.update("description")}
                 placeholder="Description"
               />
               <br />
-              {/* <input
-                className="create-post-input"
-                type="textarea"
-                value={this.state.image}
-                onChange={this.fileSelectedHandler}
-                placeholder="Select a Category"
-              /> */}
-              {/* <CategoryDD /> */}
-              <select className="dd-list" onChange={this.updateCategoryId}>
+              <select
+                className="dd-list oN bs"
+                onChange={this.updateCategoryId}
+              >
                 {categoryObjs.map((category, idx) => {
                   return (
                     <>
@@ -160,61 +146,15 @@ class PostForm extends React.Component {
                 })}
               </select>
               <br />
-              {/* <input
-                type="dropdown"
-                value={this.state.category}
-                onChange={this.update("category_id")}
-                placeholder="Add link to your image"
-              />
-              <input
-                type="dropdown"
-                value={this.state.materials}
-                onChange={this.update("image")}
-                placeholder="Add link to your image"
-              />
-              <input
-                type="dropdown"
-                value={this.state.location}
-                onChange={this.update("location")}
-                placeholder="Add link to your image"
-              /> */}
-              {/* CHANGE need to add categories, materials, location */}
             </div>
-            <div>
-              <div className="container">
-                {/* For Alert box*/}
-                <div id="oc-alert-container"></div>
-                {/* Single File Upload*/}
-                <div
-                  className="card border-light mb-3 mt-5"
-                  style={{ boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)" }}
-                >
-                  <div className="card-header">
-                    <h3 style={{ color: "#555", marginLeft: "12px" }}>
-                      Single Image Upload
-                    </h3>
-                    <p className="text-muted" style={{ marginLeft: "12px" }}>
-                      Upload Size: 250px x 250px ( Max 2MB )
-                    </p>
-                  </div>
-                  <div className="card-body">
-                    <p className="card-text">
-                      Please upload an image for your post
-                    </p>
-                    <input
-                      type="file"
-                      onChange={this.singleFileChangedHandler}
-                    />
-                    <div className="mt-5">
-                      {/* <button
-                        className="btn btn-info"
-                        onClick={this.singleFileUploadHandler}
-                      >
-                        Upload!
-                      </button> */}
-                    </div>
-                  </div>
-                </div>
+            <div className="w1">
+              <div className="drop w1 bs">
+                <input
+                  type="file"
+                  id="filePhoto"
+                  onChange={this.singleFileChangedHandler}
+                />
+                {imagePreview}
               </div>
             </div>
           </div>
@@ -224,8 +164,8 @@ class PostForm extends React.Component {
             value="Create Post"
           />
         </form>
-        <Link className="close-form-link" to="/posts">
-          Close Form
+        <Link to="/posts" className="signup-exit">
+          x
         </Link>
       </div>
     );
