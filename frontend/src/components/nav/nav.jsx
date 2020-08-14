@@ -9,22 +9,14 @@ class Nav extends Component {
     this.state = null;
   }
 
-  componentDidUpdate(prevProps){
-    if (prevProps.user !== this.props.user && this.props.isAuthenticated){
-      debugger
-      // return this.setState({ hero_points: this.stat.user.hero_points});
-    }
-  }
-
   MegaMenu(props) {
     const [open, setOpen] = useState(false);
 
     const profileDash = () => {
 
       if(props.isAuthenticated){
-        debugger
         const profileImage = props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
-        // const hero_points = props.state.hero_points || "200 points";
+
         return (
           <>
             <div className="profile-dash">
