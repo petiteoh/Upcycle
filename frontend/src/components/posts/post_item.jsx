@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../css/post_feed/post-feed.css"
 
 class PostItem extends React.Component {
 
@@ -16,16 +17,34 @@ class PostItem extends React.Component {
     const reflectUpcycleStatus = () => {
       if (this.props.post.upcycler_ids.includes(this.props.post.creator_id)) {
         return (
-          <button className="upcycle-button" value="Upcycled">
-            Upcycled
-          </button>
+          <div>
+            <img
+              class="upcycle-logo"
+              src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
+              alt=""
+            />
+            <button className="upcycle-button" value="Upcycled">
+              Upcycled
+            </button>
+          </div>
         );
       } else {
         return (
-          <button className="upcycle-button" value="Upcycle" onClick={() => this.props.upcyclePost(this.props.post._id)}>
-            Upcycle
-          </button>
-        )
+          <div className="upcycle-button-container">
+            <button
+              className="upcycle-button"
+              value="Upcycle"
+              onClick={() => this.props.upcyclePost(this.props.post._id)}
+            >
+              <img
+                className="upcycle-logo"
+                src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
+                alt=""
+              />
+              <label>Upcycle</label>
+            </button>
+          </div>
+        );
       }
     }
     
@@ -43,24 +62,37 @@ class PostItem extends React.Component {
 
     return (
       <div className="single-post-container">
-        <div className="left-container">
-          <div className="image-container">
-            <img src={this.props.post.image} height="100px" width="100px" />
-          </div>
-        </div>
-        <div className="right-container">
+        <div className="top-container">
           <p className="post-title">{this.props.post.title}</p>
-          <p className="post-description">{this.props.post.description}</p>
-          <label className="post-category-label"> Category:
-            <p className="post-category-name">{cats[this.props.post.category_id]}</p>
-          </label>
-          <div>
-            <p className="post-upcycle-count">{upcycleCount()}</p>
-            {reflectUpcycleStatus()}
+        </div>
+        <div className="bottom-container">
+          <div className="left-container">
+            <div className="image-container">
+              <img
+                className="post-image"
+                src={this.props.post.image}
+                height="500px"
+                width="500px"
+              />
+            </div>
+          </div>
+          <div className="right-container">
+            <p className="post-description">{this.props.post.description}</p>
+            <div className="upcycle-container">
+              <p className="post-upcycle-count">{upcycleCount()}</p>
+              {reflectUpcycleStatus()}
+            </div>
+            <label className="post-category-label">
+              <p className="post-handle-name">
+                Created By: <Link to={`posts/user/${this.props.user.id}`}>{this.props.user.handle}</Link>
+              </p>
+              <p className="post-category-name">
+                Category: {cats[this.props.post.category_id]}
+              </p>
+            </label>
           </div>
         </div>
       </div>
-
     );
   }
 }

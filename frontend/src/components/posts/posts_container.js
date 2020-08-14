@@ -16,6 +16,7 @@ const msp = (state, ownProps) => {
     posts: Object.values(state.posts),
     categories: categories,
     categoryObjs,
+    user: state.session.user
   };
 };
 
