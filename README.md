@@ -35,6 +35,8 @@ Community Feed
 ## Technologies & Technical Challenges
 
   ### Backend: MongoDB/Express
+    - Database: MongoDB with Mongoose as an ODM library.
+    - Express: 
   ### Frontend: React/Node.js
 
 Technical challenges: 
@@ -45,7 +47,7 @@ Technical challenges:
   - Git workflow
 
 ### Backend: MongoDB/Express 
-
+ 
 Technical challenges: 
   - DB accepting duplicate handles
   - Forgetting to export, add .use in the root file
@@ -65,10 +67,16 @@ Technical challenges:
 
 ## Group Members & Work Breakdown
 
-  - **Victor Crispin**<br>
-  - **Cade Schreger**<br>
-  - **Artem Silka**<br>
-  - **Nikki Teoh**
+  - **Victor Crispin** -Front-end Developer
+  <br>
+  - **Cade Schreger** - Back-end developer
+  <br>
+  - **Artem Silka** - Flex developer
+  <br>
+  - **Nikki Teoh** - Team Lead
+  <br>
+
+## Day-to-Day Breakdown
 
 ### August 10
   - Up and running on Heroku - **Nikki**
@@ -81,15 +89,14 @@ Technical challenges:
   
 ### Day 2
   - Frontend user authentication(login/register) - **Nikki**
-  - Build Hero Points/following/upcycle feature -  **Cade**
+  - References/embeddings; Start Hero Points/following/upcycle feature -  **Cade**
   - Build posts frontend - **Artem**
   - Splash page content and styling - **Victor**
   - Nav bar styling - **Victor**
   
 ### Day 3
   - Frontend filtering and search - **Artem**
-  - Build Hero Points/following feature? -  **Cade**
-  - Create additional backend routes for leaderboard, handles, upcycles, categories, hero points - **Cade**
+  - Create additional backend routes for leaderboard, handles, upcycles, categories, hero points/backend debugging; Model edits; Badges functionality; - **Cade**
   - Leaderboard logic and styling - **Victor**
   - Build post form - **Nikki**
 
@@ -100,7 +107,7 @@ Technical challenges:
   - Search styling - **Artem**
   - Update all our Wiki pages - **Nikki**
   - AWS hosting site setup - **Nikki**
-  - Seeding database - **Cade**
+  - Passport/auth debugging; Upcycle FE; Leaderboard/Top posts BE;  - **Cade**
   
 ### Day 5
   - Finishing styling touches - **All Members**
