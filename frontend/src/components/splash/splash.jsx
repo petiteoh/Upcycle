@@ -75,7 +75,7 @@ export default class Splash extends Component {
     };
 
     const topPost = () => {
-      debugger
+      // debugger
       if (this.state.topPost){
         const { title, image, description, upcycle_ids } = this.state.topPost;
         return (
@@ -83,8 +83,10 @@ export default class Splash extends Component {
             <h1>Upcycled Project of The Week</h1>
             <h2>{title}</h2>
             <h3>Zero Hero: Mr Green - <span>{upcycle_ids.length} Upcycles</span></h3>
-            <p>{description}</p>
-            <img src={image} alt="top-post-image"/>
+            <div className="top-post-content">
+              <p className="top-post-description">{description}</p>
+              <img parallax data-rate="-0.5" src={image} width="700px" alt="top-post-image"/>
+            </div>
           </>
         );
       } else {
