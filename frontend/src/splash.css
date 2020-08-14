@@ -49,12 +49,12 @@
     width: 100%;
     left: 0;
     font-size: calc(1rem + 3vw); */
-    line-height: 80px;
+    /* line-height: 80px; */
 }
 
-.hero-parallax-container p {
+/* .hero-parallax-container p {
     line-height: 50px;
-}
+} */
 
 .splash-section {
 
@@ -96,11 +96,13 @@
 }
 
 .infographic-section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 700px;
+    height: 1000px;
     text-align: right;
+    z-index: 3;
 }
 
 .highlight-section {
@@ -108,6 +110,7 @@
     flex-direction: column;
     justify-content: center;
     height: 700px;
+    z-index: 10;
 }
 
 .leaderboard-section {

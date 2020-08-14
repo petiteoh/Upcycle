@@ -1,39 +1,64 @@
 import React, { Component } from "react";
-// import * as ParallaxUtils from './parallax_utils';
 import { Link } from "react-router-dom";
 import "../../splash.css";
-import Leaderboard from '../leaderboard/leaderboard_container';
+import "../../css/splash/splash.css";
+import Leaderboard from "../leaderboard/leaderboard_container";
+import axios from "axios";
 
-export const gra = function(min, max) {
-    return Math.random() * (max - min) + min;
-}
+export const gra = function (min, max) {
+  return Math.random() * (max - min) + min;
+};
 
-export const init = function(){
-    let items = document.querySelectorAll('section');
-}
+export const init = function () {
+  let items = document.querySelectorAll("section");
+};
 
 export default class Splash extends Component {
   constructor(props) {
-    super(props) 
+    super(props);
 
     init();
+
+    this.state = {
+      topPost: null
+    };
   }
 
+  parallaxEffect(e){
+    // const target1 = document.querySelectorAll(".blur");
+    const target = document.querySelectorAll(".parallax");
 
-  componentDidMount(){
-    document.addEventListener("scroll", (e) => {
-      // const target = document.querySelector(" .parallax-img-1-before");
-      // const target2 = document.querySelector(" .parallax-img-1-after");
+      let index = 0, length = target.length;
+
+      for (index; index < length; index++) {
+        let pos = window.pageYOffset * target[index].dataset.rate;
+
+        target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
+      }
 
       // let scrolled = window.pageYOffset;
-      // let rate = scrolled * 1.5;
-      // target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
-      // target2.style.transform = `translate3d(0px, ${rate}px, 0px)`;
-    });
+      // let blurRate = scrolled * 0.01;
+      // let index2 = 0, length2 = target1.length;
+      // target1.style.filter = `blur(${2 * blurRate}px)`;
+
+      // for (index2; index2 < length2; index2++) {
+      //   target1[index2].style.filter = `blur(${2 * blurRate}px)`;
+      // }
+  }
+  componentDidMount(){
+    document.addEventListener("scroll", this.parallaxEffect);
+
+    return axios.get(`/api/posts/top-post`)
+      .then(response => {
+        if (response.status === 200) {
+          let topPost = response.data[0];
+          return this.setState({ topPost: topPost });
+        }
+      });
   }
 
   componentWillUnmount(){
-    // document.removeEventListener("scroll");
+    window.removeEventListener("scroll", this.parallaxEffect);
   }
 
   render() {
@@ -49,34 +74,78 @@ export default class Splash extends Component {
       }
     };
 
+    const topPost = () => {
+      // debugger
+      if (this.state.topPost){
+        const { title, image, description, upcycle_ids } = this.state.topPost;
+        return (
+          <>
+            <h1>Upcycled Project of The Week</h1>
+            <h2>{title}</h2>
+            <h3>Zero Hero: Mr Green - <span>{upcycle_ids.length} Upcycles</span></h3>
+            <div className="top-post-content">
+              <p className="top-post-description">{description}</p>
+              <img parallax data-rate="-0.5" src={image} width="700px" alt="top-post-image"/>
+            </div>
+          </>
+        );
+      } else {
+        return "No Top Post";
+      }
+    }
+
     return (
       <>
         <section className="hero-parallax-container">
           <section className="main-header-section">
-            {/* <img className="parallax-img-1-before image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canbefore.png" /> */}
-            {/* <img className="parallax-img-1-after image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canafter.png" /> */}
+            <div className="img-container">
+              <img
+                className="parallax-img-1-before parallax blur"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/canbefore.png"
+                data-rate="-0.4"
+              />
+              <img
+                className="parallax-img-1-after parallax blur"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/canafter.png"
+                data-rate="-0.8"
+              />
+            </div>
             <div className="main-header-content-container">
-              <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
-              <p>
+              <h1 className="highlight">
+                Upcycling Reduces Your Carbon Polution
+              </h1>
+              <h3 className="highlight">
                 Our mission at Upcycled is to inspire the creative reuse of
                 "waste." Let's heal our planet one upcycle at a time!
-              </p>
+              </h3>
               <p>{demoLoginButton()}</p>
             </div>
           </section>
           <section className="infographic-section">
-            <h1>Infographic</h1>
+            <div className="img-container2">
+              <img
+                className="parallax-img-2-before parallax"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/corkbefore.png"
+                data-rate="-0.3"
+              />
+              <img
+                className="parallax-img-2-after parallax"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/corkafter.png"
+                data-rate="-0.6"
+              />
+            </div>
+            <h1>Possibilities Are Endless</h1>
             <p>StatsStatsStatsStats</p>
             <p>ImagesImagesImagesImages</p>
           </section>
           <section className="highlight-section">
-            <h1>Upcycled Project of The Week</h1>
-            <p>Zero Hero: Mr Green</p>
-            <p>Upcycling Community</p>
+            { topPost() }
           </section>
-          <section className="leaderboard-section">
-            { <Leaderboard /> }
-          </section>
+          <section className="leaderboard-section">{<Leaderboard />}</section>
         </section>
       </>
     );

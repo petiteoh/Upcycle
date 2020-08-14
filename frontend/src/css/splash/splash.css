@@ -1,16 +1,83 @@
 .main-header-section {
   position: relative;
-}
+  display: flex;
+  align-items: center;
+} 
 
 .image-parallax img{
+  /* position: absolute; */
+  /* transform-origin: 0 50%; */
+  z-index: -10;
+}  
+
+.img-container {
   position: absolute;
-  transform-origin: 0 50%;
+  top: 130px;
+}
+
+.img-container2 {
+  position: absolute;
+  z-index: -2;
+}
+
+.main-header-content-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+
+}
+
+.main-header-content-container h1 {
+  font-size: 4em;
+  /* background-color: #9cefc999; */
+  max-width: 900px;
+}
+.main-header-content-container h3 {
+  font-size: 2.5em;
+  padding-top: 20px;
+  /* background-color: #9cefc999; */
+  /* max-width: 400px; */
 }
 
 .parallax-img-1-before {
-  z-index: -1;
+  position: absolute;
+  right: 30px;
+  top: 85px;
 }
 
 .parallax-img-1-after {
+  position: absolute;
+  left: 160px;
+}
+
+.parallax-img-2-before {
+  position: absolute;
+  top: 85px;
   z-index: -1;
+}
+
+.parallax-img-2-after {
+  position: absolute;
+  z-index: -1;
+  left: 500px;
+  transform: rotate(-40deg);
+}
+
+.highlight {
+  background-color: #9cefc999;
+  /* #9cefc999 */
+}
+
+.top-post-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-post-content img {
+  padding-left: 5px;
+}
+.top-post-description {
+  font-size: 20px;
+  line-height: 25px;
+  padding-top: 20px;
 }

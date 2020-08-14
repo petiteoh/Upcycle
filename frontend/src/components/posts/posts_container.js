@@ -4,7 +4,7 @@ import { fetchCategories } from "../../actions/category_actions";
 import Posts from "./posts";
 
 const msp = (state, ownProps) => {
-  debugger;
+  // debugger;
   const categories = Object.values(state.categories).map(
     (category) => category
   );
@@ -17,7 +17,8 @@ const msp = (state, ownProps) => {
     categories: categories,
     categoryObjs,
     currentUser: state.session.user,
-    upcycles: state.upcycles
+    upcycles: state.upcycles,
+    user: state.session.user
   };
 };
 
