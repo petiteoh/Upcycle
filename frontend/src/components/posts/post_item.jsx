@@ -94,7 +94,7 @@ class PostItem extends React.Component {
             </div>
             <label className="post-category-label">
               <p className="post-handle-name">
-                Created By:
+                Created By:{" "}
                 <Link to={`posts/user/${this.props.user.id}`}>
                   {this.props.user.handle}
                 </Link>
