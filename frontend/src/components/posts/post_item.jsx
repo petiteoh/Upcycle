@@ -2,6 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class PostItem extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    debugger
+    this.props.upcyclePost(this.props.post._id)
+  }
 
   render() {
 
@@ -14,7 +25,7 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      if (this.props.post.upcycler_ids.includes(this.props.post.creator_id)) {
+      if (this.props.post.upcycler_ids.includes(this.props.currentUser.id)) {
         return (
           <button className="upcycle-button" value="Upcycled">
             Upcycled
@@ -22,7 +33,7 @@ class PostItem extends React.Component {
         );
       } else {
         return (
-          <button className="upcycle-button" value="Upcycle" onClick={() => this.props.upcyclePost(this.props.post._id)}>
+          <button className="upcycle-button" onClick={this.handleSubmit}>
             Upcycle
           </button>
         )
@@ -30,7 +41,6 @@ class PostItem extends React.Component {
     }
     
     const upcycleCount = () => {
-      debugger
       if (this.props.post.upcycle_ids.length === 0) {
         return '0'
     } else {
@@ -40,7 +50,7 @@ class PostItem extends React.Component {
 
   // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
   // let categoryName = categoryObj[name]
-
+    debugger
     return (
       <div className="single-post-container">
         <div className="left-container">

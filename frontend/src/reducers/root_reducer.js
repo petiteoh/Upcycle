@@ -4,14 +4,15 @@ import errors from "./errors_reducer";
 import posts from "./posts_reducer";
 import leaderboard from './leaderboard_reducer';
 import categories from './categories_reducer';
+import upcycles from './upcycle_reducer'
 
 const RootReducer = combineReducers({
     session,
     errors,
     posts,
     leaderboard,
-    categories
-
+    categories,
+    upcycles
 });
 
 export default RootReducer;

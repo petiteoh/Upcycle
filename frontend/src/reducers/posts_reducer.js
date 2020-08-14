@@ -17,6 +17,7 @@ const PostReducer = ( state = {}, action ) => {
       newState = Object.assign({}, state, action.post.data);
       return newState;
     case RECEIVE_POSTS:
+      debugger
       newState = Object.assign({}, state, action.posts.data);
       return newState;
     case RECEIVE_USER_POSTS:
@@ -27,9 +28,6 @@ const PostReducer = ( state = {}, action ) => {
       return newState;
     case RECEIVE_POST_UPCYCLES:
       newState = Object.assign({}, state, action.upcycles.data);
-      return newState;
-    case RECEIVE_UPCYCLE:
-      newState = Object.assign({}, state, action.upcycle.data)
       return newState;
     default:
       return state;
