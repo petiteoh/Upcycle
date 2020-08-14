@@ -39,7 +39,7 @@ class Upload extends React.Component {
           },
         })
         .then((response) => {
-            debugger
+            
           if (200 === response.status) {
             // If file size is larger than expected.
             if (response.data.error) {

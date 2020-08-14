@@ -19,6 +19,10 @@ const UserSchema = new Schema(
       required: true,
       index: { unique: true },
     },
+    photo: {
+      type: String,
+      required: false
+    },
     password: {
       type: String,
       required: true,
