@@ -6,7 +6,7 @@
 
 .image-parallax img{
   /* position: absolute; */
-  transform-origin: 0 50%;
+  /* transform-origin: 0 50%; */
   z-index: -10;
 }  
 

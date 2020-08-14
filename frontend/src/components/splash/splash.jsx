@@ -21,30 +21,29 @@ export default class Splash extends Component {
 
   componentDidMount() {
     document.addEventListener("scroll", (e) => {
-      const target = document.querySelector(".img-container");
-      const target1 = document.querySelector(".img-container2");
-      const target2 = document.querySelectorAll(".highlight");
+      const target1 = document.querySelector(".img-container");
+      const target = document.querySelectorAll(".parallax");
+      const highlights = document.querySelectorAll(".highlight");
 
-      // console.log(target.style);
+
+    //   // console.log(target.style);
       let scrolled = window.pageYOffset;
-      let rate = scrolled * -0.5;
       let blurRate = scrolled * 0.01;
 
-      target.style.filter = `blur(${2 * blurRate}px)`;
-      target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
-      target1.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+      target1.style.filter = `blur(${2 * blurRate}px)`;
 
-      let index = 0,
-        length = target2.length;
+      let index = 0, length = target.length;
 
       for (index; index < length; index++) {
-        target2[index].style.backgroundColor = `#9cefc999`;
+        let pos = window.pageYOffset * target[index].dataset.rate;
+
+        target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
+      }
+      
+      for (let i = 0; i < highlights.length; i++) {
+        highlights[i].style.backgroundColor = `#9cefc999`;
       }
     });
-  }
-
-  componentWillUnmount() {
-    // document.removeEventListener("scroll");
   }
 
   render() {
@@ -66,14 +65,16 @@ export default class Splash extends Component {
           <section className="main-header-section">
             <div className="img-container">
               <img
-                className="parallax-img-1-before"
+                className="parallax-img-1-before parallax"
                 width="600px"
                 src="https://medio-app-seed.s3.amazonaws.com/canbefore.png"
+                data-rate="-0.2"
               />
               <img
-                className="parallax-img-1-after"
+                className="parallax-img-1-after parallax"
                 width="600px"
                 src="https://medio-app-seed.s3.amazonaws.com/canafter.png"
+                data-rate="-0.8"
               />
             </div>
             <div className="main-header-content-container">
@@ -90,14 +91,16 @@ export default class Splash extends Component {
           <section className="infographic-section">
             <div className="img-container2">
               <img
-                className="parallax-img-2-before"
+                className="parallax-img-2-before parallax"
                 width="600px"
                 src="https://medio-app-seed.s3.amazonaws.com/corkbefore.png"
+                data-rate="-0.3"
               />
               <img
-                className="parallax-img-2-after"
+                className="parallax-img-2-after parallax"
                 width="600px"
                 src="https://medio-app-seed.s3.amazonaws.com/corkafter.png"
+                data-rate="-0.6"
               />
             </div>
             <h1>Posibilities Are Endless</h1>
