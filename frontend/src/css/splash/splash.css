@@ -67,3 +67,17 @@
   background-color: #9cefc999;
   /* #9cefc999 */
 }
+
+.top-post-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-post-content img {
+  padding-left: 5px;
+}
+.top-post-description {
+  font-size: 20px;
+  line-height: 25px;
+  padding-top: 20px;
+}
