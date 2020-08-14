@@ -19,11 +19,12 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
+      // debugger
       if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
           <div>
             <img
-              class="upcycle-logo"
+              className="upcycle-logo"
               src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
               alt=""
             />

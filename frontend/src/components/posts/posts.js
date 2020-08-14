@@ -60,7 +60,7 @@ class Post extends React.Component {
     // debugger
     let filtered = this.props.posts.filter((post) => {
       if (this.state["filterSearch"] !== "title") { 
-        debugger
+        // debugger
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );

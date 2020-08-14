@@ -9,15 +9,16 @@ const msp = (state) => {
     const categories = Object.values(state.categories).map((category) => category);
     // debugger
     return {
-        posts: Object.values(state.posts),
-        categories: categories,
+      posts: Object.values(state.posts),
+      categories: categories,
+      user: state.session.user
     };
 };
 
 const mdp = (dispatch) => {
 
   return {
-        fetchUserPosts: () => dispatch(fetchUserPosts()),
+        fetchUserPosts: (id) => dispatch(fetchUserPosts(id)),
         fetchCategories: () => dispatch(fetchCategories()),
   };
 };
