@@ -4,12 +4,12 @@ import { fetchPost } from "../../actions/post_actions";
 
 class PostShow extends React.Component {
   componentDidMount() {
-    // debugger;
+    ;
     this.props.fetchPost(this.props.match.params.id);
   }
 
   render() {
-    // debugger;
+    ;
     return (
       <div>
         <div>

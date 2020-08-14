@@ -3,7 +3,6 @@ import { fetchCategories } from "../../actions/category_actions";
 import CategoryDD from "./category-dd";
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
     const categories = Object.values(state.categories).map(
       (category) => category.name
     );
