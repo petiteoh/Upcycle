@@ -4,7 +4,6 @@ import { fetchCategories } from "../../actions/category_actions";
 import Posts from "./posts";
 
 const msp = (state, ownProps) => {
-  debugger;
   const categories = Object.values(state.categories).map(
     (category) => category
   );
