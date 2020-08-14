@@ -43,12 +43,10 @@
   position: absolute;
   right: 30px;
   top: 85px;
-  z-index: -1;
 }
 
 .parallax-img-1-after {
   position: absolute;
-  z-index: -1;
   left: 160px;
 }
 
@@ -65,4 +63,7 @@
   transform: rotate(-40deg);
 }
 
-/* #9cefc999 */
+.highlight {
+  background-color: #9cefc999;
+  /* #9cefc999 */
+}
