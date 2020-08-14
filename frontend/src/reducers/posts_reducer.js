@@ -17,7 +17,6 @@ const PostReducer = ( state = {}, action ) => {
       newState = Object.assign({}, state, action.post.data);
       return newState;
     case RECEIVE_POSTS:
-      debugger
       newState = Object.assign({}, state, action.posts.data);
       return newState;
     case RECEIVE_USER_POSTS:
