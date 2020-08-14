@@ -20,10 +20,10 @@ export default class Splash extends Component {
   }
 
   parallaxEffect(e){
-    const target1 = document.querySelector(".blur");
-      const target = document.querySelectorAll(".parallax");
+    // const target1 = document.querySelectorAll(".blur");
+    const target = document.querySelectorAll(".parallax");
 
-      // target1.style.filter = `blur(${2 * blurRate}px)`;
+      
 
       let index = 0, length = target.length;
 
@@ -33,11 +33,14 @@ export default class Splash extends Component {
         target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
       }
 
-      for (let i = 0; i < target1.length; i++) {
-        let scrolled = window.pageYOffset;
-        let blurRate = scrolled * 0.01;
-        target1[i].style.filter = `blur(${2 * blurRate}px)`;
-      }
+      // let scrolled = window.pageYOffset;
+      // let blurRate = scrolled * 0.01;
+      // let index2 = 0, length2 = target1.length;
+      // target1.style.filter = `blur(${2 * blurRate}px)`;
+
+      // for (index2; index2 < length2; index2++) {
+      //   target1[index2].style.filter = `blur(${2 * blurRate}px)`;
+      // }
   }
   componentDidMount(){
     document.addEventListener("scroll", this.parallaxEffect);
