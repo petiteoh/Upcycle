@@ -6,7 +6,7 @@ import "../../search-bar.css";
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    // debugger;
+    ;
     this.state = {
       posts: [],
       categories: [],
@@ -18,20 +18,20 @@ class Post extends React.Component {
   }
 
   onRadioChange = (e) => {
-    // debugger
+    
     this.setState({
       filterSearch: e.target.value,
     });
   };
 
   componentWillMount() {
-    // debugger
+    
     this.props.fetchPosts();
     this.props.fetchCategories();
   }
 
   componentWillReceiveProps(newState) {
-    // debugger
+    
     this.setState({ posts: newState.posts });
     this.setState({ categories: newState.categories });
   }
@@ -41,9 +41,9 @@ class Post extends React.Component {
   }
 
   render() {
-    // debugger
+    
     let filtered = this.state.posts.filter((post) => {
-      // debugger
+      
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -55,14 +55,14 @@ class Post extends React.Component {
       }
     });
 
-    // debugger
+    
     if (this.state.posts.length === 0) {
       return <div>No Posts</div>;
     } else {
       const allPosts = filtered.map((post, idx) => (
-        <PostItem key={idx} post={post} />
+        <PostItem key={idx} post={post} upcyclePost={this.props.upcyclePost} />
       ));
-      // debugger
+      
       return (
         <div>
           <div className="search">

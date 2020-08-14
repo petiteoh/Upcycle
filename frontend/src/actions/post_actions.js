@@ -7,9 +7,10 @@ export const CREATE_POST = "CREATE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RECEIVE_POST_UPCYCLES = "RECEIVE_POST_UPCYCLES";
+export const RECEIVE_UPCYCLE = "RECEIVE_UPCYCLE";
 
 export const receivePost = (post) => {
-  // debugger
+  
   return {
   type: RECEIVE_POST,
   post
@@ -45,6 +46,11 @@ export const receivePostUpcycles = (upcycles) => ({
   upcycles
 })
 
+export const receiveUpcycle = (upcycle) => ({
+  type: RECEIVE_UPCYCLE,
+  upcycle
+})
+
 // 
 
 export const fetchPost = (id) => (dispatch) => (
@@ -67,14 +73,14 @@ export const fetchUserPosts = (id) => (dispatch) => (
     .then((posts) => 
         dispatch(receiveUserPosts(posts)))
     .catch((err) => {
-      // debugger
+      
       return (
         dispatch(receiveErrors(err.response.data)))}
   )
 );
 
 export const createPost = (data) => (dispatch) => {
-// debugger
+
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 
@@ -96,3 +102,8 @@ export const fetchPostUpcycles = (id) => dispatch => (
   PostAPIUtil.getPostUpcycles(id)
     .then(upcycles => dispatch(receivePostUpcycles(upcycles)))
 )
+
+export const upcyclePost = (id) => (dispatch) => {
+  PostAPIUtil.createPostUpcycle(id)
+    .then((upcycle) => dispatch(receiveUpcycle(upcycle)))
+}

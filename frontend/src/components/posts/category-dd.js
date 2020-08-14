@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 class CategoryDD extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    
     this.state = {
       listOpen: false,
       category_id: "Select a Category",
@@ -14,7 +14,7 @@ class CategoryDD extends React.Component {
   }
 
   update(e) {      
-      debugger;
+      ;
     this.setState({ 
         category_id: e.target.value
       });
@@ -46,7 +46,7 @@ class CategoryDD extends React.Component {
     const { categories, categoryObjs, categoryIds } = this.props;
     const { listOpen } = this.state;
     if (categoryObjs.length === 0) return null;
-    // debugger
+    
     return (
       <div className="dd-wrapper">
         <div className="dd-header" onClick={() => this.toggleList()}>

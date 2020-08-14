@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchPosts } from "../../actions/post_actions";
+import { fetchPosts, upcyclePost } from "../../actions/post_actions";
 import { fetchCategories } from "../../actions/category_actions";
 import Posts from "./posts";
 
@@ -7,18 +7,19 @@ const msp = (state) => {
   const categories = Object.values(state.categories).map(
     (category) => category.name
   );
-  // debugger
+  
   return {
     posts: Object.values(state.posts),
-    categories: categories
+    categories: categories,
   };
 };
 
 const mdp = (dispatch) => {
-  // debugger
+  
   return {
     fetchPosts: () => dispatch(fetchPosts()),
-    fetchCategories: () => dispatch(fetchCategories())
+    fetchCategories: () => dispatch(fetchCategories()),
+    upcyclePost: (id) => dispatch(upcyclePost(id))
   };
 };
 
