@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { fetchPosts, upcyclePost } from "../../actions/post_actions";
 import { fetchCategories } from "../../actions/category_actions";
+import {fetchAllUsers} from '../../actions/user_actions';
 import Posts from "./posts";
 
 const msp = (state, ownProps) => {
@@ -17,7 +18,8 @@ const msp = (state, ownProps) => {
     categoryObjs,
     currentUser: state.session.user,
     upcycles: state.upcycles,
-    user: state.session.user
+    user: state.session.user,
+    authors: Object.values(state.users)
   };
 };
 
@@ -26,6 +28,7 @@ const mdp = (dispatch) => {
   return {
     fetchPosts: () => dispatch(fetchPosts()),
     fetchCategories: () => dispatch(fetchCategories()),
+    fetchUsers: () => dispatch(fetchAllUsers()),
     upcyclePost: (id) => dispatch(upcyclePost(id))
   };
 };

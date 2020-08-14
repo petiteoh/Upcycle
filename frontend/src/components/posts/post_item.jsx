@@ -88,7 +88,7 @@ class PostItem extends React.Component {
             </div>
             <label className="post-category-label">
               <p className="post-handle-name">
-                Created By: <Link to={`posts/user/${this.props.user.id}`}>{this.props.user.handle}</Link>
+                Created By: <Link to={`posts/user/${this.props.user.id}`}>{this.props.author.handle}</Link>
               </p>
               <p className="post-category-name">
                 Category: {cats[this.props.post.category_id]}

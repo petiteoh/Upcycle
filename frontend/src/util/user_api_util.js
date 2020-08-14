@@ -7,3 +7,7 @@ export const getCurrentUser = (handle) => {
 export const getLeaderboard = () => {
   return axios.get(`/api/users/leaderboard`);
 };
+
+export const getUsers = () => {
+  return axios.get('/api/users/')
+}
