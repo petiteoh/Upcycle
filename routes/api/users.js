@@ -11,6 +11,13 @@ const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+router.get("/", (req, res) => {
+  User.find()
+        .sort({ createdAt: -1 })
+        .then(users => res.json(users))
+        .catch(err => {
+            res.status(404).json({ nousersfound: 'No users found' })});
+});
 
 router.get(
     "/current",
@@ -145,7 +152,8 @@ router.get("/:id", (req, res) => {
       email: user.email,
       badge_ids: user.badge_ids,
       posts: user.posts,
-      upcycled_posts: user.upcycled_posts
+      upcycled_posts: user.upcycled_posts,
+      hero_points: user.hero_points
     }))
     .catch(err => {
         res.status(404).json({ nouserfound: "User does not exist."})

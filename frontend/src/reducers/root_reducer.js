@@ -4,7 +4,8 @@ import errors from "./errors_reducer";
 import posts from "./posts_reducer";
 import leaderboard from './leaderboard_reducer';
 import categories from './categories_reducer';
-import upcycles from './upcycle_reducer'
+import upcycles from './upcycle_reducer';
+import users from './user_reducer';
 
 const RootReducer = combineReducers({
     session,
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
     posts,
     leaderboard,
     categories,
-    upcycles
+    upcycles,
+    users
 });
 
 export default RootReducer;
