@@ -1,6 +1,56 @@
 .about-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 125vh;
+}
+
+.team-members {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-top: 100px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+.member img {
+  height: 200px;
+  border-radius: 50%;
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 25px;
+}
+
+.member-info a {
+  font-size: 20px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+#Nikki {
+  border: 3px solid rgb(204, 204, 204);
+}
+#Artem {
+  border: 3px solid rgb(235, 133, 49);
+}
+
+#Cade {
+  border: 3px solid rgb(15, 57, 134);
+}
+
+#Victor {
+  border: 3px solid rgb(15, 106, 134);
 }

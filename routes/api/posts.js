@@ -29,7 +29,7 @@ router.get('/user/:creator_id', (req, res) => {
 
 router.get("/top-post", (req, res) => {
   Post.find()
-    .sort({ upcycle_ids: -1 })
+    .sort({ upcycle_ids: 1 })
     .limit(1)
     .then((post) => res.json(post))
     .catch((err) => {
