@@ -19,14 +19,11 @@ export default class Splash extends Component {
     init();
   }
 
-  componentDidMount() {
-    document.addEventListener("scroll", (e) => {
-      const target1 = document.querySelector(".img-container");
+  parallaxEffect(e){
+    const target1 = document.querySelector(".img-container");
       const target = document.querySelectorAll(".parallax");
       const highlights = document.querySelectorAll(".highlight");
 
-
-    //   // console.log(target.style);
       let scrolled = window.pageYOffset;
       let blurRate = scrolled * 0.01;
 
@@ -39,11 +36,39 @@ export default class Splash extends Component {
 
         target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
       }
-      
+
       for (let i = 0; i < highlights.length; i++) {
         highlights[i].style.backgroundColor = `#9cefc999`;
       }
-    });
+  }
+  componentDidMount(){
+    document.addEventListener("scroll", this.parallaxEffect);
+    // document.addEventListener("scroll", (e) => {
+    //   const target1 = document.querySelector(".img-container");
+    //   const target = document.querySelectorAll(".parallax");
+    //   const highlights = document.querySelectorAll(".highlight");
+
+    //   let scrolled = window.pageYOffset;
+    //   let blurRate = scrolled * 0.01;
+
+    //   target1.style.filter = `blur(${2 * blurRate}px)`;
+
+    //   let index = 0, length = target.length;
+
+    //   for (index; index < length; index++) {
+    //     let pos = window.pageYOffset * target[index].dataset.rate;
+
+    //     target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
+    //   }
+
+    //   for (let i = 0; i < highlights.length; i++) {
+    //     highlights[i].style.backgroundColor = `#9cefc999`;
+    //   }
+    // });
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("scroll", this.parallaxEffect);
   }
 
   render() {
