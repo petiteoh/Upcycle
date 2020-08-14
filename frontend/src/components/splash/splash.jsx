@@ -22,6 +22,7 @@ export default class Splash extends Component {
   componentDidMount() {
     document.addEventListener("scroll", (e) => {
       const target = document.querySelector(".img-container");
+      const target1 = document.querySelector(".img-container2");
       const target2 = document.querySelectorAll(".highlight");
 
       // console.log(target.style);
@@ -31,8 +32,10 @@ export default class Splash extends Component {
 
       target.style.filter = `blur(${2 * blurRate}px)`;
       target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+      target1.style.transform = `translate3d(0px, ${rate}px, 0px)`;
 
-      let index = 0, length = target2.length;
+      let index = 0,
+        length = target2.length;
 
       for (index; index < length; index++) {
         target2[index].style.backgroundColor = `#9cefc999`;
@@ -74,15 +77,30 @@ export default class Splash extends Component {
               />
             </div>
             <div className="main-header-content-container">
-              <h1 className="highlight">Upcycling Reduces Your Carbon Polution</h1>
+              <h1 className="highlight">
+                Upcycling Reduces Your Carbon Polution
+              </h1>
               <h3 className="highlight">
-                Our mission at Upcycled is to inspire the creative reuse of "waste." Let's heal our planet one upcycle at a time!
+                Our mission at Upcycled is to inspire the creative reuse of
+                "waste." Let's heal our planet one upcycle at a time!
               </h3>
               <p>{demoLoginButton()}</p>
             </div>
           </section>
           <section className="infographic-section">
-            <h1>Infographic</h1>
+            <div className="img-container2">
+              <img
+                className="parallax-img-2-before"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/corkbefore.png"
+              />
+              <img
+                className="parallax-img-2-after"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/corkafter.png"
+              />
+            </div>
+            <h1>Posibilities Are Endless</h1>
             <p>StatsStatsStatsStats</p>
             <p>ImagesImagesImagesImages</p>
           </section>

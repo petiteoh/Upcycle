@@ -15,6 +15,11 @@
   top: 130px;
 }
 
+.img-container2 {
+  position: absolute;
+  z-index: -2;
+}
+
 .main-header-content-container {
   display: flex;
   flex-direction: column;
@@ -45,6 +50,19 @@
   position: absolute;
   z-index: -1;
   left: 160px;
+}
+
+.parallax-img-2-before {
+  position: absolute;
+  top: 85px;
+  z-index: -1;
+}
+
+.parallax-img-2-after {
+  position: absolute;
+  z-index: -1;
+  left: 500px;
+  transform: rotate(-40deg);
 }
 
 /* #9cefc999 */

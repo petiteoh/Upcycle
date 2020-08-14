@@ -96,11 +96,13 @@
 }
 
 .infographic-section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 700px;
     text-align: right;
+    z-index: 3;
 }
 
 .highlight-section {
