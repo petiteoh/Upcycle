@@ -13,7 +13,6 @@ class Post extends React.Component {
       search: "",
       filterSearch: "",
     };
-
     this.onRadioChange = this.onRadioChange.bind(this);
   }
 
@@ -24,11 +23,24 @@ class Post extends React.Component {
     });
   };
 
-  componentWillMount() {
+  // componentWillMount() {
     
-    this.props.fetchPosts();
-    this.props.fetchCategories();
-  }
+  //   this.props.fetchPosts();
+  //   this.props.fetchCategories();
+  // }
+
+  componentDidMount() {
+    // if (this.props.posts !== prevProps.posts) {
+      this.props.fetchPosts()
+      this.props.fetchCategories();
+    }
+  
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.posts !== prevProps.posts) {
+  //     this.props.fetchPosts();
+  //   }
+  // }
 
   componentWillReceiveProps(newState) {
     
@@ -41,14 +53,16 @@ class Post extends React.Component {
   }
 
   render() {
-    
+    // debugger
     let filtered = this.state.posts.filter((post) => {
-      
+      // debugger
       if (this.state["filterSearch"] !== "title") { 
+        // debugger
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
       } else {
+        // debugger
         return (
         post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
@@ -60,7 +74,7 @@ class Post extends React.Component {
       return <div>No Posts</div>;
     } else {
       const allPosts = filtered.map((post, idx) => (
-        <PostItem key={idx} post={post} upcyclePost={this.props.upcyclePost} />
+        <PostItem key={idx} post={post} categoryObjs={this.props.categoryObjs} upcyclePost={this.props.upcyclePost} />
       ));
       
       return (

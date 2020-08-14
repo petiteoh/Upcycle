@@ -3,14 +3,19 @@ import { fetchPosts, upcyclePost } from "../../actions/post_actions";
 import { fetchCategories } from "../../actions/category_actions";
 import Posts from "./posts";
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
+  debugger;
   const categories = Object.values(state.categories).map(
     (category) => category.name
+  );
+  const categoryObjs = Object.values(state.categories).map(
+    (category) => category
   );
   
   return {
     posts: Object.values(state.posts),
     categories: categories,
+    categoryObjs,
   };
 };
 
