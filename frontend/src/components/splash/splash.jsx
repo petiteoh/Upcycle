@@ -107,7 +107,7 @@ export default class Splash extends Component {
                 data-rate="-0.6"
               />
             </div>
-            <h1>Posibilities Are Endless</h1>
+            <h1>Possibilities Are Endless</h1>
             <p>StatsStatsStatsStats</p>
             <p>ImagesImagesImagesImages</p>
           </section>
