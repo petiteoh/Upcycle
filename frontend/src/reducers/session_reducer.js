@@ -6,6 +6,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  
   switch (action.type) {
     case RECEIVE_USER_LOGOUT:
       return {
@@ -24,6 +25,8 @@ export default function (state = initialState, action) {
         user: {
           email: action.currentUser.data.email,
           handle: action.currentUser.data.handle,
+          hero_points: action.currentUser.data.hero_points,
+          photo: action.currentUser.data.photo
         },
       };
     default:

@@ -65,11 +65,11 @@ export default class Splash extends Component {
     const demoLoginButton = () => {
       if (!this.props.isAuthenticated) {
         return (
-          <button className="demo-button-container" onClick={this.props.login}>
             <Link className="demo-button" to="/login">
+          <button className="demo-button-container" onClick={this.props.login}>
               Demo Login
-            </Link>
           </button>
+            </Link>
         );
       }
     };
