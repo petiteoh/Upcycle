@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import MegaMenu from "./mega_menu";
-import '../../css/nav/nav.css'
-export default class Nav extends Component {
+import '../../css/nav/nav.css';
+class Nav extends Component {
   constructor(props) {
     super(props);
 
@@ -14,7 +14,6 @@ export default class Nav extends Component {
     const profileDash = () => {
 
       if(props.isAuthenticated){
-        // debugger
         return (
           <>
             <div className="profile-dash">
@@ -23,6 +22,7 @@ export default class Nav extends Component {
               </Link>
               <p>{`Hi, ${props.user.handle}`}</p>
               <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
+              <Link to="/create-post">Create Post</Link>
               <Link to="/" onClick={props.logout}>Logout</Link>
             </div>
           </>
@@ -59,7 +59,7 @@ export default class Nav extends Component {
           </this.MegaMenu>
         </nav>
         <div className="header-logo">
-          <Link href="/">
+          <Link to="/">
             <img
               className="header-logo-img"
               src="https://medio-app-seed.s3.amazonaws.com/Upcycledlogo.png"
@@ -74,3 +74,5 @@ export default class Nav extends Component {
     );
   }
 }
+
+export default withRouter(Nav);
