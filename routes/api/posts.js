@@ -10,7 +10,7 @@ const Upcycle = require('../../models/Upcycle');
 
 router.get('/', (req, res) => {
     Post.find()
-        .sort({ date: -1 })
+        .sort({ date: 1 })
         .then(posts => res.json(posts))
         .catch(err => {
             res.status(404).json({ nopostsfound: 'No posts found' })});
@@ -26,6 +26,16 @@ router.get('/user/:creator_id', (req, res) => {
             )
         );
 });
+
+router.get("/top-post", (req, res) => {
+  Post.find()
+    .sort({ upcycle_ids: -1 })
+    .limit(1)
+    .then((post) => res.json(post))
+    .catch((err) => {
+      res.status(404).json({ nopostfound: "No top post found" });
+    });
+});  
 
 
 router.get('/:id', (req, res) => {
@@ -127,7 +137,8 @@ router.post("/:id/create-upcycle",
 //     .catch(err => res.status(404).json({ nopointupdate: "Points were not updated"}))
 //   });
   
-  
+
 });
+
 
 module.exports = router;
