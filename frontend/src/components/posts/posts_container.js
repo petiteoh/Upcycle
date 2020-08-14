@@ -6,7 +6,7 @@ import Posts from "./posts";
 const msp = (state, ownProps) => {
   debugger;
   const categories = Object.values(state.categories).map(
-    (category) => category.name
+    (category) => category
   );
   const categoryObjs = Object.values(state.categories).map(
     (category) => category
