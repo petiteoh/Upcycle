@@ -100,14 +100,7 @@ router.post("/:id/create-upcycle",
     post_id: req.params.id,
     upcycler: req.user.id
   });
-
-  upcycle
-    .save()
-    .then((upcycle) => res.json(upcycle))
-    .catch((err) =>
-      res.status(404).json({ noupcycle: "Upcycle was not created" })
-    );
-
+  debugger
   User.findByIdAndUpdate(req.user.id, {
       $push: {upcycled_posts: req.params.id}
     }).then(user => {
@@ -115,13 +108,25 @@ router.post("/:id/create-upcycle",
     })
   ;
   
+  debugger
+  upcycle
+    .save()
+    .then((upcycle) => res.json(upcycle))
+    .catch((err) =>
+      res.status(404).json({ noupcycle: "Upcycle was not created" })
+    );
+
   
+  debugger
   Post.findByIdAndUpdate(req.params.id, {
-      $push: { upcycler_ids: req.user.id, upcycle_ids: upcycle._id}
+      $push: { upcycler_ids: upcycle.upcycler, upcycle_ids: upcycle._id}
   }).then((post) => {
       post.save();
       res.json(post);
-  });
+  })
+    .catch((err) =>
+      res.status(404).json({ noupcycle: "Upcycle was not created" })
+    );
 
 //   const post = Post.findById(req.params.id)
 //     .then(console.log(post))

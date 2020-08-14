@@ -24,30 +24,33 @@ class Post extends React.Component {
     });
   };
 
-  // componentWillMount() {
+  componentWillMount() {
     
-  //   this.props.fetchPosts();
-  //   this.props.fetchCategories();
-  // }
+    this.props.fetchPosts();
+    this.props.fetchCategories();
+  }
 
-  componentDidMount() {
-    // if (this.props.posts !== prevProps.posts) {
-      this.props.fetchPosts()
-      this.props.fetchCategories();
-    }
+  // componentDidMount() {
+  //   // if (this.props.posts !== prevProps.posts) {
+  //     this.props.fetchPosts()
+  //     this.props.fetchCategories();
+  //   }
   
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.posts !== prevProps.posts) {
-  //     this.props.fetchPosts();
-  //   }
-  // }
-
-  componentWillReceiveProps(newState) {
-    
-    this.setState({ posts: newState.posts });
-    this.setState({ categories: newState.categories });
+  componentDidUpdate(prevProps) {
+    debugger
+    if (this.props.upcycles !== prevProps.upcycles) {
+      this.setState({
+        posts: this.props.posts
+      })
+    }
   }
+
+  // componentWillReceiveProps(newState) {
+    
+  //   this.setState({ posts: newState.posts });
+  //   this.setState({ categories: newState.categories });
+  // }
 
   updateSearch(e) {
     this.setState({ search: e.target.value.substr(0, 20) });
@@ -55,10 +58,9 @@ class Post extends React.Component {
 
   render() {
     // debugger
-    let filtered = this.state.posts.filter((post) => {
-      // debugger
+    let filtered = this.props.posts.filter((post) => {
       if (this.state["filterSearch"] !== "title") { 
-        // debugger
+        debugger
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
@@ -82,8 +84,8 @@ class Post extends React.Component {
     //   filtered = this.state.posts.filter((post) => {
     //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
     // }
-    
-    if (this.state.posts.length === 0) {
+
+    if (this.props.posts.length === 0) {
       return <div>No Posts</div>;
     } else {
       const allPosts = filtered.map((post, idx) => (

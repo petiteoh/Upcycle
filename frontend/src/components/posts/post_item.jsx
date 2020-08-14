@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "../../css/post_feed/post-feed.css"
 
 class PostItem extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
 
   render() {
 
@@ -15,7 +19,7 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      if (this.props.post.upcycler_ids.includes(this.props.post.creator_id)) {
+      if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
           <div>
             <img
@@ -59,7 +63,7 @@ class PostItem extends React.Component {
 
   // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
   // let categoryName = categoryObj[name]
-
+    debugger
     return (
       <div className="single-post-container">
         <div className="top-container">
