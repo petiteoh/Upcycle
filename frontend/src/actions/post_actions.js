@@ -59,7 +59,7 @@ export const fetchPosts = () => (dispatch) => (
   PostAPIUtil.getPosts()
     .then((posts) => 
         dispatch(receivePosts(posts)))
-    .catch(err => (dispatch(receiveErrors(err.response))))
+    .catch(err => (dispatch(receiveErrors(err.response.data))))
 );
 
 export const fetchUserPosts = (id) => (dispatch) => (

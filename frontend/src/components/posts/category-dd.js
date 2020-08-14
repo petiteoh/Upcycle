@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 class CategoryDD extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
     this.state = {
       listOpen: false,
       category_id: "Select a Category",
@@ -14,7 +14,7 @@ class CategoryDD extends React.Component {
   }
 
   update(e) {      
-      debugger;
+      // debugger;
     this.setState({ 
         category_id: e.target.value
       });

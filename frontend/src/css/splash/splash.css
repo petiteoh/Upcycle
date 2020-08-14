@@ -1,3 +1,16 @@
-.mega-section {
-  width: 100%;
+.main-header-section {
+  position: relative;
+}
+
+.image-parallax img{
+  position: absolute;
+  transform-origin: 0 50%;
+}
+
+.parallax-img-1-before {
+  z-index: -1;
+}
+
+.parallax-img-1-after {
+  z-index: -1;
 }
