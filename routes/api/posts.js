@@ -129,7 +129,7 @@ router.post("/:id/create-upcycle",
 //         res.status(404).json({ nopostfound: 'No post found with that ID' })
 //     );
 
-//     debugger
+//     
 //   User.findByIdAndUpdate(post.creator_id, {
 //       $inc: {hero_points: 2}
 //   }).then(user => {
