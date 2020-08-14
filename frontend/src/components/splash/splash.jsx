@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../splash.css";
 import "../../css/splash/splash.css";
 import Leaderboard from "../leaderboard/leaderboard_container";
+import axios from "axios";
 
 export const gra = function (min, max) {
   return Math.random() * (max - min) + min;
@@ -17,13 +18,15 @@ export default class Splash extends Component {
     super(props);
 
     init();
+
+    this.state = {
+      topPost: null
+    };
   }
 
   parallaxEffect(e){
     // const target1 = document.querySelectorAll(".blur");
     const target = document.querySelectorAll(".parallax");
-
-      
 
       let index = 0, length = target.length;
 
@@ -44,6 +47,14 @@ export default class Splash extends Component {
   }
   componentDidMount(){
     document.addEventListener("scroll", this.parallaxEffect);
+
+    return axios.get(`/api/posts/top-post`)
+      .then(response => {
+        if (response.status === 200) {
+          let topPost = response.data[0];
+          return this.setState({ topPost: topPost });
+        }
+      });
   }
 
   componentWillUnmount(){
@@ -62,6 +73,24 @@ export default class Splash extends Component {
         );
       }
     };
+
+    const topPost = () => {
+      debugger
+      if (this.state.topPost){
+        const { title, image, description, upcycle_ids } = this.state.topPost;
+        return (
+          <>
+            <h1>Upcycled Project of The Week</h1>
+            <h2>{title}</h2>
+            <h3>Zero Hero: Mr Green - <span>{upcycle_ids.length} Upcycles</span></h3>
+            <p>{description}</p>
+            <img src={image} alt="top-post-image"/>
+          </>
+        );
+      } else {
+        return "No Top Post";
+      }
+    }
 
     return (
       <>
@@ -112,9 +141,7 @@ export default class Splash extends Component {
             <p>ImagesImagesImagesImages</p>
           </section>
           <section className="highlight-section">
-            <h1>Upcycled Project of The Week</h1>
-            <p>Zero Hero: Mr Green</p>
-            <p>Upcycling Community</p>
+            { topPost() }
           </section>
           <section className="leaderboard-section">{<Leaderboard />}</section>
         </section>
