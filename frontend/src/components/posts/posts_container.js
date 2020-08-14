@@ -15,6 +15,9 @@ const msp = (state, ownProps) => {
     posts: Object.values(state.posts),
     categories: categories,
     categoryObjs,
+    currentUser: state.session.user,
+    upcycles: state.upcycles,
+    user: state.session.user
   };
 };
 
