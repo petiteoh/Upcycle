@@ -30,7 +30,7 @@ class PostItem extends React.Component {
     }
     
     const upcycleCount = () => {
-      debugger
+      // debugger
       if (this.props.post.upcycle_ids.length === 0) {
         return '0'
     } else {
