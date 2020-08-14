@@ -34,10 +34,11 @@ Community Feed
 
 ## Technologies & Technical Challenges
 
-  ### Backend: MongoDB/Express
-    - Database: MongoDB with Mongoose as an ODM library.
-    - Express: 
+  ### Backend: MongoDB/Express/Node.js
+    - MongoDB: Non-relational database with Mongoose as an ODM library.
+    - Express: Node.js framework for routing/HTTP requests/responses
   ### Frontend: React/Node.js
+    - React/Redux: Frontend component rendering and connection to application state
 
 Technical challenges: 
   - Deciding what the best state shape should be to connect all components from the backend to the frontend
