@@ -7,7 +7,6 @@ const UpcycleReducer = ( state = {}, action ) => {
   
   switch(action.type){
     case RECEIVE_UPCYCLE:
-      debugger
         return Object.assign({}, state, action.upcycle.data);
     default:
         return state;
