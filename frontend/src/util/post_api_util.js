@@ -27,5 +27,9 @@ export const getPostUpcycles = (id) => {
 };
 
 export const createPostUpcycle = (id) => {
-  return axios.post(`/api/posts/${id}/create-upcycle`)
+  return axios.post(`/api/posts/${id}/create-upcycle`);
+}
+
+export const getTopPost = () => {
+  return axios.get(`/api/posts/top-post`);
 }
