@@ -8,7 +8,7 @@ import $ from "jquery";
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    
     this.state = {
       creator_id: props.currentUser.id,
       title: "",
@@ -51,7 +51,7 @@ class PostForm extends React.Component {
         })
         .then((response) => {
           if (200 === response.status) {
-            // debugger;
+            ;
             return this.setState({ image: response.data.location });
           }
         })
@@ -65,7 +65,7 @@ class PostForm extends React.Component {
   //   alertEl.setAttribute("className", "oc-alert-pop-up");
   //   $(alertEl).css("background", background);
   //   alertEl.appendChild(textNode);
-  //   debugger
+  //   
   //   alertContainer.appendChild(alertEl);
   //   setTimeout(function () {
   //     $(alertEl).fadeOut("slow");
