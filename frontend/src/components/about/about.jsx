@@ -6,6 +6,12 @@ export default class About extends Component {
     return (
       <div className="about-container">
         <h1>The Team</h1>
+        <ul className="team-members">
+          <li className="member">Nikki</li>
+          <li className="member">Artem</li>
+          <li className="member">Cade</li>
+          <li className="member">Victor</li>
+        </ul>
       </div>
     )
   }
