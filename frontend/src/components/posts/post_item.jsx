@@ -5,14 +5,14 @@ import "../../css/post_feed/post-feed.css"
 class PostItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.upcycles
+    this.state = { upcycles: this.props.upcycles }
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.upcycles !== prevProps.upcycles) {
-      this.setState(
-        this.props.upcycles
-      );
+      this.setState({
+        upcycles: this.props.upcycles,
+      });
     }
   }
 
@@ -89,7 +89,7 @@ class PostItem extends React.Component {
           <div className="right-container">
             <p className="post-description">{this.props.post.description}</p>
             <div className="upcycle-container">
-              <p className="post-upcycle-count">{this.state}</p>
+              <p className="post-upcycle-count">{this.state.upcycles}</p>
               {reflectUpcycleStatus()}
             </div>
             <label className="post-category-label">
