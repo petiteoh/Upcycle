@@ -3,13 +3,20 @@ import { Link } from "react-router-dom";
 import "../../css/post_feed/post-feed.css"
 
 class PostItem extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.state = this.props.upcycles
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.upcycles !== prevProps.upcycles) {
+      this.setState(
+        this.props.upcycles
+      );
+    }
+  }
 
   render() {
-
     const cats = {
       "5f3387049c03638d3400c1af": "Furniture",
       "5f346b5425454bc1217ce0a2": "Electronics",
@@ -21,13 +28,13 @@ class PostItem extends React.Component {
     const reflectUpcycleStatus = () => {
       if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
-          <div>
-            <img
-              class="upcycle-logo"
-              src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
-              alt=""
-            />
+          <div className="upcycle-button-container">
             <button className="upcycle-button" value="Upcycled">
+              <img
+                class="upcycle-logo"
+                src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
+                alt=""
+              />
               Upcycled
             </button>
           </div>
@@ -45,24 +52,23 @@ class PostItem extends React.Component {
                 src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
                 alt=""
               />
-              <label>Upcycle</label>
+              Upcycle
             </button>
           </div>
         );
       }
-    }
-    
+    };
+
     const upcycleCount = () => {
       if (this.props.post.upcycle_ids.length === 0) {
-        return '0'
-    } else {
-        return this.props.post.upcycle_ids.length
-    }
-  };
+        return "0";
+      } else {
+        return this.props.post.upcycle_ids.length;
+      }
+    };
 
-  // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
-  // let categoryName = categoryObj[name]
-
+    // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
+    // let categoryName = categoryObj[name]
     return (
       <div className="single-post-container">
         <div className="top-container">
@@ -74,20 +80,23 @@ class PostItem extends React.Component {
               <img
                 className="post-image"
                 src={this.props.post.image}
-                height="500px"
-                width="500px"
+                height="350px"
+                width="350px"
               />
             </div>
           </div>
           <div className="right-container">
             <p className="post-description">{this.props.post.description}</p>
             <div className="upcycle-container">
-              <p className="post-upcycle-count">{upcycleCount()}</p>
+              <p className="post-upcycle-count">{this.state}</p>
               {reflectUpcycleStatus()}
             </div>
             <label className="post-category-label">
               <p className="post-handle-name">
-                Created By: <Link to={`posts/user/${this.props.user.id}`}>{this.props.user.handle}</Link>
+                Created By:{" "}
+                <Link to={`posts/user/${this.props.user.id}`}>
+                  {this.props.user.handle}
+                </Link>
               </p>
               <p className="post-category-name">
                 Category: {cats[this.props.post.category_id]}
