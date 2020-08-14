@@ -6,6 +6,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
 
+    this.state = null;
   }
 
   MegaMenu(props) {
@@ -14,14 +15,17 @@ class Nav extends Component {
     const profileDash = () => {
 
       if(props.isAuthenticated){
+        const profileImage = props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
+
         return (
           <>
             <div className="profile-dash">
               <Link to={`posts/user/${props.user.id}`}>
-              <img src="https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg" alt=""/>
+              <img src={profileImage} alt=""/>
               </Link>
               <p>{`Hi, ${props.user.handle}`}</p>
               <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
+              {/* <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${this.state.hero_points ? this.state.hero_points : props.user.hero_points}`}</span> Hero Points</p> */}
               <Link to="/create-post">Create Post</Link>
               <Link to="/" onClick={props.logout}>Logout</Link>
             </div>
@@ -54,7 +58,7 @@ class Nav extends Component {
     return (
       <>
         <nav>
-          <this.MegaMenu user={this.props.user} isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} >
+          <this.MegaMenu user={this.props.user} state={this.state} isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} >
             <MegaMenu />
           </this.MegaMenu>
         </nav>

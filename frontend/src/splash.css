@@ -71,14 +71,17 @@
 }
 
 .demo-button-container {
-    width: 100px;
-    height: 30px;
+    /* width: 100px; */
+    /* height: 30px; */
     border-radius: 25px;
     border: none;
-    padding: inherit;
+    padding: 10px 15px;
+    margin-top: 20px;
     color: #5DD39E;
     background-color: #2b1e18;
     margin-bottom: 20px;
+    font-size: 16px;
+    font-family: "Arvo Regular";
 }
 
 .demo-button-container > .demo-button {

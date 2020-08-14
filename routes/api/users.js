@@ -19,7 +19,8 @@ router.get(
         res.json({
           id: req.user.id,
           handle: req.user.handle,
-          email: req.user.email
+          email: req.user.email,
+          hero_points: req.user.hero_points
         });
 })
 
@@ -95,7 +96,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, handle: user.handle, hero_points: user.hero_points };
+        const payload = { id: user.id, handle: user.handle, hero_points: user.hero_points, photo: user.photo };
 
         jwt.sign(
           payload,
@@ -122,12 +123,13 @@ router.get("/leaderboard", (req, res) => {
       .limit(5)
       .then(users => {
         const payload = users.map(user => {
-          const { hero_points, _id, handle, badge_ids} = user;
+          const { hero_points, _id, handle, badge_ids, photo} = user;
           return {
             _id,
             handle,
             hero_points,
-            badge_ids
+            badge_ids,
+            photo
           };
         });
         res.json(payload)

@@ -54,7 +54,6 @@ class PostItem extends React.Component {
     }
     
     const upcycleCount = () => {
-      // debugger
       if (this.props.post.upcycle_ids.length === 0) {
         return '0'
     } else {
@@ -64,7 +63,7 @@ class PostItem extends React.Component {
 
   // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
   // let categoryName = categoryObj[name]
-    debugger
+
     return (
       <div className="single-post-container">
         <div className="top-container">
