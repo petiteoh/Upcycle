@@ -38,20 +38,25 @@ Community Feed
   ### Frontend: React/Node.js
 
 Technical challenges: 
-  - TBD
-
+  - Deciding what the best state shape should be to connect all components from the backend to the frontend
+  - Implementing AWS hosting site
+  - Routing errors
+  - Pushing to Heroku
+  - Git workflow
 
 ### Backend: MongoDB/Express 
 
 Technical challenges: 
   - DB accepting duplicate handles
-  
+  - Forgetting to export, add .use in the root file
 
 ### Frontend: React/Node.js 
 
 Technical challenges: 
-  - TBD
-
+  - Understanding the state to map appropriately information that is needed
+  - Getting components to re-render instead of having to refresh to reflect updates
+  - Route path duplicating after every click
+  - "can't read property of undefined"
 
 ## Accomplished over the Weekend
 
@@ -76,23 +81,26 @@ Technical challenges:
   
 ### Day 2
   - Frontend user authentication(login/register) - **Nikki**
-  - Build Hero Points/following/upcycle feature?  **Cade**
+  - Build Hero Points/following/upcycle feature -  **Cade**
   - Build posts frontend - **Artem**
-  - Splash page content and styling - **Nikki**
+  - Splash page content and styling - **Victor**
   - Nav bar styling - **Victor**
   
 ### Day 3
   - Frontend filtering and search - **Artem**
   - Build Hero Points/following feature? -  **Cade**
-  - Infographic - **Nikki**
-  - Post show styling - **?**
+  - Create additional backend routes for leaderboard, handles, upcycles, categories, hero points - **Cade**
   - Leaderboard logic and styling - **Victor**
+  - Build post form - **Nikki**
 
 ### Day 4
-  - Upcycled posts feature? - **Cade/Nikki**
-  - Update posts component with Points, Following, and Upcycle feature - **Cade/Nikki**
-  - Profile page styling, badges? - **Artem/Victor**
+  - Upcycled posts feature - **Cade/Nikki**
+  - Update posts component with Points, handle, and Upcycle feature - **Cade/Nikki**
+  - Profile page styling, badges - **Artem/Victor**
+  - Search styling - **Artem**
   - Update all our Wiki pages - **Nikki**
+  - AWS hosting site setup - **Nikki**
+  - Seeding database - **Cade**
   
 ### Day 5
   - Finishing styling touches - **All Members**
