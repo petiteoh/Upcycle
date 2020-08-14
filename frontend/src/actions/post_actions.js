@@ -68,16 +68,18 @@ export const fetchPosts = () => (dispatch) => (
     .catch(err => (dispatch(receiveErrors(err.response.data))))
 );
 
-export const fetchUserPosts = (id) => (dispatch) => (
-  PostAPIUtil.getUserPosts(id)
-    .then((posts) => 
-        dispatch(receiveUserPosts(posts)))
+export const fetchUserPosts = (id) => (dispatch) => {
+  // debugger
+  return PostAPIUtil.getUserPosts(id)
+    .then((posts) => {
+      // debugger
+        dispatch(receiveUserPosts(posts))})
     .catch((err) => {
-      
+      // debugger
       return (
         dispatch(receiveErrors(err.response.data)))}
   )
-);
+};
 
 export const createPost = (data) => (dispatch) => {
 
