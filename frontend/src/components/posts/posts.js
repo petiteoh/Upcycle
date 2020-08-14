@@ -70,17 +70,17 @@ class Post extends React.Component {
     });
 
 
-    let filtered;
-    if (this.state["filterSearch"] === "title") {
-      filtered = this.state.posts.filter((post) => {
-        return (post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
-    } else {
-      let cat_ids;
-      this.state.categories.map((category) => cat_ids[category._id] === category.name);
+    // let filtered;
+    // if (this.state["filterSearch"] === "title") {
+    //   filtered = this.state.posts.filter((post) => {
+    //     return (post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
+    // } else {
+    //   let cat_ids;
+    //   this.state.categories.map((category) => cat_ids[category._id] === category.name);
 
-      filtered = this.state.posts.filter((post) => {
-        return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
-    }
+    //   filtered = this.state.posts.filter((post) => {
+    //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
+    // }
     
     if (this.state.posts.length === 0) {
       return <div>No Posts</div>;
