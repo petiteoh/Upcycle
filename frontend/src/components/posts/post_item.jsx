@@ -5,8 +5,6 @@ import "../../css/post_feed/post-feed.css"
 class PostItem extends React.Component {
   constructor(props){
     super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
 
@@ -21,7 +19,7 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      if (this.props.post.upcycler_ids.includes(this.props.currentUser.id)) {
+      if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
           <div>
             <img
