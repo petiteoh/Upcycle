@@ -26,6 +26,7 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
+      // debugger
       if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
           <div className="upcycle-button-container">
@@ -93,7 +94,7 @@ class PostItem extends React.Component {
             </div>
             <label className="post-category-label">
               <p className="post-handle-name">
-                Created By:{" "}
+                Created By:
                 <Link to={`posts/user/${this.props.user.id}`}>
                   {this.props.user.handle}
                 </Link>

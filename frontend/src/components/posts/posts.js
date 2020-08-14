@@ -28,6 +28,7 @@ class Post extends React.Component {
     
     this.props.fetchPosts();
     this.props.fetchCategories();
+    this.props.fetchUsers();
   }
 
   // componentDidMount() {
