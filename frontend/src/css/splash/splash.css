@@ -1,16 +1,50 @@
 .main-header-section {
   position: relative;
-}
+  display: flex;
+  align-items: center;
+} 
 
 .image-parallax img{
-  position: absolute;
+  /* position: absolute; */
   transform-origin: 0 50%;
+  z-index: -10;
+}  
+
+.img-container {
+  position: absolute;
+  top: 130px;
+}
+
+.main-header-content-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+
+}
+
+.main-header-content-container h1 {
+  font-size: 4em;
+  /* background-color: #9cefc999; */
+  max-width: 900px;
+}
+.main-header-content-container h3 {
+  font-size: 2.5em;
+  padding-top: 20px;
+  /* background-color: #9cefc999; */
+  /* max-width: 400px; */
 }
 
 .parallax-img-1-before {
+  position: absolute;
+  right: 30px;
+  top: 85px;
   z-index: -1;
 }
 
 .parallax-img-1-after {
+  position: absolute;
   z-index: -1;
+  left: 160px;
 }
+
+/* #9cefc999 */

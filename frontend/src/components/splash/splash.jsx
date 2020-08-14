@@ -1,38 +1,46 @@
 import React, { Component } from "react";
-// import * as ParallaxUtils from './parallax_utils';
 import { Link } from "react-router-dom";
 import "../../splash.css";
-import Leaderboard from '../leaderboard/leaderboard_container';
+import "../../css/splash/splash.css";
+import Leaderboard from "../leaderboard/leaderboard_container";
 
-export const gra = function(min, max) {
-    return Math.random() * (max - min) + min;
-}
+export const gra = function (min, max) {
+  return Math.random() * (max - min) + min;
+};
 
-export const init = function(){
-    let items = document.querySelectorAll('section');
-}
+export const init = function () {
+  let items = document.querySelectorAll("section");
+};
 
 export default class Splash extends Component {
   constructor(props) {
-    super(props) 
+    super(props);
 
     init();
   }
 
-
-  componentDidMount(){
+  componentDidMount() {
     document.addEventListener("scroll", (e) => {
-      // const target = document.querySelector(" .parallax-img-1-before");
-      // const target2 = document.querySelector(" .parallax-img-1-after");
+      const target = document.querySelector(".img-container");
+      const target2 = document.querySelectorAll(".highlight");
 
-      // let scrolled = window.pageYOffset;
-      // let rate = scrolled * 1.5;
-      // target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
-      // target2.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+      // console.log(target.style);
+      let scrolled = window.pageYOffset;
+      let rate = scrolled * -0.5;
+      let blurRate = scrolled * 0.01;
+
+      target.style.filter = `blur(${2 * blurRate}px)`;
+      target.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+
+      let index = 0, length = target2.length;
+
+      for (index; index < length; index++) {
+        target2[index].style.backgroundColor = `#9cefc999`;
+      }
     });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     // document.removeEventListener("scroll");
   }
 
@@ -53,14 +61,23 @@ export default class Splash extends Component {
       <>
         <section className="hero-parallax-container">
           <section className="main-header-section">
-            {/* <img className="parallax-img-1-before image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canbefore.png" /> */}
-            {/* <img className="parallax-img-1-after image-parallax" width="400px" src="https://medio-app-seed.s3.amazonaws.com/canafter.png" /> */}
+            <div className="img-container">
+              <img
+                className="parallax-img-1-before"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/canbefore.png"
+              />
+              <img
+                className="parallax-img-1-after"
+                width="600px"
+                src="https://medio-app-seed.s3.amazonaws.com/canafter.png"
+              />
+            </div>
             <div className="main-header-content-container">
-              <h1>Upcycling saves 100 million tons of carbon polution a year.</h1>
-              <p>
-                Our mission at Upcycled is to inspire the creative reuse of
-                "waste." Let's heal our planet one upcycle at a time!
-              </p>
+              <h1 className="highlight">Upcycling Reduces Your Carbon Polution</h1>
+              <h3 className="highlight">
+                Our mission at Upcycled is to inspire the creative reuse of "waste." Let's heal our planet one upcycle at a time!
+              </h3>
               <p>{demoLoginButton()}</p>
             </div>
           </section>
@@ -74,9 +91,7 @@ export default class Splash extends Component {
             <p>Zero Hero: Mr Green</p>
             <p>Upcycling Community</p>
           </section>
-          <section className="leaderboard-section">
-            { <Leaderboard /> }
-          </section>
+          <section className="leaderboard-section">{<Leaderboard />}</section>
         </section>
       </>
     );
