@@ -28,6 +28,7 @@ class Post extends React.Component {
     
     this.props.fetchPosts();
     this.props.fetchCategories();
+    this.props.fetchUsers();
   }
 
   // componentDidMount() {
@@ -93,6 +94,7 @@ class Post extends React.Component {
           user={this.props.user} 
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
+          upcycles={post.upcycle_ids.length}
         />
       ));
       
