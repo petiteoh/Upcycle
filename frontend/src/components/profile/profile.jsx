@@ -89,8 +89,8 @@ class Profile extends React.Component {
                   <img
                     className="search-icon"
                     src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-4.png"
-                    height="30"
-                    width="30"
+                    height="40"
+                    width="40"
                   ></img>
                 </div>
                 <div className="search-input-box">
@@ -103,36 +103,36 @@ class Profile extends React.Component {
                   />
                 </div>
               </div>
-              <div className="radio">
-                <div className="filter-container">
-                  <input
-                    id="opt1"
-                    type="radio"
-                    value="description"
-                    checked={this.state.filterSearch === "description"}
-                    onChange={this.onRadioChange}
-                  />
-                  <label for="opt1" className="label">
-                    <span className="span">Description</span>
-                  </label>
-                  <input
-                    id="opt2"
-                    type="radio"
-                    value="title"
-                    checked={this.state.filterSearch === "title"}
-                    onChange={this.onRadioChange}
-                  />
-                  <label for="opt2" className="label">
-                    <span className="span">Title</span>
-                  </label>
-                  <div />
-                </div>
-              </div>
             </div>
           </div>
-            <Link to="/create-post">
-              <div className="create-post">Create a post</div>
-            </Link>
+          <Link to="/create-post">
+            <div className="create-post">Create a post</div>
+          </Link>
+          <div className="radio">
+            <div className="filter-container">
+              <input
+                id="opt1"
+                type="radio"
+                value="description"
+                checked={this.state.filterSearch === "description"}
+                onChange={this.onRadioChange}
+              />
+              <label for="opt1" className="label">
+                <span className="span">Description</span>
+              </label>
+              <input
+                id="opt2"
+                type="radio"
+                value="title"
+                checked={this.state.filterSearch === "title"}
+                onChange={this.onRadioChange}
+              />
+              <label for="opt2" className="label">
+                <span className="span">Title</span>
+              </label>
+              <div />
+            </div>
+          </div>
           <div className="posts">User's posts below{allPosts}</div>
         </div>
       );
