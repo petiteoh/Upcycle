@@ -38,13 +38,13 @@ class Post extends React.Component {
   //   }
   
 
-  componentDidUpdate(prevProps) {
-    if (this.props.upcycles !== prevProps.upcycles) {
-      this.setState({
-        posts: this.props.posts
-      })
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.upcycles !== prevProps.upcycles) {
+  //     this.setState({
+  //       posts: this.props.posts
+  //     })
+  //   }
+  // }
 
   // componentWillReceiveProps(newState) {
     

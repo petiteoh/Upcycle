@@ -79,7 +79,11 @@ class Profile extends React.Component {
         <PostItem 
           key={idx} 
           post={post} 
-          user={this.props.user}/>
+          user={this.props.user}
+          categoryObjs={this.props.categoryObjs} 
+          upcyclePost={this.props.upcyclePost} 
+          upcycles={post.upcycle_ids.length}
+          />
       ));
     // }
       // debugger
