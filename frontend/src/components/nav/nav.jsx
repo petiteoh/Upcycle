@@ -14,11 +14,12 @@ class Nav extends Component {
     const profileDash = () => {
 
       if(props.isAuthenticated){
+        const profileImage = props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
         return (
           <>
             <div className="profile-dash">
               <Link to={`posts/user/${props.user.id}`}>
-              <img src="https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg" alt=""/>
+              <img src={profileImage} alt=""/>
               </Link>
               <p>{`Hi, ${props.user.handle}`}</p>
               <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
