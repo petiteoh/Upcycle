@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/user/:creator_id', (req, res) => {
-    Post.find({ creator: req.params.creator_id })
+    Post.find({ creator_id: req.params.creator_id })
         .sort({ date: -1 })
         .then(posts => res.json(posts))
         .catch(err =>

@@ -87,7 +87,13 @@ class Post extends React.Component {
       return <div>No Posts</div>;
     } else {
       const allPosts = filtered.map((post, idx) => (
-        <PostItem key={idx} post={post} categoryObjs={this.props.categoryObjs} upcyclePost={this.props.upcyclePost} />
+        <PostItem 
+          key={idx} 
+          post={post}
+          user={this.props.user} 
+          categoryObjs={this.props.categoryObjs} 
+          upcyclePost={this.props.upcyclePost} 
+        />
       ));
       
       return (
