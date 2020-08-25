@@ -114,3 +114,48 @@ Technical challenges:
   - Finishing styling touches - **All Members**
   - Debugging and pushing to Heroku - **All Members**
   - Complete Production Readme - **All Members**
+
+
+Outstanding Tasks:
+
+### Login/signup form
+- Needs to render errors
+### Logout
+- Pop up to show that user has successfully logged out
+### State
+- Needs to be normalized
+### Search bar
+- Add in categories
+- Debouncing to search as you type
+### Upcycle
+- Un-upcycle a post
+### URL paths
+- Need to fix it from duplication and breaking
+### Create post form
+- Should be brought back to the page it which the button was clicked
+### Upcycle featured post
+- Styling
+- Consistent with posts page
+### Upcycle featured post
+- Needs to render the post with the most hero points
+### Update Upcycle to Upcycled on the browser tab
+### Require image for posts
+- Frontend validations and backend validations
+### Badge logic
+- Badge given according to hero point tiers
+### Pencil to edit user profile picture and profile name
+### Edit posts
+### Delete posts
+### Following other users
+### Responsiveness
+- Make it mobile friendly
+### Accessibility
+- Make it accessibility friendly
+- Add ** for color blind
+### Notifications
+### Post index
+- Infinite scroll
+### Update ReadMe
+- Wireframes
+- State
+- Routes
