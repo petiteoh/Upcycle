@@ -159,3 +159,6 @@ Outstanding Tasks:
 - Wireframes
 - State
 - Routes
+### Push to Heroku
+- remove middlewares
+- debuggers/console.logs/DS.store/keys/anything on the window
