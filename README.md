@@ -127,6 +127,8 @@ Outstanding Tasks:
 ### Search bar
 - Add in categories
 - Debouncing to search as you type
+- reorganize the CSS code instead of hardcode
+- add background color to hide posts as it scrolls
 ### Upcycle
 - Un-upcycle a post
 ### URL paths
