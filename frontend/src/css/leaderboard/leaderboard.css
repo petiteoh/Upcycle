@@ -71,6 +71,12 @@
   margin-right: 15px;
 }
 
+.leader-info a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .leader-info-handle {
   font-family: "Arvo Regular";
   font-weight: 700;
