@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 export default class LeaderboardItem extends Component {
   constructor(props){
     super(props);
@@ -14,6 +14,9 @@ export default class LeaderboardItem extends Component {
       <div className="leaderboard-item-user">
         <p className={`rank leader-rank-${this.props.rank}`}>{this.props.rank}</p>
         <div className="leader-info">
+          <Link to={`posts/user/${this.props.user._id}`}>
+            <img src={profileImage} alt={`${this.props.user.handle}'s profile image`}/>
+          </Link>
           <img src={profileImage} alt=""/>
           <p className="leader-info-handle">{this.props.user.handle}</p>
           <p className="leader-info-points"> <span className='dash-points'><span className="dash-icon">♲</span>{this.props.user.hero_points} Hero Points</span></p>
