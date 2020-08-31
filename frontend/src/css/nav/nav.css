@@ -47,9 +47,9 @@ nav ul {
   right: 20px;
   left: auto;
   z-index: 900;
-  min-width: 100%;
+  /* min-width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; */
 }
 
 .header-logo h1 {
