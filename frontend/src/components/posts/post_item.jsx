@@ -5,8 +5,24 @@ import "../../css/post_feed/post-feed.css"
 class PostItem extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      upcycles: this.props.post.upcycler_ids.length
+    }
+    
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    debugger
+    this.props.upcyclePost(this.props.post._id);
+    
+    this.props.fetchPosts();
+    // this.setState({
+    //   upcycles: this.state.upcycles + 1 
+    // })
+  }
 
   render() {
 
@@ -28,7 +44,7 @@ class PostItem extends React.Component {
               alt=""
             />
             <button className="upcycle-button" value="Upcycled">
-              Upcycled
+               Already Upcycled
             </button>
           </div>
         );
@@ -38,14 +54,14 @@ class PostItem extends React.Component {
             <button
               className="upcycle-button"
               value="Upcycle"
-              onClick={() => this.props.upcyclePost(this.props.post._id)}
+              onClick={this.handleSubmit}
             >
               <img
                 className="upcycle-logo"
                 src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
                 alt=""
               />
-              <label>Upcycle</label>
+              <label>Upcycle Post</label>
             </button>
           </div>
         );
@@ -56,13 +72,13 @@ class PostItem extends React.Component {
       if (this.props.post.upcycle_ids.length === 0) {
         return '0'
     } else {
-        return this.props.post.upcycle_ids.length
+        return this.state.upcycles
     }
   };
 
   // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
   // let categoryName = categoryObj[name]
-
+    debugger
     return (
       <div className="single-post-container">
         <div className="top-container">
@@ -87,6 +103,8 @@ class PostItem extends React.Component {
             </div>
             <label className="post-category-label">
               <p className="post-handle-name">
+                Hi {this.props.author.handle}
+                {this.props.author.handle}
                 Created By: <Link to={`posts/user/${this.props.user.id}`}>{this.props.author.handle}</Link>
               </p>
               <p className="post-category-name">

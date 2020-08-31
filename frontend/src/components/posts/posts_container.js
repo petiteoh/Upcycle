@@ -11,7 +11,7 @@ const msp = (state, ownProps) => {
   const categoryObjs = Object.values(state.categories).map(
     (category) => category
   );
-  
+  debugger
   return {
     posts: Object.values(state.posts),
     categories: categories,

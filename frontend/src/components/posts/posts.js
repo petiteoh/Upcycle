@@ -25,10 +25,9 @@ class Post extends React.Component {
   };
 
   componentWillMount() {
-    
+    this.props.fetchUsers();
     this.props.fetchPosts();
     this.props.fetchCategories();
-    this.props.fetchUsers();
   }
 
   // componentDidMount() {
@@ -57,14 +56,12 @@ class Post extends React.Component {
   }
 
   render() {
-    // debugger
     let filtered = this.props.posts.filter((post) => {
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
       } else {
-        // debugger
         return (
         post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
@@ -83,7 +80,7 @@ class Post extends React.Component {
     //   filtered = this.state.posts.filter((post) => {
     //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
     // }
-
+    debugger
     if (this.props.posts.length === 0) {
       return <div>No Posts</div>;
     } else {
@@ -94,10 +91,11 @@ class Post extends React.Component {
           user={this.props.user} 
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
+          fetchPosts={this.props.fetchPosts}
           author={this.props.authors.filter(author => author._id === post.creator_id)}
         />
       ));
-      
+      debugger
       return (
         <div>
           <div className="search">

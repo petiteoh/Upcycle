@@ -29,7 +29,7 @@ router.get('/user/:creator_id', (req, res) => {
 
 router.get("/top-post", (req, res) => {
   Post.find()
-    .sort({ upcycle_ids: 1 })
+    .sort({ upcycle_ids: -1 })
     .limit(1)
     .then((post) => res.json(post))
     .catch((err) => {
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
         );
 });
 
-
+debugger
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
@@ -107,7 +107,15 @@ router.post("/:id/create-upcycle",
       user.save();
     })
   ;
-  
+
+  Post.findByIdAndUpdate(req.params.id, {
+    $push: { upcycler_ids: upcycle.upcycler, upcycle_ids: upcycle._id }
+  }).then((post) => {
+    post.save()
+  }).catch((err) => {
+      res.status(404).json({ noupcycle: "Upcycle was not created" })
+  });
+
   debugger
   upcycle
     .save()
@@ -116,23 +124,6 @@ router.post("/:id/create-upcycle",
       res.status(404).json({ noupcycle: "Upcycle was not created" })
     );
 
-  
-  debugger
-  Post.findByIdAndUpdate(req.params.id, {
-      $push: { upcycler_ids: upcycle.upcycler, upcycle_ids: upcycle._id}
-  }).then((post) => {
-      post.save();
-      res.json(post);
-  })
-    .catch((err) =>
-      res.status(404).json({ noupcycle: "Upcycle was not created" })
-    );
-
-//   const post = Post.findById(req.params.id)
-//     .then(console.log(post))
-//     .catch(err =>
-//         res.status(404).json({ nopostfound: 'No post found with that ID' })
-//     );
 
 //     
 //   User.findByIdAndUpdate(post.creator_id, {
