@@ -4,6 +4,7 @@ export default class LeaderboardItem extends Component {
   constructor(props){
     super(props);
 
+    debugger
     this.state = {
       badges: this.props.user.badge_ids
     };
@@ -24,7 +25,7 @@ export default class LeaderboardItem extends Component {
               this.state.badges.map((badge, i) => {
                 return (
                   <li key={i}>
-                    <img src={`https://medio-app-seed.s3.amazonaws.com/ZeroHeroBadge${badge}.png`} alt=""/>
+                    <img src={`https://medio-app-seed.s3.amazonaws.com/ZeroHeroBadge${badge}.png`} alt={`Zero Hero Badge #${badge}`}/>
                   </li>
                 );
               })
