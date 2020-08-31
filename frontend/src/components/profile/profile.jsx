@@ -27,7 +27,7 @@ class Profile extends React.Component {
 
   componentWillMount() {
     // debugger
-    this.props.fetchUserPosts();
+    this.props.fetchUserPosts(this.props.match.params.creator_id);
     this.props.fetchCategories();
   }
 
@@ -76,7 +76,14 @@ class Profile extends React.Component {
     //   return <div>No Posts</div>;
     // } else {
       allPosts = filtered.map((post, idx) => (
-        <PostItem key={idx} post={post} />
+        <PostItem 
+          key={idx} 
+          post={post} 
+          user={this.props.user}
+          categoryObjs={this.props.categoryObjs} 
+          upcyclePost={this.props.upcyclePost} 
+          upcycles={post.upcycle_ids.length}
+          />
       ));
     // }
       // debugger
@@ -133,7 +140,7 @@ class Profile extends React.Component {
               <div />
             </div>
           </div>
-          <div className="posts">User's posts below{allPosts}</div>
+          <div className="posts">{allPosts}</div>
         </div>
       );
   }

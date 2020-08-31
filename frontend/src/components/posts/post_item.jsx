@@ -3,29 +3,26 @@ import { Link } from "react-router-dom";
 import "../../css/post_feed/post-feed.css"
 
 class PostItem extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-
-    this.state = {
-      upcycles: this.props.post.upcycler_ids.length
+    // debugger
+    this.state = { 
+      upcycles: this.props.upcycles,
+      authorName: "" 
     }
-    
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    debugger
-    this.props.upcyclePost(this.props.post._id);
-    
-    this.props.fetchPosts();
-    // this.setState({
-    //   upcycles: this.state.upcycles + 1 
-    // })
+  componentDidUpdate(prevProps) {
+    // debugger
+    if (this.props.upcycles !== prevProps.upcycles) {
+      this.setState({
+        upcycles: this.props.upcycles,
+        authorName: this.props.authors[this.props.post.creator_id]
+      });
+    }
   }
 
   render() {
-
     const cats = {
       "5f3387049c03638d3400c1af": "Furniture",
       "5f346b5425454bc1217ce0a2": "Electronics",
@@ -35,16 +32,17 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
+      // debugger
       if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
-          <div>
-            <img
-              class="upcycle-logo"
-              src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
-              alt=""
-            />
+          <div className="upcycle-button-container">
             <button className="upcycle-button" value="Upcycled">
-               Already Upcycled
+              <img
+                class="upcycle-logo"
+                src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
+                alt=""
+              />
+              Upcycled
             </button>
           </div>
         );
@@ -61,24 +59,23 @@ class PostItem extends React.Component {
                 src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
                 alt=""
               />
-              <label>Upcycle Post</label>
+              Upcycle
             </button>
           </div>
         );
       }
-    }
-    
+    };
+
     const upcycleCount = () => {
       if (this.props.post.upcycle_ids.length === 0) {
-        return '0'
-    } else {
-        return this.state.upcycles
-    }
-  };
-
-  // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
-  // let categoryName = categoryObj[name]
-    debugger
+        return "0";
+      } else {
+        return this.props.post.upcycle_ids.length;
+      }
+    };
+    // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
+    // let categoryName = categoryObj[name]
+    // debugger
     return (
       <div className="single-post-container">
         <div className="top-container">
@@ -90,22 +87,23 @@ class PostItem extends React.Component {
               <img
                 className="post-image"
                 src={this.props.post.image}
-                height="500px"
-                width="500px"
+                height="350px"
+                width="350px"
               />
             </div>
           </div>
           <div className="right-container">
             <p className="post-description">{this.props.post.description}</p>
             <div className="upcycle-container">
-              <p className="post-upcycle-count">{upcycleCount()}</p>
+              <p className="post-upcycle-count">{this.state.upcycles}</p>
               {reflectUpcycleStatus()}
             </div>
             <label className="post-category-label">
               <p className="post-handle-name">
-                Hi {this.props.author.handle}
-                {this.props.author.handle}
-                Created By: <Link to={`posts/user/${this.props.user.id}`}>{this.props.author.handle}</Link>
+                Created By:{" "}
+                <Link to={`posts/user/${this.props.user.id}`}>
+                  {this.props.authors[this.props.post.creator_id]}
+                </Link>
               </p>
               <p className="post-category-name">
                 Category: {cats[this.props.post.category_id]}

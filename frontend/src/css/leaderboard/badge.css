@@ -1,0 +1,28 @@
+.badge {
+  position: relative;
+  display: inline-block;
+}
+
+.badge-tooltip .badge-tooltip-text{
+  visibility: hidden;
+  font-family: "Arvo Regular";
+  font-size: 12px;
+  width: 150px;
+  background-color: #2B1E18;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 10%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.badge-tooltip:hover .badge-tooltip-text{
+  visibility: visible;
+  opacity: 1;
+}

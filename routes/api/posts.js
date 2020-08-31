@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.get('/user/:creator_id', (req, res) => {
     Post.find({ creator_id: req.params.creator_id })
-        .sort({ date: -1 })
+        .sort({ timeCreated: -1 })
         .then(posts => res.json(posts))
         .catch(err =>
             res.status(404).json({ nopostsfound: 'This user has not posted anything yet.' }
@@ -100,7 +100,6 @@ router.post("/:id/create-upcycle",
     post_id: req.params.id,
     upcycler: req.user.id
   });
-  debugger
   User.findByIdAndUpdate(req.user.id, {
       $push: {upcycled_posts: req.params.id}
     }).then(user => {

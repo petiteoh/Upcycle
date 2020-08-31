@@ -13,6 +13,7 @@
   align-items: center;
   width: 100%;
   margin-left: 50px;
+  margin-top: 80px;
 }
 
 .leaderboard-items li {
@@ -68,6 +69,12 @@
   width: 45px;
   border-radius: 50%;
   margin-right: 15px;
+}
+
+.leader-info a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .leader-info-handle {
