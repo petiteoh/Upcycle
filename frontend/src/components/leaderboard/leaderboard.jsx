@@ -4,7 +4,7 @@ import "../../css/leaderboard/leaderboard.css";
 
 export default class Leaderboard extends Component {
   constructor(props){
-    super(props)
+    super(props);
 
     this.state = [];
   }
