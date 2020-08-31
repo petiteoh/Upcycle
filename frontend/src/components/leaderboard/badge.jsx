@@ -5,17 +5,17 @@ export default class Badge extends Component {
   badgeInfo(badgeNum){
     switch (badgeNum) {
       case 1:
-        return `This is badge #${badgeNum}`;
+        return `Obtained 100 Hero Points`;
       case 2:
-        return `This is badge #${badgeNum}`;
+        return `Achieved Rank of Carbon Master`;
       case 3:
-        return `This is badge #${badgeNum}`;
+        return `Obtained 500 Hero Points`;
       case 4:
-        return `This is badge #${badgeNum}`;
+        return `Created Upcycled Posts`;
       case 5:
-        return `This is badge #${badgeNum}`;
+        return `Zero Hero Leaderboard Status`;
       case 6:
-        return `This is badge #${badgeNum}`;
+        return `Obtained 1000 Hero Points`;
     
       default:
         return "This Badge Number Doesn't Exist!";
