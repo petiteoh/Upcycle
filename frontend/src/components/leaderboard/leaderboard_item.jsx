@@ -16,9 +16,8 @@ export default class LeaderboardItem extends Component {
         <div className="leader-info">
           <Link to={`posts/user/${this.props.user._id}`}>
             <img src={profileImage} alt={`${this.props.user.handle}'s profile image`}/>
+            <p className="leader-info-handle">{this.props.user.handle}</p>
           </Link>
-          <img src={profileImage} alt=""/>
-          <p className="leader-info-handle">{this.props.user.handle}</p>
           <p className="leader-info-points"> <span className='dash-points'><span className="dash-icon">♲</span>{this.props.user.hero_points} Hero Points</span></p>
           <ul className="badge-list">
             {
