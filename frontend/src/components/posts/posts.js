@@ -7,7 +7,7 @@ import "../../search-bar.css";
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    ;
+    // debugger
     this.state = {
       posts: [],
       categories: [],
@@ -25,7 +25,6 @@ class Post extends React.Component {
   };
 
   componentWillMount() {
-    
     this.props.fetchPosts();
     this.props.fetchCategories();
     this.props.fetchUsers();
@@ -83,21 +82,23 @@ class Post extends React.Component {
     //   filtered = this.state.posts.filter((post) => {
     //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
     // }
-
+// debugger
     if (this.props.posts.length === 0) {
       return <div>No Posts</div>;
     } else {
-      const allPosts = filtered.map((post, idx) => (
-        <PostItem 
+      const allPosts = filtered.map((post, idx) => {
+        // debugger
+        return (<PostItem 
           key={idx} 
           post={post}
           user={this.props.user} 
+          authors={this.props.authors} 
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
-        />
-      ));
-      
+        />)
+      });
+      // debugger
       return (
         <div>
           <div className="search">

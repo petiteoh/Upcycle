@@ -5,13 +5,19 @@ import "../../css/post_feed/post-feed.css"
 class PostItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { upcycles: this.props.upcycles }
+    // debugger
+    this.state = { 
+      upcycles: this.props.upcycles,
+      authorName: "" 
+    }
   }
 
   componentDidUpdate(prevProps) {
+    // debugger
     if (this.props.upcycles !== prevProps.upcycles) {
       this.setState({
         upcycles: this.props.upcycles,
+        authorName: this.props.authors[this.props.post.creator_id]
       });
     }
   }
@@ -67,9 +73,9 @@ class PostItem extends React.Component {
         return this.props.post.upcycle_ids.length;
       }
     };
-
     // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
     // let categoryName = categoryObj[name]
+    // debugger
     return (
       <div className="single-post-container">
         <div className="top-container">
@@ -96,7 +102,7 @@ class PostItem extends React.Component {
               <p className="post-handle-name">
                 Created By:{" "}
                 <Link to={`posts/user/${this.props.user.id}`}>
-                  {this.props.user.handle}
+                  {this.props.authors[this.props.post.creator_id]}
                 </Link>
               </p>
               <p className="post-category-name">
