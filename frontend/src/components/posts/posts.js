@@ -27,7 +27,6 @@ class Post extends React.Component {
   componentWillMount() {
     this.props.fetchPosts();
     this.props.fetchCategories();
-    this.props.fetchUsers();
   }
 
   // componentDidMount() {
@@ -56,14 +55,12 @@ class Post extends React.Component {
   }
 
   render() {
-    // debugger
     let filtered = this.props.posts.filter((post) => {
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
       } else {
-        // debugger
         return (
         post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
