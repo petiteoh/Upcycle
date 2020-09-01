@@ -150,8 +150,7 @@ export default class Splash extends Component {
               />
             </div>
             <h1>Possibilities Are Endless</h1>
-            <p>We are all guilty of throwing away items that could've been repurposed and given new life! Now with Upcycled you can showcase your projects to others in the upcycling community. While all at the same time helping reduce your overall carbon footprint and gaining ♲ Hero Points!</p>
-            <p>ImagesImagesImagesImages</p>
+            <p> We are all guilty of throwing away items that have repurpose potential. Upcycling comes to the rescue! Give new life to those same items you didn't think had potential. With Upcycled you can showcase your projects to others in the upcycling community. At the same time reducing your total carbon footprint and gaining <span className="hero-point-span">♲</span> Hero Points while you at it!</p>
           </section>
           <section className="highlight-section">{topPost()}</section>
           <section className="leaderboard-section">{<Leaderboard />}</section>
