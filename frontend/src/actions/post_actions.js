@@ -82,7 +82,6 @@ export const fetchUserPosts = (id) => (dispatch) => {
 };
 
 export const createPost = (data) => (dispatch) => {
-
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 

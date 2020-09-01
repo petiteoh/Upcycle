@@ -15,6 +15,7 @@ const msp = (state) => {
     categories,
     categoryIds,
     categoryObjs: Object.values(state.categories),
+    errors: state.errors.postErrors,
   };
 };
 

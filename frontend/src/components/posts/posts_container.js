@@ -11,15 +11,10 @@ const msp = (state, ownProps) => {
   const categoryObjs = Object.values(state.categories).map(
     (category) => category
   );
-<<<<<<< HEAD
-  debugger
-=======
     let authors = {}
     Object.values(state.users)
       .filter((author) => author)
       .map((user => authors[user._id] = user.handle))
-  // debugger
->>>>>>> master
   return {
     posts: Object.values(state.posts),
     categories: categories,

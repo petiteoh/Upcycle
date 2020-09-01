@@ -18,6 +18,7 @@ class PostForm extends React.Component {
       // materials_id: ["5f3387369c03638d3400c1b0"],
       // location_id: "5f3386a89c03638d3400c1ae",
       selectedFile: null,
+      errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -63,6 +64,14 @@ class PostForm extends React.Component {
     }
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.createPost === true) {
+      this.props.history.push("/");
+    }
+
+    this.setState({ errors: nextProps.errors })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     
@@ -70,7 +79,20 @@ class PostForm extends React.Component {
       const post = this.state;
       return this.props.createPost(post)
     })
+    // .then(null, (error) => {
+    //   this.setState({ errors: this.renderErrors() })
+    // })
   }
+
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li className="post-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
   
   update(field) {
     return (e) =>
@@ -158,6 +180,7 @@ class PostForm extends React.Component {
               </div>
             </div>
           </div>
+          {/* <div className="signup-errors-container">{this.renderErrors()}</div> */}
           <input
             className="create-post-button"
             type="submit"
