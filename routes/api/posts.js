@@ -37,7 +37,7 @@ router.get("/top-post", (req, res) => {
     });
 });  
 
-
+debugger
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id)
         .then(post => res.json(post))
@@ -46,7 +46,31 @@ router.get('/:id', (req, res) => {
         );
 });
 
-debugger
+
+router.patch('/:id', (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, {
+    $set: {
+      title: req.body.title,
+      description: req.body.description,
+      category_id: req.body.category_id,
+      image: req.body.image
+      }
+  }).then(post => {
+    post.save();
+  }).catch(err =>
+    res.status(404).json({ noteditable: "Post cannot be edited"}))
+});
+
+
+debugger 
+router.delete('/:id', (req, res) => {
+  Post.findOneAndDelete(req)
+    .then(post => res.json(post))
+    .catch(err => 
+      res.status(404).json({ nopostdelete: "Could not delete post"}))
+});
+
+
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
