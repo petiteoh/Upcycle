@@ -27,6 +27,12 @@ class Post extends React.Component {
   componentWillMount() {
     this.props.fetchPosts();
     this.props.fetchCategories();
+    this.props.fetchUsers();
+  }
+
+  componentWillUnmount() {
+    debugger
+    this.setState({ posts: [] })
   }
 
   // componentDidMount() {
@@ -98,32 +104,36 @@ class Post extends React.Component {
       // debugger
       return (
         <div>
-          <div className="search">
-            <div className="search-container">
-              <div className="search-box">
-                <div className="search-icon-box">
-                  <img
-                    className="search-icon"
-                    src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-4.png"
-                    height="40"
-                    width="40"
-                  ></img>
-                </div>
-                <div className="search-input-box">
-                  <input
-                    className="search-input"
-                    type="text"
-                    value={this.state.search}
-                    onChange={this.updateSearch.bind(this)}
-                    placeholder="Search"
-                  />
+          <div className="srch">
+            <div className="search">
+              <div className="search-container">
+                <div className="search-box">
+                  <div className="search-icon-box">
+                    <img
+                      className="search-icon"
+                      src="https://www.freeiconspng.com/uploads/magnifying-glass-icon-4.png"
+                      height="40"
+                      width="40"
+                    ></img>
+                  </div>
+                  <div className="search-input-box">
+                    <input
+                      className="search-input"
+                      type="text"
+                      value={this.state.search}
+                      onChange={this.updateSearch.bind(this)}
+                      placeholder="Search"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+            <div>
+              <Link to="/create-post">
+                <div className="create-post">Create a post</div>
+              </Link>
+            </div>
           </div>
-          <Link to="/create-post">
-            <div className="create-post">Create a post</div>
-          </Link>
           <div className="radio">
             <div className="filter-container">
               <input

@@ -16,13 +16,16 @@ class Nav extends Component {
 
       if(props.isAuthenticated){
         const profileImage = props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
-
+// debugger
         return (
           <>
             <div className="profile-dash">
-              <Link to={`posts/user/${props.user.id}`}>
+              <Link to={`/posts/user/${props.user.id}`}>
               <img src={profileImage} alt=""/>
               </Link>
+              {/* <a onClick={() => { props.history.push(`/posts/user/${props.user.id}`) }}>
+                <img src={profileImage} alt="" />
+              </a> */}
               <p>{`Hi, ${props.user.handle}`}</p>
               <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
               {/* <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${this.state.hero_points ? this.state.hero_points : props.user.hero_points}`}</span> Hero Points</p> */}
@@ -58,7 +61,8 @@ class Nav extends Component {
     return (
       <>
         <nav>
-          <this.MegaMenu user={this.props.user} state={this.state} isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} >
+          <this.MegaMenu user={this.props.user} state={this.state} isAuthenticated={this.props.isAuthenticated} logout={this.props.logout} 
+          history={this.props.history}>
             <MegaMenu />
           </this.MegaMenu>
         </nav>

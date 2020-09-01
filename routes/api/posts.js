@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
         );
 });
 
-debugger
+// debugger
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
@@ -115,7 +115,7 @@ router.post("/:id/create-upcycle",
       res.status(404).json({ noupcycle: "Upcycle was not created" })
   });
 
-  debugger
+  // debugger
   upcycle
     .save()
     .then((upcycle) => res.json(upcycle))

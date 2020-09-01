@@ -15,6 +15,7 @@ const msp = (state, ownProps) => {
     Object.values(state.users)
       .filter((author) => author)
       .map((user => authors[user._id] = user.handle))
+  // debugger
   return {
     posts: Object.values(state.posts),
     categories: categories,

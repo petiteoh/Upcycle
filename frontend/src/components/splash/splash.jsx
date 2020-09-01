@@ -20,44 +20,44 @@ export default class Splash extends Component {
     init();
 
     this.state = {
-      topPost: null
+      topPost: null,
     };
   }
 
-  parallaxEffect(e){
+  parallaxEffect(e) {
     // const target1 = document.querySelectorAll(".blur");
     const target = document.querySelectorAll(".parallax");
 
-      let index = 0, length = target.length;
+    let index = 0,
+      length = target.length;
 
-      for (index; index < length; index++) {
-        let pos = window.pageYOffset * target[index].dataset.rate;
+    for (index; index < length; index++) {
+      let pos = window.pageYOffset * target[index].dataset.rate;
 
-        target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
-      }
+      target[index].style.transform = `translate3d(0px, ${pos}px, 0px)`;
+    }
 
-      // let scrolled = window.pageYOffset;
-      // let blurRate = scrolled * 0.01;
-      // let index2 = 0, length2 = target1.length;
-      // target1.style.filter = `blur(${2 * blurRate}px)`;
+    // let scrolled = window.pageYOffset;
+    // let blurRate = scrolled * 0.01;
+    // let index2 = 0, length2 = target1.length;
+    // target1.style.filter = `blur(${2 * blurRate}px)`;
 
-      // for (index2; index2 < length2; index2++) {
-      //   target1[index2].style.filter = `blur(${2 * blurRate}px)`;
-      // }
+    // for (index2; index2 < length2; index2++) {
+    //   target1[index2].style.filter = `blur(${2 * blurRate}px)`;
+    // }
   }
-  componentDidMount(){
+  componentDidMount() {
     document.addEventListener("scroll", this.parallaxEffect);
 
-    return axios.get(`/api/posts/top-post`)
-      .then(response => {
-        if (response.status === 200) {
-          let topPost = response.data[0];
-          return this.setState({ topPost: topPost });
-        }
-      });
+    return axios.get(`/api/posts/top-post`).then((response) => {
+      if (response.status === 200) {
+        let topPost = response.data[0];
+        return this.setState({ topPost: topPost });
+      }
+    });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     window.removeEventListener("scroll", this.parallaxEffect);
   }
 
@@ -65,34 +65,45 @@ export default class Splash extends Component {
     const demoLoginButton = () => {
       if (!this.props.isAuthenticated) {
         return (
-            <Link className="demo-button" to="/login">
-          <button className="demo-button-container" onClick={this.props.login}>
+          <Link className="demo-button" to="/login">
+            <button
+              className="demo-button-container"
+              onClick={this.props.login}
+            >
               Demo Login
-          </button>
-            </Link>
+            </button>
+          </Link>
         );
       }
     };
 
     const topPost = () => {
       // debugger
-      if (this.state.topPost){
+      if (this.state.topPost) {
         const { title, image, description, upcycle_ids } = this.state.topPost;
         return (
           <>
             <h1>Upcycled Project of The Week</h1>
             <h2>{title}</h2>
-            <h3>Zero Hero: Mr Green - <span>{upcycle_ids.length} Upcycles</span></h3>
+            <h3>
+              Zero Hero: Mr Green - <span>{upcycle_ids.length} Upcycles</span>
+            </h3>
             <div className="top-post-content">
               <p className="top-post-description">{description}</p>
-              <img parallax data-rate="-0.5" src={image} width="700px" alt="top-post-image"/>
+              <img
+                parallax
+                data-rate="-0.5"
+                src={image}
+                width="700px"
+                alt="top-post-image"
+              />
             </div>
           </>
         );
       } else {
         return "No Top Post";
       }
-    }
+    };
 
     return (
       <>
@@ -142,9 +153,7 @@ export default class Splash extends Component {
             <p>StatsStatsStatsStats</p>
             <p>ImagesImagesImagesImages</p>
           </section>
-          <section className="highlight-section">
-            { topPost() }
-          </section>
+          <section className="highlight-section">{topPost()}</section>
           <section className="leaderboard-section">{<Leaderboard />}</section>
         </section>
       </>
