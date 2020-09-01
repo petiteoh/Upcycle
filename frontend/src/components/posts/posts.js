@@ -27,6 +27,12 @@ class Post extends React.Component {
   componentWillMount() {
     this.props.fetchPosts();
     this.props.fetchCategories();
+    this.props.fetchUsers();
+  }
+
+  componentWillUnmount() {
+    debugger
+    this.setState({ posts: [] })
   }
 
   // componentDidMount() {
