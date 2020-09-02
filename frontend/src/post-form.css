@@ -17,9 +17,6 @@
     font-family: "Arvo Regular";
     display: flex;
     align-items: center;
-
-    
-
 }
 
 .create-post-form {
@@ -71,6 +68,7 @@
 }
 
 .create-post-button {
+    pointer-events: none;
     width: fit-content;
     align-self: center;
     background-color: #efefef;
@@ -80,6 +78,13 @@
     padding: 10px 20px 10px 20px;
     z-index: 6;
     border-style:none;
+    color: #ccc3c3;
+}
+
+.ready {
+    pointer-events: auto;
+    background-color: #5dd29f;
+    color: #2b1e18;
 }
 
 .create-post-button:hover {
