@@ -74,7 +74,7 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     
     this.singleFileUploadHandler().then(() => {

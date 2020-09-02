@@ -31,7 +31,7 @@ class Post extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
+    // debugger
     this.setState({ posts: [] })
   }
 
