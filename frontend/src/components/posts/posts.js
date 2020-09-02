@@ -13,6 +13,7 @@ class Post extends React.Component {
       categories: [],
       search: "",
       filterSearch: "",
+      
     };
     this.onRadioChange = this.onRadioChange.bind(this);
   }
@@ -27,6 +28,12 @@ class Post extends React.Component {
   componentWillMount() {
     this.props.fetchPosts();
     this.props.fetchCategories();
+    this.props.fetchUsers();
+  }
+
+  componentWillUnmount() {
+    // debugger
+    this.setState({ posts: [] })
   }
 
   // componentDidMount() {
@@ -62,7 +69,8 @@ class Post extends React.Component {
       );
       } else {
         return (
-        post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        this.props.categoryNames[post.category_id].toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        // post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
       }
     });
@@ -134,8 +142,9 @@ class Post extends React.Component {
                 id="opt1"
                 type="radio"
                 value="description"
-                checked={this.state.filterSearch === "description"}
+                checked={this.state.filterSearch === "description" || this.state.filterSearch === ""}
                 onChange={this.onRadioChange}
+                
               />
               <label for="opt1" className="label">
                 <span className="span">Description</span>
@@ -148,7 +157,7 @@ class Post extends React.Component {
                 onChange={this.onRadioChange}
               />
               <label for="opt2" className="label">
-                <span className="span">Title</span>
+                <span className="span">Category</span>
               </label>
               <div />
             </div>

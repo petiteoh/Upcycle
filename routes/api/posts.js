@@ -62,7 +62,7 @@ router.patch('/:id', (req, res) => {
 });
 
 
-debugger 
+// debugger 
 router.delete('/:id', (req, res) => {
   Post.findOneAndDelete(req)
     .then(post => res.json(post))
@@ -71,6 +71,7 @@ router.delete('/:id', (req, res) => {
 });
 
 
+// debugger
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
@@ -81,7 +82,7 @@ router.post('/create-post',
             return res.json(post);
         })
         .catch((err) =>
-        res.status(404).json({ nopostfound: "Post cannot be saved" })
+        res.status(404).json({ nopostfound: "Post cannot be saved, please submit all fields" })
         );
         
         User.findByIdAndUpdate(req.body.creator_id, {
@@ -139,7 +140,6 @@ router.post("/:id/create-upcycle",
       res.status(404).json({ noupcycle: "Upcycle was not created" })
   });
 
-  debugger
   upcycle
     .save()
     .then((upcycle) => res.json(upcycle))

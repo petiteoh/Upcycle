@@ -22,12 +22,13 @@ export default function (state = initialState, action) {
       
       return {
         isAuthenticated: true,
-        user: {
-          email: action.currentUser.data.email,
-          handle: action.currentUser.data.handle,
-          hero_points: action.currentUser.data.hero_points,
-          photo: action.currentUser.data.photo
-        },
+        user: action.currentUser.data
+        // user: {
+        //   email: action.currentUser.data.email,
+        //   handle: action.currentUser.data.handle,
+        //   hero_points: action.currentUser.data.hero_points,
+        //   photo: action.currentUser.data.photo
+        // },
       };
     default:
       return state;

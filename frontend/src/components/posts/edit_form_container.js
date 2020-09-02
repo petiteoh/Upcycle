@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { createPost } from "../../actions/post_actions";
 import { fetchCategories } from "../../actions/category_actions";
-import PostForm from "./post_form";
+import EditForm from "./edit_form_container";
 
 const msp = (state) => {
   const categories = Object.values(state.categories).map(
@@ -26,4 +26,4 @@ const mdp = (dispatch) => {
   };
 };
 
-export default connect(msp, mdp)(PostForm);
+export default connect(msp, mdp)(EditForm);

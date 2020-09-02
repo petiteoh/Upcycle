@@ -27,9 +27,20 @@ class Profile extends React.Component {
 
   componentWillMount() {
     // debugger
+    this.props.fetchUsers();
     this.props.fetchUserPosts(this.props.match.params.creator_id);
     this.props.fetchCategories();
+    // if (this.props.location.pathname !== prevProps.location.pathname) {
+    //   window.location.reload();
+    // }
   }
+
+  // componentDidUpdate(prevProps) {
+    // debugger
+  //   // if (this.props.location.pathname !== prevProps.location.pathname) {
+  //   //   window.location.reload();
+  //   // }
+  // }
 
   componentWillReceiveProps(newState) {
     // debugger
@@ -43,6 +54,12 @@ class Profile extends React.Component {
 
   render() {
     // debugger
+    let postIds = {};
+      this.state.posts.forEach(post => {
+        if (!postIds[post.id]) {
+          postIds[post.id] = true
+        }
+      })
     let filtered = this.state.posts.filter((post) => {
       // debugger
       if (this.state["filterSearch"] !== "title") {
@@ -75,18 +92,32 @@ class Profile extends React.Component {
     // if (this.state.posts.length === 0) {
     //   return <div>No Posts</div>;
     // } else {
-      allPosts = filtered.map((post, idx) => (
+      let uniquePostIds = []
+      allPosts = filtered.map((post, idx) => {
+        debugger
+        let currentProfileUserId = this.props.location.pathname.split("/")[3]
+        if (post.creator_id === currentProfileUserId && !uniquePostIds.includes(post._id)) 
+        {
+        uniquePostIds.push(post._id)
+        // console.log(gitpost._id)
+        
+        return (
         <PostItem 
           key={idx} 
           post={post} 
           user={this.props.user}
+          authors={this.props.authors}
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
           />
-      ));
+          )
+
+    }
+  });
     // }
       // debugger
+      // this.forceUpdate();
       return (
         <div>
           <div className="search">

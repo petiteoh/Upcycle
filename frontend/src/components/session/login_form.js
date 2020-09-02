@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
+    // debugger
     e.preventDefault();
     this.props.login(this.state)
         .then(null, (error) => {

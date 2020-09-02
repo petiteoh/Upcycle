@@ -22,6 +22,7 @@ const App = () => (
     <header>
       <NavContainer />
     </header>
+
     <Switch>
       <main className="main-app-container">
         <Route path="/categories" component={CategoriesDD} />
@@ -32,6 +33,7 @@ const App = () => (
 
         <Route exact path="/posts" component={PostsContainer} />
         <ProtectedRoute exact path="/create-post" component={PostsFormContainer} />
+        <ProtectedRoute exact path="/edit-post" component={EditFormContainer} />
         <ProtectedRoute exact path="/leaderboard" component={LeaderboardContainer} />
         {/* <ProtectedRoute exact path="/posts/:id" component={PostsShowContainer} /> */}
 
@@ -39,6 +41,7 @@ const App = () => (
         <Route path="/upload" component={UploadContainer} />
       </main>
     </Switch>
+    
   </div>
 );
 
