@@ -52,7 +52,7 @@
 
 .parallax-img-2-before {
   position: absolute;
-  top: 85px;
+  /* top: 85px; */
   z-index: -1;
 }
 
@@ -80,4 +80,17 @@
   font-size: 20px;
   line-height: 25px;
   padding-top: 20px;
+}
+
+.infographic-section p {
+  font-size: 20px;
+  line-height: 25px;
+  padding: 20px;
+  background-color: #e0ffffba;
+  border-radius: 5px;
+}
+
+.hero-point-span {
+  color: rgb(5, 129, 22);
+  font-weight: bold;
 }
