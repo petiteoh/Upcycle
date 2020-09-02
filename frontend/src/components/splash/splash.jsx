@@ -78,7 +78,7 @@ export default class Splash extends Component {
     };
 
     const topPost = () => {
-      // debugger
+      debugger // Check for top post user name
       if (this.state.topPost) {
         const { title, image, description, upcycle_ids } = this.state.topPost;
         return (
@@ -150,8 +150,7 @@ export default class Splash extends Component {
               />
             </div>
             <h1>Possibilities Are Endless</h1>
-            <p>StatsStatsStatsStats</p>
-            <p>ImagesImagesImagesImages</p>
+            <p> We are all guilty of throwing away items that have repurpose potential. Upcycling comes to the rescue! Give new life to those same items you didn't think had potential. With Upcycled you can showcase your projects to others in the upcycling community. At the same time reducing your total carbon footprint and gaining <span className="hero-point-span">♲</span> Hero Points while you at it!</p>
           </section>
           <section className="highlight-section">{topPost()}</section>
           <section className="leaderboard-section">{<Leaderboard />}</section>

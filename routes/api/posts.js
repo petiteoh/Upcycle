@@ -115,7 +115,6 @@ router.post("/:id/create-upcycle",
       res.status(404).json({ noupcycle: "Upcycle was not created" })
   });
 
-  // debugger
   upcycle
     .save()
     .then((upcycle) => res.json(upcycle))
