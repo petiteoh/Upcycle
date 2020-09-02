@@ -14,11 +14,12 @@ class PostForm extends React.Component {
       title: "",
       description: "",
       image: "",
-      category_id: "",
+      category_id: "5f346b5e25454bc1217ce0a3",
+      // category:
       // materials_id: ["5f3387369c03638d3400c1b0"],
       // location_id: "5f3386a89c03638d3400c1ae",
       selectedFile: null,
-      errors: {},
+      // errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -73,15 +74,15 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     
     this.singleFileUploadHandler().then(() => {
       const post = this.state;
-      return this.props.createPost(post)
+      // return this.props.createPost(post)
+      this.props.createPost(post)
+    }).then(() => {this.props.history.push("/posts")
     })
-    // .then(null, (error) => {
-    //   this.setState({ errors: this.renderErrors() })
-    // })
   }
 
   // renderErrors() {
@@ -107,12 +108,13 @@ class PostForm extends React.Component {
     });
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchCategories();
   }
 
   render() {
     const { categories, categoryObjs, categoryIds } = this.props;
+    const { title, description, image, category_id } = this.state;
 // debugger
     const imagePreview =
       this.state.image.length > 0 ? (
@@ -153,7 +155,9 @@ class PostForm extends React.Component {
                 className="dd-list oN bs"
                 onChange={this.updateCategoryId}
               >
+
                 {categoryObjs.map((category, idx) => {
+
                   return (
                     <>
                       <option
@@ -182,7 +186,7 @@ class PostForm extends React.Component {
           </div>
           {/* <div className="signup-errors-container">{this.renderErrors()}</div> */}
           <input
-            className="create-post-button"
+            className={`create-post-button ${title && description && image ? "ready" : ""}`}
             type="submit"
             value="Create Post"
           />

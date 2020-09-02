@@ -37,7 +37,7 @@ toggleZoomScreen();
       window.location.href = "/login";
     }
   } else {
-    store = configureStore({});
+    store = configureStore();
   }
 
   const root = document.getElementById("root");
