@@ -47,6 +47,7 @@ export default class Splash extends Component {
     // }
   }
   componentDidMount() {
+    this.props.fetchUsers();
     document.addEventListener("scroll", this.parallaxEffect);
 
     return axios.get(`/api/posts/top-post`).then((response) => {
@@ -86,7 +87,7 @@ export default class Splash extends Component {
             <h1>Upcycled Project of The Week</h1>
             <h2>{title}</h2>
             <h3>
-              Zero Hero: Mr Green - <span>{upcycle_ids.length} Upcycles</span>
+              Zero Hero: {this.props.authors[this.state.topPost.creator_id]} - <span>{upcycle_ids.length} Upcycles</span>
             </h3>
             <div className="top-post-content">
               <p className="top-post-description">{description}</p>
