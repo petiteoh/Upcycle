@@ -78,7 +78,7 @@ export default class Splash extends Component {
     };
 
     const topPost = () => {
-      // debugger
+      debugger // Check for top post user name
       if (this.state.topPost) {
         const { title, image, description, upcycle_ids } = this.state.topPost;
         return (
