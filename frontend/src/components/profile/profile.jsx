@@ -36,14 +36,14 @@ class Profile extends React.Component {
   }
 
   // componentDidUpdate(prevProps) {
-  //   debugger
+    // debugger
   //   // if (this.props.location.pathname !== prevProps.location.pathname) {
   //   //   window.location.reload();
   //   // }
   // }
 
   componentWillReceiveProps(newState) {
-    debugger
+    // debugger
     this.setState({ posts: newState.posts });
     this.setState({ categories: newState.categories });
   }

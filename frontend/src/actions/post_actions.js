@@ -82,7 +82,7 @@ export const fetchUserPosts = (id) => (dispatch) => {
 };
 
 export const createPost = (data) => (dispatch) => {
-  debugger;
+  // debugger;
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 

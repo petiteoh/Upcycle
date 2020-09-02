@@ -15,6 +15,10 @@ const msp = (state, ownProps) => {
     Object.values(state.users)
       .filter((author) => author)
       .map((user => authors[user._id] = user.handle))
+    let categoryNames = {}
+    Object.values(state.categories)
+      .filter((category) => category)
+      .map((category => categoryNames[category._id] = category.name))
   // debugger
   return {
     posts: Object.values(state.posts),
@@ -24,7 +28,8 @@ const msp = (state, ownProps) => {
     upcycles: state.upcycles,
     user: state.session.user,
     // authors: Object.values(state.users)
-    authors
+    authors,
+    categoryNames
   };
 };
 
