@@ -94,7 +94,6 @@ class Profile extends React.Component {
     // } else {
       let uniquePostIds = []
       allPosts = filtered.map((post, idx) => {
-        debugger
         let currentProfileUserId = this.props.location.pathname.split("/")[3]
         if (post.creator_id === currentProfileUserId && !uniquePostIds.includes(post._id)) 
         {

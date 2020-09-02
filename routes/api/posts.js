@@ -37,7 +37,7 @@ router.get("/top-post", (req, res) => {
     });
 });  
 
-debugger
+
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id)
         .then(post => res.json(post))
@@ -62,16 +62,20 @@ router.patch('/:id', (req, res) => {
 });
 
 
-// debugger 
 router.delete('/:id', (req, res) => {
-  Post.findOneAndDelete(req)
-    .then(post => res.json(post))
-    .catch(err => 
-      res.status(404).json({ nopostdelete: "Could not delete post"}))
-});
+  Post.findByIdAndRemove(req.params.id)
+    .then(post => {
+      if (!post) {
+        return res.status(404).send({
+          message: `Post with id ${req.params.id} not found`
+        });
+      }
+      return res.send({ message: 'Post deleted' });
+    })
+}
+);
 
 
-// debugger
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
@@ -95,19 +99,6 @@ router.post('/create-post',
     }
 );
 
-
-router.post('/delete', (req, res) => {
-    Post.findByIdAndRemove(req.params.id)
-        .then(post => {
-            if (!post) {
-                return res.status(404).send({
-                    message: `Post with id ${req.params.id} not found`
-                });
-            }
-            return res.send({ message: 'Post deleted' });
-        })
-    }
-);
 
 
 router.get("/:id/upcycles", (req, res) => {
