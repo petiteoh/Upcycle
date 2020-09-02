@@ -4,7 +4,7 @@ import "../../../src/post-form.css";
 import axios from "axios";
 import $ from "jquery";
 
-class PostForm extends React.Component {
+class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
