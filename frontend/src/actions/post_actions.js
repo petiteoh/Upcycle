@@ -82,13 +82,13 @@ export const fetchUserPosts = (id) => (dispatch) => {
 };
 
 export const createPost = (data) => (dispatch) => {
-
+  debugger;
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 
         dispatch(receivePost(post)))
-    .catch((err) => 
-        dispatch(receiveErrors(err.response.data)))
+    // .catch((err) => 
+    //     dispatch(receiveErrors(err.response.data)))
 )};
 
 export const deletePost = (id) => (dispatch) => (

@@ -19,6 +19,4 @@ router.get("/:category_id", (req, res) => {
             res.status(404).json({ nopostsfound: "There are no posts in this category"}))
 });
 
-
-
 module.exports = router;

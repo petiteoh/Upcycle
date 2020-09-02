@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
         );
 });
 
-debugger
+// debugger
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
@@ -57,7 +57,7 @@ router.post('/create-post',
             return res.json(post);
         })
         .catch((err) =>
-        res.status(404).json({ nopostfound: "Post cannot be saved" })
+        res.status(404).json({ nopostfound: "Post cannot be saved, please submit all fields" })
         );
         
         User.findByIdAndUpdate(req.body.creator_id, {

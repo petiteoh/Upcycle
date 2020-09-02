@@ -27,12 +27,23 @@ class Profile extends React.Component {
 
   componentWillMount() {
     // debugger
+    this.props.fetchUsers();
     this.props.fetchUserPosts(this.props.match.params.creator_id);
     this.props.fetchCategories();
+    // if (this.props.location.pathname !== prevProps.location.pathname) {
+    //   window.location.reload();
+    // }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   debugger
+  //   // if (this.props.location.pathname !== prevProps.location.pathname) {
+  //   //   window.location.reload();
+  //   // }
+  // }
+
   componentWillReceiveProps(newState) {
-    // debugger
+    debugger
     this.setState({ posts: newState.posts });
     this.setState({ categories: newState.categories });
   }
@@ -75,16 +86,23 @@ class Profile extends React.Component {
     // if (this.state.posts.length === 0) {
     //   return <div>No Posts</div>;
     // } else {
-      allPosts = filtered.map((post, idx) => (
+      allPosts = filtered.map((post, idx) => {
+        // debugger
+        // if (post.creator_id === this.props.user.id) 
+        // {
+        return (
         <PostItem 
           key={idx} 
           post={post} 
           user={this.props.user}
+          authors={this.props.authors}
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
           />
-      ));
+      )
+    // }
+    });
     // }
       // debugger
       return (

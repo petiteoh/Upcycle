@@ -12,6 +12,10 @@ const msp = (state) => {
     const categoryObjs = Object.values(state.categories).map(
       (category) => category
     );
+    let authors = {}
+    Object.values(state.users)
+      .filter((author) => author)
+      .map((user => authors[user._id] = user.handle))
     // debugger
     return {
       posts: Object.values(state.posts),
@@ -21,7 +25,8 @@ const msp = (state) => {
       currentUser: state.session.user,
       upcycles: state.upcycles,
       user: state.session.user,
-      authors: Object.values(state.users)
+      // authors: Object.values(state.users)
+      authors
     };
 };
 

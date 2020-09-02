@@ -5,7 +5,6 @@ export const getPost = (id) => {
 };
 
 export const getPosts = () => {
-
   return axios.get("/api/posts");
 };
 
@@ -14,7 +13,6 @@ export const getUserPosts = (id) => {
 };
 
 export const createPost = (data) => {
-  
   return axios.post("/api/posts/create-post", data);
 };
 
