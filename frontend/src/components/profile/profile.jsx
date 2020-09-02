@@ -54,6 +54,12 @@ class Profile extends React.Component {
 
   render() {
     // debugger
+    let postIds = {};
+      this.state.posts.forEach(post => {
+        if (!postIds[post.id]) {
+          postIds[post.id] = true
+        }
+      })
     let filtered = this.state.posts.filter((post) => {
       // debugger
       if (this.state["filterSearch"] !== "title") {
@@ -86,10 +92,15 @@ class Profile extends React.Component {
     // if (this.state.posts.length === 0) {
     //   return <div>No Posts</div>;
     // } else {
+      let uniquePostIds = []
       allPosts = filtered.map((post, idx) => {
-        // debugger
-        // if (post.creator_id === this.props.user.id) 
-        // {
+        debugger
+        let currentProfileUserId = this.props.location.pathname.split("/")[3]
+        if (post.creator_id === currentProfileUserId && !uniquePostIds.includes(post._id)) 
+        {
+        uniquePostIds.push(post._id)
+        // console.log(gitpost._id)
+        
         return (
         <PostItem 
           key={idx} 
@@ -100,11 +111,13 @@ class Profile extends React.Component {
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
           />
-      )
-    // }
-    });
+          )
+
+    }
+  });
     // }
       // debugger
+      // this.forceUpdate();
       return (
         <div>
           <div className="search">

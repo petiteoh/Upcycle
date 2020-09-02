@@ -9,6 +9,7 @@ const UserReducer = (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       return Object.assign({}, state, action.users.data);
     case RECEIVE_USER_POSTS:
+      debugger;
       return Object.assign({}, state, action.posts.data);
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, action.currentUser.data);
