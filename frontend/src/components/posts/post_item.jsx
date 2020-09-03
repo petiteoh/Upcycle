@@ -16,15 +16,12 @@ class PostItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let button = document.getElementById('unclicked');
-    button.classList.add('clicked')
+    e.target.classList.add('clicked');
     this.props.upcyclePost(this.props.post._id);
     this.setState({upcycles : this.state.upcycles + 1, upcycled: "Upcycled"});
-    debugger
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (this.props.upcycles !== prevProps.upcycles) {
       this.setState({
         upcycles: this.props.upcycles,
@@ -58,7 +55,7 @@ class PostItem extends React.Component {
           </div>
         );
       } else {
-        debugger
+        // debugger
         return (
           <div className="upcycle-button-container">
             <button
