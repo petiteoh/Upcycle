@@ -56,7 +56,7 @@ router.patch('/:id', (req, res) => {
       image: req.body.image
       }
   }).then(post => {
-    post.save();
+    res.json("Post Updated");
   }).catch(err =>
     res.status(404).json({ noteditable: "Post cannot be edited"}))
 });
