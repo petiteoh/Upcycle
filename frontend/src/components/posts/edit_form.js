@@ -10,6 +10,10 @@ class EditForm extends React.Component {
 
   }
 
+  handleUpdate(id) {
+      
+  }
+
   render() {
       return (
           <div>edit form</div>

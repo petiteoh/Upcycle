@@ -1,14 +1,19 @@
 import { connect } from "react-redux";
-import { createPost } from "../../actions/post_actions";
-import { fetchCategories } from "../../actions/category_actions";
-import EditForm from "./edit_form";
+import { fetchPost } from "../../actions/post_actions";
 
-const msp = (state) => {
-
+const msp = (state, ownProps) => {
+    const post = Object.values(state.posts).filter((post) => {
+        post._id === ownProps.match.params.id
+        return {
+            post,
+        }
+    });
 };
 
 const mdp = (dispatch) => {
-
+    return {
+        fetchPost: (id) => dispatch(fetchPost(id)),
+    };
 };
 
 export default connect(msp, mdp)(EditForm);
