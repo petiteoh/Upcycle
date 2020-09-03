@@ -8,12 +8,20 @@ class PostItem extends React.Component {
     // debugger
     this.state = { 
       upcycles: this.props.upcycles,
-      authorName: "" 
+      authorName: "" ,
+      upcycled: this.props.post.upcycler_ids.includes(this.props.user.id) ? "Upcycled" : "Upcycle"
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    e.target.classList.add('clicked');
+    this.props.upcyclePost(this.props.post._id);
+    this.setState({upcycles : this.state.upcycles + 1, upcycled: "Upcycled"});
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (this.props.upcycles !== prevProps.upcycles) {
       this.setState({
         upcycles: this.props.upcycles,
@@ -36,30 +44,34 @@ class PostItem extends React.Component {
       if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
         return (
           <div className="upcycle-button-container">
-            <button className="upcycle-button" value="Upcycled">
+            <button className="upcycle-button clicked" value="Upcycled">
               <img
                 class="upcycle-logo"
                 src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
                 alt=""
               />
-              Upcycled
+              {this.state.upcycled}
             </button>
           </div>
         );
       } else {
+        // debugger
         return (
           <div className="upcycle-button-container">
             <button
               className="upcycle-button"
+              id="unclicked"
               value="Upcycle"
-              onClick={this.upcyclePost(this.props.post._id)}
+              placeholder="Upcycled"
+              onClick={this.handleSubmit}
+              // onClick={this.props.upcyclePost(this.props.post._id)}
             >
               <img
                 className="upcycle-logo"
                 src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
                 alt=""
               />
-              Upcycle
+              {this.state.upcycled}
             </button>
           </div>
         );

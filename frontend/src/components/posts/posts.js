@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import PostItem from "./post_item.jsx";
+import PostItem from "./post_item";
 import { Link } from "react-router-dom";
 import "../../search-bar.css";
 
