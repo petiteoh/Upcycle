@@ -44,19 +44,45 @@
 #Nikki {
   border: 3px solid #cccccc;
 }
+
+#Nikki-title {
+  background-color: #cccccc;
+}
+
 #Artem {
   border: 3px solid rgb(235, 133, 49);
+}
+
+#Artem-title {
+  background-color: rgb(235, 133, 49);
 }
 
 #Cade {
   border: 3px solid rgb(15, 57, 134);
 }
 
+#Cade-title {
+  background-color: rgb(15, 57, 134);
+  color: white;
+}
+
 #Victor {
   border: 3px solid rgb(15, 106, 134);
 }
-h1 {
+
+#Victor-title {
+  background-color: rgb(15, 106, 134);
+  color: white;
+}
+
+.about-title {
   z-index: 2;
+  background-color: #5dd39ebd;
+  padding: 5px;
+}
+
+h4 {
+  padding: 5px;
 }
 .team-hats {
   background-image: url("https://medio-app-seed.s3.amazonaws.com/two-hats.png");
@@ -69,4 +95,8 @@ h1 {
   background-size: 500px;
   overflow: hidden;
   background-repeat: no-repeat;
+}
+
+a:hover {
+  color: #5dd39e;
 }
