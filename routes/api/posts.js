@@ -75,7 +75,6 @@ router.delete('/:id', (req, res) => {
 }
 );
 
-
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
