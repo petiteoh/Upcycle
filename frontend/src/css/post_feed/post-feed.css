@@ -146,6 +146,12 @@
     padding-bottom: 8px;
 }
         
-.post-category-name {
+/* .post-category-name {
         
+} */
+
+.clicked {
+  pointer-events: none;
+  color: #2B1E18;
+  background: #5DD39E;
 }
