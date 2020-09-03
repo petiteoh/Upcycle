@@ -13,6 +13,7 @@ export default class About extends Component {
               <h3>Nikki</h3>
               <a className="" href="https://github.com/petiteoh">Github</a>
               <a className="" href="https://www.linkedin.com/in/nikkiteoh/">LinkedIn</a>
+              <a className="" href="https://angel.co/nikki-teoh">Angelist</a>
             </div>
           </li>
           <li className="member">
@@ -21,6 +22,7 @@ export default class About extends Component {
               <h3>Artem</h3>
               <a className="" href="https://github.com/ArtemSilka">Github</a>
               <a className="" href="https://www.linkedin.com/in/artemsilka/">LinkedIn</a>
+              <a className="" href="https://angel.co/u/artem-silka">Angelist</a>
             </div>
           </li>
           <li className="member">
@@ -29,6 +31,7 @@ export default class About extends Component {
               <h3>Cade</h3>
               <a className="" href="https://github.com/cschreger">Github</a>
               <a className="" href="https://www.linkedin.com/in/cade-schreger-01048aab/">LinkedIn</a>
+              <a className="" href="https://angel.co/u/cade-schreger">Angelist</a>
             </div>
           </li>
           <li className="member">
@@ -37,6 +40,7 @@ export default class About extends Component {
               <h3>Victor</h3>
               <a className="" href="https://github.com/vcjr">Github</a>
               <a className="" href="https://www.linkedin.com/in/victorcrispin/">LinkedIn</a>
+              <a className="" href="https://angel.co/u/victor-crispin">Angelist</a>
             </div>
           </li>
         </ul>
