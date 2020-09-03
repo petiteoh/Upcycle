@@ -109,3 +109,9 @@ h3 {
 .top-section h1 {
   max-width: 75%;
 }
+
+/* Upcycle-button */
+
+.clicked {
+  pointer-events: none;
+}
