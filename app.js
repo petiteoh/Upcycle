@@ -26,6 +26,10 @@ mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
+
 
 
 app.use(passport.initialize());
