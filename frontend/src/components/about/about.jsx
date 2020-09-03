@@ -11,31 +11,44 @@ export default class About extends Component {
             <img id="Nikki" src="https://medio-app-seed.s3.amazonaws.com/nikki-profile-img.jpg" alt="Nikki's Profile Image"/>
             <div className="member-info">
               <h3>Nikki</h3>
+              <h4>Team Lead</h4>
               <a className="" href="https://github.com/petiteoh">Github</a>
+              <a className="" href="https://www.linkedin.com/in/nikkiteoh/">LinkedIn</a>
+              <a className="" href="https://angel.co/nikki-teoh">Angelist</a>
             </div>
           </li>
           <li className="member">
             <img id="Artem"  src="https://medio-app-seed.s3.amazonaws.com/artemprofileimage.png" alt="Artem's Profile Image"/>
             <div className="member-info">
               <h3>Artem</h3>
+              <h4>Flex Developer</h4>
               <a className="" href="https://github.com/ArtemSilka">Github</a>
+              <a className="" href="https://www.linkedin.com/in/artemsilka/">LinkedIn</a>
+              <a className="" href="https://angel.co/u/artem-silka">Angelist</a>
             </div>
           </li>
           <li className="member">
             <img id="Cade"  src="https://medio-app-seed.s3.amazonaws.com/cade_prof_pic.jpg" alt="Cade's Profile Image"/>
             <div className="member-info">
               <h3>Cade</h3>
+              <h4>Back-end Developer</h4>
               <a className="" href="https://github.com/cschreger">Github</a>
+              <a className="" href="https://www.linkedin.com/in/cade-schreger-01048aab/">LinkedIn</a>
+              <a className="" href="https://angel.co/u/cade-schreger">Angelist</a>
             </div>
           </li>
           <li className="member">
-            <img id="Victor" src="https://media-exp1.licdn.com/dms/image/C5603AQGQTyO7GAzSuQ/profile-displayphoto-shrink_800_800/0?e=1602720000&v=beta&t=39y69M5QzYtoiAgmnz7BmYaZIt2xzqL6NbCLwHTBpN8" alt="Victor's Profile Image"/>
+            <img id="Victor" src="https://medio-app-seed.s3.amazonaws.com/victorcrispinprofile.jpg" alt="Victor's Profile Image"/>
             <div className="member-info">
               <h3>Victor</h3>
-              <a className="" href="">Github</a>
+              <h4>Font-end Developer</h4>
+              <a className="" href="https://github.com/vcjr">Github</a>
+              <a className="" href="https://www.linkedin.com/in/victorcrispin/">LinkedIn</a>
+              <a className="" href="https://angel.co/u/victor-crispin">Angelist</a>
             </div>
           </li>
         </ul>
+      <div className="team-hats"></div>
       </div>
     );
   }
