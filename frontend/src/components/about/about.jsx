@@ -48,6 +48,7 @@ export default class About extends Component {
             </div>
           </li>
         </ul>
+      <div className="team-hats"></div>
       </div>
     );
   }
