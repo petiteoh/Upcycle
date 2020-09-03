@@ -29,7 +29,7 @@ export default class About extends Component {
             </div>
           </li>
           <li className="member">
-            <img id="Victor" src="https://media-exp1.licdn.com/dms/image/C5603AQGQTyO7GAzSuQ/profile-displayphoto-shrink_800_800/0?e=1602720000&v=beta&t=39y69M5QzYtoiAgmnz7BmYaZIt2xzqL6NbCLwHTBpN8" alt="Victor's Profile Image"/>
+            <img id="Victor" src="https://medio-app-seed.s3.amazonaws.com/victorcrispinprofile.jpg" alt="Victor's Profile Image"/>
             <div className="member-info">
               <h3>Victor</h3>
               <a className="" href="">Github</a>
