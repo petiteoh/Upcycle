@@ -46,6 +46,19 @@ router.get('/:id', (req, res) => {
         );
 });
 
+// router.patch('/:id', (req, res) => {
+//   let id = req.params.id;
+//   let data = {
+//     image: req.body.image,
+//     title: req.body.title,
+//     description: req.body.description,
+//     category_id: req.body.category_id
+//   }
+//   Post.findByIdAndUpdate(id, {$set: data})
+//       .catch(err =>
+//             res.status(404).json({ nopostfound: 'No post found with that ID' })
+//   );
+// })
 
 router.patch('/:id', (req, res) => {
   Post.findByIdAndUpdate(req.params.id, {
@@ -97,19 +110,6 @@ router.post('/create-post',
     }
 );
 
-router.patch('/:id', (req, res) => {
-  let id = req.params.id;
-  let data = {
-    image: req.body.image,
-    title: req.body.title,
-    description: req.body.description,
-    category_id: req.body.category_id
-  }
-  Post.findByIdAndUpdate(id, {$set: data})
-      .catch(err =>
-            res.status(404).json({ nopostfound: 'No post found with that ID' })
-  );
-})
 
 
 router.get("/:id/upcycles", (req, res) => {
