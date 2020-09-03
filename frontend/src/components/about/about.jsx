@@ -12,6 +12,7 @@ export default class About extends Component {
             <div className="member-info">
               <h3>Nikki</h3>
               <a className="" href="https://github.com/petiteoh">Github</a>
+              <a className="" href="https://www.linkedin.com/in/nikkiteoh/">LinkedIn</a>
             </div>
           </li>
           <li className="member">
@@ -19,6 +20,7 @@ export default class About extends Component {
             <div className="member-info">
               <h3>Artem</h3>
               <a className="" href="https://github.com/ArtemSilka">Github</a>
+              <a className="" href="https://www.linkedin.com/in/artemsilka/">LinkedIn</a>
             </div>
           </li>
           <li className="member">
@@ -26,13 +28,15 @@ export default class About extends Component {
             <div className="member-info">
               <h3>Cade</h3>
               <a className="" href="https://github.com/cschreger">Github</a>
+              <a className="" href="https://www.linkedin.com/in/cade-schreger-01048aab/">LinkedIn</a>
             </div>
           </li>
           <li className="member">
             <img id="Victor" src="https://medio-app-seed.s3.amazonaws.com/victorcrispinprofile.jpg" alt="Victor's Profile Image"/>
             <div className="member-info">
               <h3>Victor</h3>
-              <a className="" href="">Github</a>
+              <a className="" href="https://github.com/vcjr">Github</a>
+              <a className="" href="https://www.linkedin.com/in/victorcrispin/">LinkedIn</a>
             </div>
           </li>
         </ul>
