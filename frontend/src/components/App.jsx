@@ -14,9 +14,9 @@ import PostsFormContainer from './posts/post_form_container';
 import LeaderboardContainer from './leaderboard/leaderboard_container';
 import CategoriesDD from './posts/category-dd-container';
 import UploadContainer from './posts/upload_container';
+import EditFormContainer from './posts/edit_form_container';
 
 import ProfileContainer from './profile/profile_container';
-import EditFormContainer from './posts/edit_form_container';
 
 const App = () => (
   <div>

@@ -10,7 +10,6 @@ export const RECEIVE_POST_UPCYCLES = "RECEIVE_POST_UPCYCLES";
 export const RECEIVE_UPCYCLE = "RECEIVE_UPCYCLE";
 
 export const receivePost = (post) => {
-  
   return {
   type: RECEIVE_POST,
   post
