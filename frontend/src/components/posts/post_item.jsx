@@ -52,7 +52,7 @@ class PostItem extends React.Component {
             <button
               className="upcycle-button"
               value="Upcycle"
-              onClick={this.handleSubmit}
+              onClick={this.upcyclePost(this.props.post._id)}
             >
               <img
                 className="upcycle-logo"

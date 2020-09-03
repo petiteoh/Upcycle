@@ -46,7 +46,35 @@ router.get('/:id', (req, res) => {
         );
 });
 
-// debugger
+
+router.patch('/:id', (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, {
+    $set: {
+      title: req.body.title,
+      description: req.body.description,
+      category_id: req.body.category_id,
+      image: req.body.image
+      }
+  }).then(post => {
+    post.save();
+  }).catch(err =>
+    res.status(404).json({ noteditable: "Post cannot be edited"}))
+});
+
+
+router.delete('/:id', (req, res) => {
+  Post.findByIdAndRemove(req.params.id)
+    .then(post => {
+      if (!post) {
+        return res.status(404).send({
+          message: `Post with id ${req.params.id} not found`
+        });
+      }
+      return res.send({ message: 'Post deleted' });
+    })
+}
+);
+
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
@@ -82,19 +110,6 @@ router.patch('/:id', (req, res) => {
             res.status(404).json({ nopostfound: 'No post found with that ID' })
   );
 })
-
-router.post('/delete', (req, res) => {
-    Post.findByIdAndRemove(req.params.id)
-        .then(post => {
-            if (!post) {
-                return res.status(404).send({
-                    message: `Post with id ${req.params.id} not found`
-                });
-            }
-            return res.send({ message: 'Post deleted' });
-        })
-    }
-);
 
 
 router.get("/:id/upcycles", (req, res) => {
