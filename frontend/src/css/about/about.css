@@ -39,6 +39,8 @@
   font-size: 20px;
   padding-top: 10px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 #Nikki {
@@ -84,6 +86,7 @@
 h4 {
   padding: 5px;
 }
+
 .team-hats {
   background-image: url("https://medio-app-seed.s3.amazonaws.com/two-hats.png");
   position: absolute;
@@ -99,4 +102,54 @@ h4 {
 
 a:hover {
   color: #5dd39e;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#social-image {
+  width: 42px;
+  height: 42px;
+}
+
+.pulsate-bck:hover {
+  -webkit-animation: pulsate-bck 0.8s ease-in-out infinite both;
+  animation: pulsate-bck 0.8s ease-in-out infinite both;
+}
+
+@-webkit-keyframes pulsate-bck {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulsate-bck {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
