@@ -25,6 +25,10 @@ nav a {
   border-bottom-color: #5dd39e;
 }
 
+.nav-menu-links {
+  position: relative;
+}
+
 .nav-menu-links h3{
   padding-top: 15px;
   padding-bottom: 15px;
@@ -122,4 +126,18 @@ nav ul {
   color: rgb(5, 129, 22);
   font-size: 20px;
   font-weight: 700;
+}
+
+/* Edit Profile */
+#edit-profile-info {
+  position: absolute;
+  border: none;
+  /* display: none; */
+  top: 0;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+}
+.nav-menu-links:hover #edit-profile-info {
+  display: block;
 }

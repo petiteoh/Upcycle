@@ -20,6 +20,7 @@ class Nav extends Component {
         return (
           <>
             <div className="profile-dash">
+              <img id="edit-profile-info" src={process.env.PUBLIC_URL + `/assets/images/pencil-64.png`} alt="Edit Profile"/>
               <Link to={`/posts/user/${props.user.id}`}>
               <img src={profileImage} alt=""/>
               </Link>
