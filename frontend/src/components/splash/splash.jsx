@@ -86,11 +86,7 @@ export default class Splash extends Component {
           <>
             <h1>Upcycled Project of The Week</h1>
             <h2>{title}</h2>
-            <h3>
-              Zero Hero: {this.props.authors[this.state.topPost.creator_id]} - <span>{upcycle_ids.length} Upcycles</span>
-            </h3>
             <div className="top-post-content">
-              <p className="top-post-description">{description}</p>
               <img
                 parallax
                 data-rate="-0.5"
@@ -98,6 +94,13 @@ export default class Splash extends Component {
                 width="700px"
                 alt="top-post-image"
               />
+              <div>
+                <h3>
+                  {this.props.authors[this.state.topPost.creator_id]}
+                </h3>
+                <span>{upcycle_ids.length} Upcycles</span>
+                <p className="top-post-description">{description}</p>
+              </div>
             </div>
           </>
         );

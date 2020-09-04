@@ -65,7 +65,18 @@
 
 .highlight {
   background-color: #9cefc999;
-  /* #9cefc999 */
+}
+
+.highlight-section {
+  /* background-color: yellow; */
+}
+
+.highlight-section h2 {
+  /* text-align: center; */
+}
+.highlight-section h3 {
+  padding-top: 15px;
+  /* text-align: center; */
 }
 
 .top-post-content {
@@ -74,7 +85,8 @@
 }
 
 .top-post-content img {
-  padding-left: 5px;
+  padding: 15px;
+  border-radius: 50px;
 }
 .top-post-description {
   font-size: 20px;
