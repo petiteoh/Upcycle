@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   height: 125vh;
+  position: relative;
 }
 
 .team-members {
@@ -87,13 +88,22 @@ h4 {
   padding: 5px;
 }
 
-.team-hats {
-  background-image: url("https://medio-app-seed.s3.amazonaws.com/two-hats.png");
+.team-hats1 {
   position: absolute;
-  top: -5%;
-  left: 35%;
-  width: 1000px;
-  height: 500px;
+  top: -3px;
+  width: 300px;
+  height: 300px;
+  z-index: 0;
+  background-size: 500px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+.team-hats2 {
+  position: absolute;
+  top: -3px;
+  left: 25%;
+  width: 300px;
+  height: 300px;
   z-index: 0;
   background-size: 500px;
   overflow: hidden;
@@ -114,6 +124,8 @@ a:hover {
   width: 42px;
   height: 42px;
 }
+
+/* Animations */
 
 .pulsate-bck:hover {
   -webkit-animation: pulsate-bck 0.8s ease-in-out infinite both;
@@ -153,3 +165,69 @@ a:hover {
     transform: scale(1);
   }
 }
+
+.swing {
+  animation-name: swing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  -moz-animation-direction: alternate;
+  animation: swing 3.2s alternate infinite ease-in-out;
+}
+
+.swing-opposite {
+  animation-name: swing-opposite;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  -moz-animation-direction: alternate;
+  animation: swing 3.0s alternate infinite ease-in-out;
+}
+
+@-webkit-keyframes swing {
+  from {
+    -webkit-transform: rotate(-25deg);
+    transform-origin: top;
+  }
+  
+  to {
+    -webkit-transform: rotate(25deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes swing {
+  from {
+    -webkit-transform: rotate(-25deg);
+    transform-origin: top;
+  }
+  
+  to {
+    -webkit-transform: rotate(25deg);
+    transform-origin: top;
+  }
+}
+@-webkit-keyframes swing-opposite {
+  from {
+    -webkit-transform: rotate(-15deg);
+    transform-origin: top;
+  }
+  
+  to {
+    -webkit-transform: rotate(15deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes swing-opposite {
+  from {
+    -webkit-transform: rotate(-15deg);
+    transform-origin: top;
+  }
+  
+  to {
+    -webkit-transform: rotate(15deg);
+    transform-origin: top;
+  }
+}
+

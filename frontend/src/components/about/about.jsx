@@ -10,6 +10,10 @@ export default class About extends Component {
   render() {
     return (
       <div className="about-container">
+        <div className="team-hats">
+          <img className="team-hats1 swing" src={process.env.PUBLIC_URL + `/assets/images/hat1.png`} alt="Swinging hat1"/>
+          <img className="team-hats2 swing-opposite" src={process.env.PUBLIC_URL + `/assets/images/hat2.png`} alt="Swinging hat2"/>
+        </div>
         <h1 className="about-title">The Team</h1>
         <ul className="team-members">
           <li className="member">
@@ -61,7 +65,6 @@ export default class About extends Component {
             </div>
           </li>
         </ul>
-      <div className="team-hats"></div>
       </div>
     );
   }
