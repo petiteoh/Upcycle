@@ -132,11 +132,16 @@ nav ul {
 #edit-profile-info {
   position: absolute;
   border: none;
-  /* display: none; */
-  top: 0;
-  right: 10px;
-  width: 24px;
-  height: 24px;
+  display: none;
+  top: 10px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+#edit-profile-info:hover {
+  background-color: #5DD39E;
+  cursor: pointer;
 }
 .nav-menu-links:hover #edit-profile-info {
   display: block;

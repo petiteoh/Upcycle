@@ -42,7 +42,6 @@ const App = () => (
         <Route path="/upload" component={UploadContainer} />
       </main>
     </Switch>
-    
   </div>
 );
 
