@@ -4,6 +4,11 @@ export const getPost = (id) => {
   return axios.get(`/api/posts/${id}`);
 };
 
+export const getPostToEdit = (data) => {
+  debugger
+  return axios.patch(`/api/posts/${data.id}`, data);
+}
+
 export const getPosts = () => {
   return axios.get("/api/posts");
 };

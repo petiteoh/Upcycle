@@ -15,11 +15,7 @@ class PostForm extends React.Component {
       description: "",
       image: "",
       category_id: "5f346b5e25454bc1217ce0a3",
-      // category:
-      // materials_id: ["5f3387369c03638d3400c1b0"],
-      // location_id: "5f3386a89c03638d3400c1ae",
       selectedFile: null,
-      // errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
