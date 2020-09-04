@@ -67,10 +67,10 @@ export const fetchPost = (id) => (dispatch) => (
         dispatch(receiveErrors(err.response.data)))
 );
 
-export const fetchPostToEdit = (id) => (dispatch) => {
+export const fetchPostToEdit = (data) => (dispatch) => {
   debugger
   return (
-    PostAPIUtil.getPostToEdit(id)
+    PostAPIUtil.getPostToEdit(data)
       .then((post) => dispatch(receivePostToEdit(post)))
       .catch(err => dispatch(receiveErrors(err.response.data)))
   )

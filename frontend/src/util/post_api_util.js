@@ -6,7 +6,7 @@ export const getPost = (id) => {
 
 export const getPostToEdit = (data) => {
   debugger
-  return axios.patch(`/api/posts/${data.id}`, data);
+  return axios.patch(`/api/posts/${data._id}`, data);
 }
 
 export const getPosts = () => {
