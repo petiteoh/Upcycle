@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/post_feed/post-feed.css"
+import pencil from "../../images/pencil.png";
 
 class PostItem extends React.Component {
   constructor(props) {
@@ -85,13 +86,22 @@ class PostItem extends React.Component {
         return this.props.post.upcycle_ids.length;
       }
     };
-    // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
-    // let categoryName = categoryObj[name]
-    // debugger
+    
+    const editPostButton = () => {
+      if (this.props.post.creator_id === this.props.user.id) {
+        return (
+          <Link to={`edit-post/${this.props.post._id}`}>
+            <img class="pencil-icon" src={pencil}></img>
+          </Link>
+        )
+      }
+    }
+
     return (
       <div className="single-post-container">
         <div className="top-container">
           <p className="post-title">{this.props.post.title}</p>
+          {editPostButton()}
         </div>
         <div className="bottom-container">
           <div className="left-container">

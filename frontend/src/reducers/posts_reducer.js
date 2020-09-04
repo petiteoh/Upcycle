@@ -1,5 +1,6 @@
 import {
   RECEIVE_POSTS,
+  RECEIVE_EDIT_POST,
   RECEIVE_USER_POSTS,
   CREATE_POST,
   RECEIVE_POST,
@@ -14,6 +15,9 @@ const PostReducer = ( state = {}, action ) => {
   
   switch (action.type) {
     case RECEIVE_POST:
+      newState = Object.assign({}, state, action.post.data);
+      return newState;
+    case RECEIVE_EDIT_POST:
       newState = Object.assign({}, state, action.post.data);
       return newState;
     case RECEIVE_POSTS:

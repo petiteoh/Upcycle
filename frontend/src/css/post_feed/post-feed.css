@@ -51,13 +51,19 @@
 }
 
 .top-container {
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .post-title {
     padding-bottom: 30px;
     font-family: "Arvo Bold";
     font-size: 35px;
+}
+
+.pencil-icon {
+    width: 35px;
+    height: 35px;
 }
 
 .bottom-container {
