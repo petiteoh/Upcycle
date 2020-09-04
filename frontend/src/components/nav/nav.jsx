@@ -23,12 +23,8 @@ class Nav extends Component {
               <Link to={`/posts/user/${props.user.id}`}>
               <img src={profileImage} alt=""/>
               </Link>
-              {/* <a onClick={() => { props.history.push(`/posts/user/${props.user.id}`) }}>
-                <img src={profileImage} alt="" />
-              </a> */}
               <p>{`Hi, ${props.user.handle}`}</p>
               <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${props.user.hero_points}`}</span> Hero Points</p>
-              {/* <p><span className="dash-points"> <span className="dash-icon">♲</span>{`${this.state.hero_points ? this.state.hero_points : props.user.hero_points}`}</span> Hero Points</p> */}
               <Link to="/create-post">Create Post</Link>
               <Link to="/" onClick={props.logout}>Logout</Link>
             </div>
