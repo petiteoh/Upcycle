@@ -4,7 +4,6 @@ import "../../css/about/about.css";
 export default class About extends Component {
 
   socialIcon(type) {
-    // return <img src={`%PUBLIC_URL%/assets/images/${type}-64.png`} alt={`${type} profile link`} />;
     return <img id="social-image" className="pulsate-bck" src={process.env.PUBLIC_URL + `/assets/images/${type}-64.png`} alt={`${type} profile link`} />;
   }
 
