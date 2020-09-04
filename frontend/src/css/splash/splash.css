@@ -65,7 +65,23 @@
 
 .highlight {
   background-color: #9cefc999;
-  /* #9cefc999 */
+}
+
+.highlight-section h1 {
+  padding: 5px;
+  width: 100%;
+}
+
+.highlight-section h2 {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.highlight-section h3 {
+  padding-top: 15px;
+}
+
+.highlight-section span {
+  font-weight: bold;
 }
 
 .top-post-content {
@@ -74,7 +90,8 @@
 }
 
 .top-post-content img {
-  padding-left: 5px;
+  padding: 15px;
+  border-radius: 50px;
 }
 .top-post-description {
   font-size: 20px;
@@ -86,11 +103,16 @@
   font-size: 20px;
   line-height: 25px;
   padding: 20px;
-  background-color: #e0ffffba;
+  background-color: #9cefc999;
+  font-weight: bold;
   border-radius: 5px;
 }
 
 .hero-point-span {
   color: rgb(5, 129, 22);
   font-weight: bold;
+}
+
+mark {
+  background-color: #9cefc999;
 }
