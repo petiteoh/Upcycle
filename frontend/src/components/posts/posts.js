@@ -36,6 +36,12 @@ class Post extends React.Component {
     this.setState({ posts: [] })
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.posts.length !== prevProps.posts.length) {
+      this.forceUpdate();
+    }
+  }
+
   // componentDidMount() {
   //   // if (this.props.posts !== prevProps.posts) {
   //     this.props.fetchPosts()
@@ -101,6 +107,7 @@ class Post extends React.Component {
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
+          deletePost={this.props.deletePost}
         />)
       });
       // debugger
