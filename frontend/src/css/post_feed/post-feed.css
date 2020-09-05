@@ -60,10 +60,27 @@
     font-family: "Arvo Bold";
     font-size: 35px;
 }
+.edit-delete-button-container {
+    display: flex;
+    flex-direction: column;
+}
 
 .pencil-icon {
     width: 35px;
     height: 35px;
+}
+
+.delete-button {
+    padding-top: 10px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.trashcan-icon {
+    width: 28px;
+    height: 28px;
 }
 
 .bottom-container {
