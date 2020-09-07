@@ -2,6 +2,8 @@ import React, { Component, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import MegaMenu from "./mega_menu";
 import "../../css/nav/nav.css";
+
+import ProfileEdit from '../profile-edit/profile-edit-container';
 class Nav extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +23,13 @@ class Nav extends Component {
         return (
           <>
             <div className="profile-dash">
+ 
               <img
                 id="edit-profile-info"
                 src={process.env.PUBLIC_URL + `/assets/images/pencil-64.png`}
                 alt="Edit Profile"
               />
+              
               <Link to={`/posts/user/${props.user.id}`}>
                 <img src={profileImage} alt="" />
               </Link>
@@ -70,8 +74,6 @@ class Nav extends Component {
     );
   }
 
-  logoChange(e) {}
-
   render() {
     return (
       <>
@@ -104,6 +106,7 @@ class Nav extends Component {
             />
           </Link>
         </div>
+        { <ProfileEdit /> }
       </>
     );
   }

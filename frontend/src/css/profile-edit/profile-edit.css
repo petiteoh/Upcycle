@@ -1,3 +1,26 @@
 .edit-profile-modal {
+  /* display: none; */
+  position: fixed;
+  left: 0;
+  top: 0;
   background-color: #ffffff7e;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: auto;
+}
+
+.edit-profile-modal-content {
+  background-color: rgba(182, 211, 221, 0.753);
+  padding: 30px;
+  width: 65%;
+  margin: 15% auto;
+}
+
+.close-edit-profile-modal {
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  float: right;
 }
