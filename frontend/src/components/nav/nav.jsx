@@ -9,6 +9,18 @@ class Nav extends Component {
     super(props);
 
     this.state = null;
+    this.openProfileEdit = this.openProfileEdit.bind(this);
+  }
+
+  openProfileEdit(){
+    const editProfileModal = document.getElementById("edit-profile-modal");
+    const editProfileClose = document.getElementById("close-edit-profile-modal");
+
+    // editProfileBtn.addEventListener("onClick", () => {
+    //   editProfileModal.style.display = "block";
+    // });
+
+    editProfileModal.style.display = "block";
   }
 
   MegaMenu(props) {
@@ -23,11 +35,11 @@ class Nav extends Component {
         return (
           <>
             <div className="profile-dash">
- 
               <img
                 id="edit-profile-info"
                 src={process.env.PUBLIC_URL + `/assets/images/pencil-64.png`}
                 alt="Edit Profile"
+                onClick={props.openProfileEdit}
               />
               
               <Link to={`/posts/user/${props.user.id}`}>
@@ -74,6 +86,8 @@ class Nav extends Component {
     );
   }
 
+  
+
   render() {
     return (
       <>
@@ -84,6 +98,7 @@ class Nav extends Component {
             isAuthenticated={this.props.isAuthenticated}
             logout={this.props.logout}
             history={this.props.history}
+            openProfileEdit={this.openProfileEdit}
           >
             <MegaMenu />
           </this.MegaMenu>
