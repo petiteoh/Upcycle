@@ -51,7 +51,7 @@ const PostSchema = new Schema({
     ],
     timeCreated: {
         type: Date,
-        default: new Date()
+        default: () => { return new Date() }
     },
 });
 

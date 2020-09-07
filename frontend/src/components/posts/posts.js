@@ -37,8 +37,9 @@ class Post extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // debugger
     if (this.props.posts.length !== prevProps.posts.length) {
-      this.forceUpdate();
+      this.setState({ posts: this.props.posts });
     }
   }
 

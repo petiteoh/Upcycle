@@ -40,6 +40,7 @@ class PostItem extends React.Component {
   }
 
   onClick() {
+    debugger
       this.props.deletePost(this.props.post._id).then(this.forceUpdate())
   }
 
