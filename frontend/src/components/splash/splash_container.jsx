@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 })};
 
 const mapDispatchToProps = dispatch => ({
-    login: (user) => dispatch(login({email: "demouser@demouser.com", password: "111111"})),
+    login: (user) => dispatch(login(user)),
     getTopPost: () => dispatch(getTopPost()),
     fetchUsers: () => dispatch(fetchAllUsers())
 });

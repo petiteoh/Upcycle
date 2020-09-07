@@ -98,7 +98,6 @@ class Profile extends React.Component {
         if (post.creator_id === currentProfileUserId && !uniquePostIds.includes(post._id)) 
         {
         uniquePostIds.push(post._id)
-        // console.log(gitpost._id)
         
         return (
         <PostItem 
@@ -111,7 +110,6 @@ class Profile extends React.Component {
           upcycles={post.upcycle_ids.length}
           />
           )
-
     }
   });
     // }

@@ -1,5 +1,7 @@
 import {
-  RECEIVE_ERRORS, RECEIVE_POSTS
+  RECEIVE_ERRORS, 
+  RECEIVE_POSTS,
+  RECEIVE_EDIT_POST,
 } from "../actions/post_actions";
 
 const nullErrors = [];

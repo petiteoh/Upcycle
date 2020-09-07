@@ -22,6 +22,8 @@ export default class Splash extends Component {
     this.state = {
       topPost: null,
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   parallaxEffect(e) {
@@ -62,6 +64,12 @@ export default class Splash extends Component {
     window.removeEventListener("scroll", this.parallaxEffect);
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.login({email: "demouser@demouser.com", password: "111111"})
+    .then(this.props.history.push("/posts"))
+  }
+
   render() {
     const demoLoginButton = () => {
       if (!this.props.isAuthenticated) {
@@ -69,7 +77,7 @@ export default class Splash extends Component {
           <Link className="demo-button" to="/login">
             <button
               className="demo-button-container"
-              onClick={this.props.login}
+              onClick={this.handleSubmit}
             >
               Demo Login
             </button>

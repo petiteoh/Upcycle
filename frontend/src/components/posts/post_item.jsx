@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/post_feed/post-feed.css"
+import pencil from "../../images/pencil.png";
+import trashcan from "../../images/delete.png";
 
 class PostItem extends React.Component {
   constructor(props) {
@@ -12,6 +14,8 @@ class PostItem extends React.Component {
       upcycled: this.props.post.upcycler_ids.includes(this.props.user.id) ? "Upcycled" : "Upcycle"
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleSubmit(e) {
@@ -19,6 +23,11 @@ class PostItem extends React.Component {
     e.target.classList.add('clicked');
     this.props.upcyclePost(this.props.post._id);
     this.setState({upcycles : this.state.upcycles + 1, upcycled: "Upcycled"});
+  }
+  
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deletePost(this.props.post._id)
   }
 
   componentDidUpdate(prevProps) {
@@ -28,6 +37,10 @@ class PostItem extends React.Component {
         authorName: this.props.authors[this.props.post.creator_id]
       });
     }
+  }
+
+  onClick() {
+      this.props.deletePost(this.props.post._id).then(this.forceUpdate())
   }
 
   render() {
@@ -85,13 +98,27 @@ class PostItem extends React.Component {
         return this.props.post.upcycle_ids.length;
       }
     };
-    // let categoryObj = this.props.categoryObjs[this.props.post.category_id];
-    // let categoryName = categoryObj[name]
-    // debugger
+
+    const editPostAndDeleteButton = () => {
+      if (this.props.post.creator_id === this.props.user.id) {
+        return (
+          <div class="edit-delete-button-container">
+            <Link to={`edit-post/${this.props.post._id}`}>
+              <img class="pencil-icon" src={pencil}></img>
+            </Link>
+            <button class="delete-button" onClick={() => this.onClick()}> 
+              <img class="trashcan-icon" src={trashcan}></img>
+            </button>
+          </div>
+        )
+      }
+    }
+
     return (
       <div className="single-post-container">
         <div className="top-container">
           <p className="post-title">{this.props.post.title}</p>
+          {editPostAndDeleteButton()}
         </div>
         <div className="bottom-container">
           <div className="left-container">

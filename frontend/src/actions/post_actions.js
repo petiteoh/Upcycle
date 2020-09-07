@@ -1,6 +1,7 @@
 import * as PostAPIUtil from '../util/post_api_util';
 
 export const RECEIVE_POST = "RECEIVE_POST";
+export const RECEIVE_EDIT_POST = "RECEIVE_EDIT_POST";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_USER_POSTS = "RECEIVE_USER_POSTS";
 export const CREATE_POST = "CREATE_POST";
@@ -14,6 +15,14 @@ export const receivePost = (post) => {
   type: RECEIVE_POST,
   post
 }};
+
+export const receivePostToEdit = (post) => {
+  debugger
+  return {
+    type: RECEIVE_EDIT_POST,
+    post
+  }
+}
 
 export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
@@ -50,8 +59,6 @@ export const receiveUpcycle = (upcycle) => ({
   upcycle
 })
 
-// 
-
 export const fetchPost = (id) => (dispatch) => (
   PostAPIUtil.getPost(id)
     .then((post) => 
@@ -59,6 +66,15 @@ export const fetchPost = (id) => (dispatch) => (
     .catch(err => 
         dispatch(receiveErrors(err.response.data)))
 );
+
+export const fetchPostToEdit = (data) => (dispatch) => {
+  debugger
+  return (
+    PostAPIUtil.getPostToEdit(data)
+      .then((post) => dispatch(receivePostToEdit(post)))
+      .catch(err => dispatch(receiveErrors(err.response.data)))
+  )
+}
 
 export const fetchPosts = () => (dispatch) => (
   PostAPIUtil.getPosts()

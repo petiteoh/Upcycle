@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchPosts, upcyclePost } from "../../actions/post_actions";
+import { fetchPosts, upcyclePost, deletePost } from "../../actions/post_actions";
 import { fetchCategories } from "../../actions/category_actions";
 import {fetchAllUsers} from '../../actions/user_actions';
 import Posts from "./posts";
@@ -39,7 +39,8 @@ const mdp = (dispatch) => {
     fetchPosts: () => dispatch(fetchPosts()),
     fetchCategories: () => dispatch(fetchCategories()),
     fetchUsers: () => dispatch(fetchAllUsers()),
-    upcyclePost: (id) => dispatch(upcyclePost(id))
+    upcyclePost: (id) => dispatch(upcyclePost(id)),
+    deletePost: (id) => dispatch(deletePost(id)),
   };
 };
 
