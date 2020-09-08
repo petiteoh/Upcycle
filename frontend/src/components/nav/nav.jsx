@@ -9,6 +9,14 @@ class Nav extends Component {
     this.state = null;
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.isAuthenticated){
+      if (prevProps.user.hero_points !== this.props.user.hero_points){
+        this.forceUpdate();
+      }
+    }
+  }
+
   MegaMenu(props) {
     const [open, setOpen] = useState(false);
 

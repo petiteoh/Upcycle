@@ -1,4 +1,5 @@
 import { RECEIVE_USER_LOGOUT, RECEIVE_USER_SIGN_IN, RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_ALL_USERS } from "../actions/user_actions";
 
 const initialState = {
   isAuthenticated: false,
@@ -30,6 +31,20 @@ export default function (state = initialState, action) {
         //   photo: action.currentUser.data.photo
         // },
       };
+
+    case RECEIVE_ALL_USERS:
+      debugger // Find what way to grab the current user
+      let currentUserId = state.user.id; 
+      let currentUser = null;
+
+      action.users.data.forEach(user => {
+        if(state.user.id === user._id) currentUser = user;
+      });
+
+      return {
+        isAuthenticated: state.isAuthenticated,
+        user: currentUser
+      }
     default:
       return state;
   }
