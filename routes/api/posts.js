@@ -91,11 +91,18 @@ router.delete('/:id', (req, res) => {
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
-      debugger;
+      // debugger;
         const newPost = new Post(req.body);
         newPost
           .save()
           .then((post) => {
+            User.findByIdAndUpdate(req.body.creator_id, {
+              $push: {posts: newPost._id},
+              $inc: { hero_points: 5 }
+            }).then((user) => {
+              user.save();
+            });
+            
             return res.json({
               post,
               user: User.findById(post.creator_id)
@@ -105,12 +112,12 @@ router.post('/create-post',
         res.status(404).json({ nopostfound: "Post cannot be saved, please submit all fields" })
         );
         
-        User.findByIdAndUpdate(req.body.creator_id, {
-          $push: {posts: newPost._id},
-          $inc: { hero_points: 5 }
-        }).then((user) => {
-          user.save();
-        });
+        // User.findByIdAndUpdate(req.body.creator_id, {
+        //   $push: {posts: newPost._id},
+        //   $inc: { hero_points: 5 }
+        // }).then((user) => {
+        //   user.save();
+        // });
     }
 );
 
