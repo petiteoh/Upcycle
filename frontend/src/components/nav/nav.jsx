@@ -14,11 +14,6 @@ class Nav extends Component {
 
   openProfileEdit(){
     const editProfileModal = document.getElementById("edit-profile-modal");
-    const editProfileClose = document.getElementById("close-edit-profile-modal");
-
-    // editProfileBtn.addEventListener("onClick", () => {
-    //   editProfileModal.style.display = "block";
-    // });
 
     editProfileModal.style.display = "block";
   }
