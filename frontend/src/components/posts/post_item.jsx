@@ -8,11 +8,18 @@ class PostItem extends React.Component {
   constructor(props) {
     super(props);
     // debugger
+    // let userId = null;
+    // if (props.user.id) {
+    //   userId = props.user.id;
+    // } else {
+    //   userId = props.user._id;
+    // }
     this.state = { 
       upcycles: this.props.upcycles,
       authorName: "" ,
-      upcycled: this.props.post.upcycler_ids.includes(this.props.user.id) ? "Upcycled" : "Upcycle"
-    }
+      // upcycled: this.props.post.upcycler_ids.includes(userId) ? "Upcycled" : "Upcycle"
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -37,6 +44,17 @@ class PostItem extends React.Component {
         authorName: this.props.authors[this.props.post.creator_id]
       });
     }
+
+    // This is to set the upcycled status
+    if (prevProps.user !== this.props.user){
+      let userId = null;
+      if (this.props.user.id) {
+        userId = this.props.user.id;
+      } else {
+        userId = this.props.user._id;
+      }
+      this.setState({  upcycled: this.props.post.upcycler_ids.includes(userId) ? "Upcycled" : "Upcycle" })
+    }
   }
 
   onClick() {
@@ -54,43 +72,44 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      debugger
-      // this.props.isAuthenticated && this.props.user
-      if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
-        return (
-          
-          <div className="upcycle-button-container">
-            <button className="upcycle-button clicked" value="Upcycled">
-              <img
-                class="upcycle-logo"
-                src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
-                alt=""
-              />
-              {this.state.upcycled}
-            </button>
-          </div>
-        );
-      } else {
-        // debugger
-        return (
-          <div className="upcycle-button-container">
-            <button
-              className="upcycle-button"
-              id="unclicked"
-              value="Upcycle"
-              placeholder="Upcycled"
-              onClick={this.handleSubmit}
-              // onClick={this.props.upcyclePost(this.props.post._id)}
-            >
-              <img
-                className="upcycle-logo"
-                src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
-                alt=""
-              />
-              {this.state.upcycled}
-            </button>
-          </div>
-        );
+      // debugger
+      if(this.props.isAuthenticated && this.props.user) {
+        if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
+          return (
+            
+            <div className="upcycle-button-container">
+              <button className="upcycle-button clicked" value="Upcycled">
+                <img
+                  class="upcycle-logo"
+                  src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
+                  alt=""
+                />
+                {this.state.upcycled}
+              </button>
+            </div>
+          );
+        } else {
+          // debugger
+          return (
+            <div className="upcycle-button-container">
+              <button
+                className="upcycle-button"
+                id="unclicked"
+                value="Upcycle"
+                placeholder="Upcycled"
+                onClick={this.handleSubmit}
+                // onClick={this.props.upcyclePost(this.props.post._id)}
+              >
+                <img
+                  className="upcycle-logo"
+                  src="https://medio-app-seed.s3.amazonaws.com/leaderboard.png"
+                  alt=""
+                />
+                {this.state.upcycled}
+              </button>
+            </div>
+          );
+        }
       }
     };
 
@@ -126,8 +145,8 @@ class PostItem extends React.Component {
       userId = this.props.user.id;
     } else {
       userId = this.props.user._id;
-    }
-    
+    };
+
     return (
       <div className="single-post-container">
         <div className="top-container">
