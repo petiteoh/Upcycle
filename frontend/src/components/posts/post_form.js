@@ -10,7 +10,7 @@ class PostForm extends React.Component {
     super(props);
     
     this.state = {
-      creator_id: props.currentUser.id,
+      creator_id: props.currentUser._id,
       title: "",
       description: "",
       image: "",
@@ -70,7 +70,7 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger;
+    debugger // Check for the currentUser
     e.preventDefault();
     
     this.singleFileUploadHandler().then(() => {

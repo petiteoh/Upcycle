@@ -72,7 +72,7 @@ export const fetchPostToEdit = (data) => (dispatch) => {
   return (
     PostAPIUtil.getPostToEdit(data)
       .then((post) => dispatch(receivePostToEdit(post)))
-      .catch(err => dispatch(receiveErrors(err.response.data)))
+      // .catch(err => dispatch(receiveErrors(err.response.data)))
   )
 }
 
@@ -97,13 +97,13 @@ export const fetchUserPosts = (id) => (dispatch) => {
 };
 
 export const createPost = (data) => (dispatch) => {
-  // debugger;
+  debugger;
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 
-        dispatch(receivePost(post)))
-    // .catch((err) => 
-    //     dispatch(receiveErrors(err.response.data)))
+        dispatch(createNewPost(post)))
+    .catch((err) => 
+        dispatch(receiveErrors(err.response.data)))
 )};
 
 export const deletePost = (id) => (dispatch) => (

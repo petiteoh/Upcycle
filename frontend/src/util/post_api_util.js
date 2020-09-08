@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const getPost = (id) => {
+  debugger;
   return axios.get(`/api/posts/${id}`);
 };
 
 export const getPostToEdit = (data) => {
-  debugger
   return axios.patch(`/api/posts/${data._id}`, data);
 }
 
@@ -18,6 +18,7 @@ export const getUserPosts = (id) => {
 };
 
 export const createPost = (data) => {
+  debugger
   return axios.post("/api/posts/create-post", data);
 };
 

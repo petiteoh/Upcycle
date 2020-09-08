@@ -69,7 +69,7 @@ router.patch('/:id', (req, res) => {
       image: req.body.image
       }
   }).then(post => {
-    res.json("Post Updated");
+    res.json({ post });
   }).catch(err =>
     res.status(404).json({ noteditable: "Post cannot be edited"}))
 });
@@ -83,7 +83,7 @@ router.delete('/:id', (req, res) => {
           message: `Post with id ${req.params.id} not found`
         });
       }
-      return res.send({ message: 'Post deleted' });
+      return res.json(post);
     })
 }
 );
@@ -91,22 +91,33 @@ router.delete('/:id', (req, res) => {
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
+      // debugger;
         const newPost = new Post(req.body);
         newPost
           .save()
           .then((post) => {
-            return res.json(post);
+            User.findByIdAndUpdate(req.body.creator_id, {
+              $push: {posts: newPost._id},
+              $inc: { hero_points: 5 }
+            }).then((user) => {
+              user.save();
+            });
+            
+            return res.json({
+              post,
+              user: User.findById(post.creator_id)
+            });
         })
         .catch((err) =>
         res.status(404).json({ nopostfound: "Post cannot be saved, please submit all fields" })
         );
         
-        User.findByIdAndUpdate(req.body.creator_id, {
-          $push: {posts: newPost._id},
-          $inc: { hero_points: 5 }
-        }).then((user) => {
-          user.save();
-        });
+        // User.findByIdAndUpdate(req.body.creator_id, {
+        //   $push: {posts: newPost._id},
+        //   $inc: { hero_points: 5 }
+        // }).then((user) => {
+        //   user.save();
+        // });
     }
 );
 

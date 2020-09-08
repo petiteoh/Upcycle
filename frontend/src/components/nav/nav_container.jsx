@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
+// import { fetchCurrentUser} from '../../actions/'
 import Nav from './nav';
 
 const mapStateToProps = state => {
