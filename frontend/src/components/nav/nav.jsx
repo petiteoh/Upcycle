@@ -22,7 +22,8 @@ class Nav extends Component {
 
     const profileDash = () => {
 
-      if(props.isAuthenticated){
+      if(props.isAuthenticated && props.user){
+        debugger // Check for props.user to see what this is
         const profileImage = props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
 // debugger
         return (
