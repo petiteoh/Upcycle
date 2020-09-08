@@ -16,6 +16,7 @@ class PostForm extends React.Component {
       image: "",
       category_id: "5f346b5e25454bc1217ce0a3",
       selectedFile: null,
+      hero_points: null,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

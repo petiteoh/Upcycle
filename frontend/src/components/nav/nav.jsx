@@ -10,11 +10,12 @@ class Nav extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // if (this.props.isAuthenticated && this.props.user){
-    //   if (prevProps.user.hero_points !== this.props.user.hero_points){
-    //     this.forceUpdate();
-    //   }
-    // }
+    if (this.props.isAuthenticated && this.props.user){
+      debugger
+      if (prevProps.user.hero_points !== this.props.user.hero_points){
+        this.forceUpdate();
+      }
+    }
   }
 
   componentDidMount(){
@@ -33,7 +34,7 @@ class Nav extends Component {
         return (
           <>
             <div className="profile-dash">
-              <Link to={`/posts/user/${props.user.id}`}>
+              <Link to={`/posts/user/${props.user._id}`}>
               <img src={profileImage} alt=""/>
               </Link>
               <p>{`Hi, ${props.user.handle}`}</p>

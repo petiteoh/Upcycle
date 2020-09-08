@@ -23,8 +23,8 @@ const msp = (state) => {
       categoryObjs,
       currentUser: state.session.user,
       upcycles: state.upcycles,
-      user: state.session.user,
       authors,
+      isAuthenticated: state.session.isAuthenticated,
     };
 };
 

@@ -74,9 +74,10 @@ class PostItem extends React.Component {
     const reflectUpcycleStatus = () => {
       debugger
       if(this.props.isAuthenticated && this.props.user) {
+        debugger
         if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
-          return (
-            
+          debugger
+          return(
             <div className="upcycle-button-container">
               <button className="upcycle-button clicked" value="Upcycled">
                 <img

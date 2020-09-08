@@ -108,6 +108,7 @@ class Profile extends React.Component {
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
+          isAuthenticated={this.props.isAuthenticated}
           />
           )
     }

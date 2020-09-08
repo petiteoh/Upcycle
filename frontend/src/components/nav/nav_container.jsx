@@ -8,6 +8,7 @@ const mapStateToProps = state => {
   return ({
   user: state.session.user,
   isAuthenticated: state.session.isAuthenticated
+  
 })};
 
 const mapDispatchToProps = dispatch => ({

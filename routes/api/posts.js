@@ -76,14 +76,19 @@ router.patch('/:id', (req, res) => {
 
 
 router.delete('/:id', (req, res) => {
+  debugger
+  let postbeforeDelete = Post.findById(req.params.id)
+  User.findByIdAndUpdate(postbeforeDelete.creator_id, {
+    $inc: { hero_points: -5 }
+  })
   Post.findByIdAndRemove(req.params.id)
-    .then(post => {
-      if (!post) {
-        return res.status(404).send({
-          message: `Post with id ${req.params.id} not found`
-        });
-      }
-      return res.json(post);
+  .then(post => {
+    if (!post) {
+      return res.status(404).send({
+        message: `Post with id ${req.params.id} not found`
+      });
+    }
+    return res.json(post);
     })
 }
 );
