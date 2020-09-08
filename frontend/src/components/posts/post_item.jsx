@@ -54,9 +54,11 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      // debugger
-      if (this.props.post.upcycler_ids.includes(this.props.user.id)) {
+      debugger
+      // this.props.isAuthenticated && this.props.user
+      if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
         return (
+          
           <div className="upcycle-button-container">
             <button className="upcycle-button clicked" value="Upcycled">
               <img
@@ -101,20 +103,31 @@ class PostItem extends React.Component {
     };
 
     const editPostAndDeleteButton = () => {
-      if (this.props.post.creator_id === this.props.user.id) {
-        return (
-          <div class="edit-delete-button-container">
-            <Link to={`edit-post/${this.props.post._id}`}>
-              <img class="pencil-icon" src={pencil}></img>
-            </Link>
-            <button class="delete-button" onClick={() => this.onClick()}> 
-              <img class="trashcan-icon" src={trashcan}></img>
-            </button>
-          </div>
-        )
+      // debugger // Check if creator id is === currentuser id
+      if (this.props.isAuthenticated && this.props.user){
+        if (this.props.post.creator_id === this.props.user.id || this.props.post.creator_id === this.props.user._id) {
+          return (
+            <div class="edit-delete-button-container">
+              <Link to={`edit-post/${this.props.post._id}`}>
+                <img class="pencil-icon" src={pencil}></img>
+              </Link>
+              <button class="delete-button" onClick={() => this.onClick()}> 
+                <img class="trashcan-icon" src={trashcan}></img>
+              </button>
+            </div>
+          )
+        }
       }
     }
-
+    debugger //Check for the this.props.user.id
+    // let userId = this.props.user.id ? this.props.user.id : this.props.user._id;
+    let userId = null;
+    if (this.props.user.id) {
+      userId = this.props.user.id;
+    } else {
+      userId = this.props.user._id;
+    }
+    
     return (
       <div className="single-post-container">
         <div className="top-container">
@@ -141,7 +154,7 @@ class PostItem extends React.Component {
             <label className="post-category-label">
               <p className="post-handle-name">
                 Created By:{" "}
-                <Link to={`posts/user/${this.props.user.id}`}>
+                <Link to={`posts/user/${userId}`}>
                   {this.props.authors[this.props.post.creator_id]}
                 </Link>
               </p>

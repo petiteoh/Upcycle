@@ -12,7 +12,7 @@ import {
 const PostReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState;
-  debugger
+  // debugger
   
   switch (action.type) {
     case RECEIVE_POST:

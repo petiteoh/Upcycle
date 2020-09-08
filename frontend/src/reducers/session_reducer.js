@@ -34,11 +34,11 @@ export default function (state = initialState, action) {
 
     case RECEIVE_ALL_USERS:
       debugger // Find what way to grab the current user
-      let currentUserId = state.user.id; 
+      // let currentUserId = state.user.id || state.user._id; 
       let currentUser = null;
 
       action.users.data.forEach(user => {
-        if(state.user.id === user._id) currentUser = user;
+        if(state.user.id === user._id || state.user._id === user._id) currentUser = user;
       });
 
       return {

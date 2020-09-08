@@ -13,7 +13,7 @@ class Post extends React.Component {
       categories: [],
       search: "",
       filterSearch: "",
-      
+      user: this.props.user
     };
     this.onRadioChange = this.onRadioChange.bind(this);
   }
@@ -26,9 +26,9 @@ class Post extends React.Component {
   };
 
   componentWillMount() {
-    this.props.fetchPosts();
-    this.props.fetchCategories();
     this.props.fetchUsers();
+    this.props.fetchCategories();
+    this.props.fetchPosts();
   }
 
   componentWillUnmount() {
@@ -104,6 +104,7 @@ class Post extends React.Component {
           key={idx} 
           post={post}
           user={this.props.user} 
+          isAuthenticated={this.props.isAuthenticated}
           authors={this.props.authors} 
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 
