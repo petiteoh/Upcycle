@@ -70,6 +70,7 @@ class Post extends React.Component {
 
   render() {
     let filtered = this.props.posts.filter((post) => {
+      debugger // check to see if description or categoryId exist
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1

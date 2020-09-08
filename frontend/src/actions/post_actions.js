@@ -72,7 +72,7 @@ export const fetchPostToEdit = (data) => (dispatch) => {
   return (
     PostAPIUtil.getPostToEdit(data)
       .then((post) => dispatch(receivePostToEdit(post)))
-      .catch(err => dispatch(receiveErrors(err.response.data)))
+      // .catch(err => dispatch(receiveErrors(err.response.data)))
   )
 }
 

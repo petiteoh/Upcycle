@@ -13,14 +13,17 @@ const PostReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState;
   // debugger
-  
+  let posts = {};
+
   switch (action.type) {
     case RECEIVE_POST:
       newState = Object.assign({}, state, action.post.data);
       return newState;
     case RECEIVE_EDIT_POST:
-      newState = Object.assign({}, state, action.post.data);
-      return newState;
+      newState = Object.assign({}, state);
+      Object.values(newState).filter((post) => posts[post._id] = post);
+      posts[action.post.data.post._id] = action.post.data.post;
+      return posts;
     case RECEIVE_POSTS:
       newState = Object.assign({}, state, action.posts.data);
       return newState;
@@ -35,9 +38,8 @@ const PostReducer = ( state = {}, action ) => {
       return newState;
     case REMOVE_POST:
       debugger
-      let posts = {};
       newState = Object.assign({}, state);
-      let newVersion = Object.values(newState).filter((post) => posts[post._id] = post)
+      Object.values(newState).filter((post) => posts[post._id] = post)
       delete posts[action.postId.data._id]
       return posts;
     default:

@@ -8,16 +8,16 @@ class PostItem extends React.Component {
   constructor(props) {
     super(props);
     // debugger
-    // let userId = null;
-    // if (props.user.id) {
-    //   userId = props.user.id;
-    // } else {
-    //   userId = props.user._id;
-    // }
+    let userId = null;
+    if (props.user.id) {
+      userId = props.user.id;
+    } else {
+      userId = props.user._id;
+    }
     this.state = { 
       upcycles: this.props.upcycles,
       authorName: "" ,
-      // upcycled: this.props.post.upcycler_ids.includes(userId) ? "Upcycled" : "Upcycle"
+      upcycled: this.props.post.upcycler_ids.includes(userId) ? "Upcycled" : "Upcycle"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -72,7 +72,7 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      // debugger
+      debugger
       if(this.props.isAuthenticated && this.props.user) {
         if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
           return (
