@@ -70,7 +70,7 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger // Check for the currentUser
+    // debugger // Check for the currentUser
     e.preventDefault();
     
     this.singleFileUploadHandler().then(() => {

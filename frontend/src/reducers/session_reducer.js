@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
       };
 
     case RECEIVE_ALL_USERS:
-      debugger // Find what way to grab the current user
+      // debugger // Find what way to grab the current user
       // let currentUserId = state.user.id || state.user._id; 
       let currentUser = null;
       if (state.isAuthenticated){

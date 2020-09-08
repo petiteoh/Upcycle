@@ -37,7 +37,7 @@ const PostReducer = ( state = {}, action ) => {
       newState = Object.assign({}, state, action.upcycles.data);
       return newState;
     case REMOVE_POST:
-      debugger
+      // debugger
       newState = Object.assign({}, state);
       Object.values(newState).filter((post) => posts[post._id] = post)
       delete posts[action.postId.data._id]

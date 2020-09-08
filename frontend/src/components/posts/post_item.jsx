@@ -58,7 +58,7 @@ class PostItem extends React.Component {
   }
 
   onClick() {
-    debugger
+    // debugger
       this.props.deletePost(this.props.post._id).then(this.forceUpdate())
   }
 
@@ -72,7 +72,7 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      debugger
+      // debugger
       if(this.props.isAuthenticated && this.props.user) {
         if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
           return (
@@ -138,7 +138,7 @@ class PostItem extends React.Component {
         }
       }
     }
-    debugger //Check for the this.props.user.id
+    // debugger //Check for the this.props.user.id
     // let userId = this.props.user.id ? this.props.user.id : this.props.user._id;
     let userId = null;
     if (this.props.user.id) {

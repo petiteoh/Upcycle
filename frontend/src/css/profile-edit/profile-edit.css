@@ -3,7 +3,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #ffffff7e;
+  /* background-color: #ffffff7e; */
+  background-image: linear-gradient(to bottom, rgba(6, 12, 6, 0.75), rgb(93, 211, 158, 0.9));
   width: 100%;
   height: 100%;
   z-index: 100;
@@ -11,10 +12,18 @@
 }
 
 .edit-profile-modal-content {
-  background-color: rgba(182, 211, 221, 0.753);
+  /* background-color: rgba(182, 211, 221, 0.753); */
+  background: white;
+  border-radius: 100px;
+  box-shadow: 7px 8px 11px 2px rgba(92,88,92,0.52);
   padding: 30px;
   width: 65%;
   margin: 15% auto;
+}
+
+.edit-profile-modal-content h1 {
+  text-align: center;
+  font-size: 35px;
 }
 
 #close-edit-profile-modal {

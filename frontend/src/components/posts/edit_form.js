@@ -7,7 +7,7 @@ import $ from "jquery";
 class EditForm extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    // debugger
     this.state = {
       title: "",
       description: "",
@@ -31,7 +31,7 @@ class EditForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        debugger;
+        // debugger;
         if (this.props.post[0] !== prevProps.post[0]) {
             this.setState(this.props.post[0])
         };
@@ -84,7 +84,7 @@ class EditForm extends React.Component {
                 />
                 </div>
             );
-            debugger
+            // debugger
         return (
         <div className="create-post-container">
             <form className="create-post-form" onSubmit={this.handleSubmit}>

@@ -27,7 +27,7 @@ export default class ProfileEdit extends Component {
             Close &times;
           </span>
           <form>
-            <h1>This is the modal to edit the profile</h1>
+            <h1>Edit Your Profile</h1>
             <p>TEST!!!</p>
           </form>
         </div>

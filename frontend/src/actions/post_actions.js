@@ -17,7 +17,7 @@ export const receivePost = (post) => {
 }};
 
 export const receivePostToEdit = (post) => {
-  debugger
+  // debugger
   return {
     type: RECEIVE_EDIT_POST,
     post
@@ -68,7 +68,7 @@ export const fetchPost = (id) => (dispatch) => (
 );
 
 export const fetchPostToEdit = (data) => (dispatch) => {
-  debugger
+  // debugger
   return (
     PostAPIUtil.getPostToEdit(data)
       .then((post) => dispatch(receivePostToEdit(post)))
