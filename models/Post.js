@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     creator_id: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'users',
+        required: true // remove if too muhc work
     },
     image: {
         type: String,
