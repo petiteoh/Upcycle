@@ -13,7 +13,7 @@ class Post extends React.Component {
       categories: [],
       search: "",
       filterSearch: "",
-      
+      user: this.props.user
     };
     this.onRadioChange = this.onRadioChange.bind(this);
   }
@@ -26,9 +26,9 @@ class Post extends React.Component {
   };
 
   componentWillMount() {
-    this.props.fetchPosts();
-    this.props.fetchCategories();
     this.props.fetchUsers();
+    this.props.fetchCategories();
+    this.props.fetchPosts();
   }
 
   componentWillUnmount() {
@@ -37,8 +37,9 @@ class Post extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // debugger
     if (this.props.posts.length !== prevProps.posts.length) {
-      this.forceUpdate();
+      this.setState({ posts: this.props.posts });
     }
   }
 
@@ -69,6 +70,7 @@ class Post extends React.Component {
 
   render() {
     let filtered = this.props.posts.filter((post) => {
+      debugger // check to see if description or categoryId exist
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -103,6 +105,7 @@ class Post extends React.Component {
           key={idx} 
           post={post}
           user={this.props.user} 
+          isAuthenticated={this.props.isAuthenticated}
           authors={this.props.authors} 
           categoryObjs={this.props.categoryObjs} 
           upcyclePost={this.props.upcyclePost} 

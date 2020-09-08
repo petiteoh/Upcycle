@@ -48,6 +48,7 @@ export default class Splash extends Component {
     //   target1[index2].style.filter = `blur(${2 * blurRate}px)`;
     // }
   }
+  
   componentDidMount() {
     this.props.fetchUsers();
     document.addEventListener("scroll", this.parallaxEffect);
