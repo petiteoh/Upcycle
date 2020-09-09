@@ -21,6 +21,19 @@
   margin: 15% auto;
 }
 
+.edit-profile-modal-content input {
+    margin: 10px 0px 10px 20px;
+    /* width: 90%; */
+    line-height: 30px;
+    border-radius: 20px;
+    padding: 8px;
+    border-width: 1px;
+}
+.edit-profile-modal-content form {
+  display: flex;
+  flex-direction: row;
+}
+
 .edit-profile-modal-content h1 {
   text-align: center;
   font-size: 35px;
@@ -38,5 +51,13 @@
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  /* float: right; */
+  margin-right: 20px;
+}
+
+.profile-edit-img:hover {
+  box-shadow: 0 0 0 1px rgba(93,210,159);
+}
+.edit-profile-input-container {
+  display: flex;
+  flex-direction: column;
 }
