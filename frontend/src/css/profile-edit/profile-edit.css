@@ -33,3 +33,10 @@
   color: rgb(0, 0, 0);
   float: right;
 }
+
+.profile-edit-img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  /* float: right; */
+}

@@ -18,18 +18,6 @@ class Nav extends Component {
     editProfileModal.style.display = "block";
   }
 
-  componentDidUpdate(prevProps) {
-    // if (this.props.isAuthenticated && this.props.user){
-    //   if (prevProps.user.hero_points !== this.props.user.hero_points){
-    //     this.forceUpdate();
-    //   }
-    // }
-  }
-
-  componentDidMount(){
-
-  }
-
   MegaMenu(props) {
     const [open, setOpen] = useState(false);
 
@@ -126,7 +114,7 @@ class Nav extends Component {
             />
           </Link>
         </div>
-        { <ProfileEdit /> }
+        { <ProfileEdit user={this.props.user} /> }
       </>
     );
   }
