@@ -35,7 +35,7 @@ export default class ProfileEdit extends Component {
       <div id="edit-profile-modal">
         <div className="edit-profile-modal-content">
           <span id="close-edit-profile-modal" onClick={this.closeEditProfile}>
-            Close &times;
+            &times;
           </span>
           <h1>Edit Your Profile</h1>
           <form>
@@ -44,14 +44,29 @@ export default class ProfileEdit extends Component {
               src={this.state.photo}
               alt={`${this.state.handle}'s profile image`}
             />
+            <img
+              id="edit-profile-photo"
+              src={process.env.PUBLIC_URL + `/assets/images/pencil-64.png`}
+              alt="Edit profile image"
+            />
             <div className="edit-profile-input-container">
               <label>
                 Handle
-                <input className="create-post-input oN bs" type="text" id="handle" value={this.state.handle} />
+                <input
+                  className="create-post-input oN bs"
+                  type="text"
+                  id="handle"
+                  value={this.state.handle}
+                />
               </label>
               <label>
                 Email
-                <input className="create-post-input oN bs" type="text" id="email" value={this.state.email} />
+                <input
+                  className="create-post-input oN bs"
+                  type="text"
+                  id="email"
+                  value={this.state.email}
+                />
               </label>
               <button className="create-post-button ready">Save Profile</button>
             </div>

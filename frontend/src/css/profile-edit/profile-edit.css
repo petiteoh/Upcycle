@@ -13,21 +13,22 @@
 
 .edit-profile-modal-content {
   /* background-color: rgba(182, 211, 221, 0.753); */
+  position: relative;
   background: white;
   border-radius: 100px;
   box-shadow: 7px 8px 11px 2px rgba(92,88,92,0.52);
   padding: 30px;
-  width: 65%;
+  width: 40%;
   margin: 15% auto;
 }
 
 .edit-profile-modal-content input {
-    margin: 10px 0px 10px 20px;
-    /* width: 90%; */
-    line-height: 30px;
-    border-radius: 20px;
-    padding: 8px;
-    border-width: 1px;
+  margin: 10px 0px 10px 20px;
+  /* width: 90%; */
+  line-height: 30px;
+  border-radius: 20px;
+  padding: 8px;
+  border-width: 1px;
 }
 .edit-profile-modal-content form {
   display: flex;
@@ -37,14 +38,18 @@
 .edit-profile-modal-content h1 {
   text-align: center;
   font-size: 35px;
+  padding-bottom: 20px;
 }
 
 #close-edit-profile-modal {
+  position: absolute;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 45px;
   font-weight: bold;
   color: rgb(0, 0, 0);
   float: right;
+  /* padding-right: 50px; */
+  right: 50px;
 }
 
 .profile-edit-img {
@@ -57,7 +62,23 @@
 .profile-edit-img:hover {
   box-shadow: 0 0 0 1px rgba(93,210,159);
 }
+
 .edit-profile-input-container {
   display: flex;
   flex-direction: column;
+}
+
+#edit-profile-photo {
+  position: absolute;
+  /* display: none; */
+  border: none;
+  top: 150px;
+  left: 150px;
+  width: 80px;
+  height: 80px;
+  opacity: 50%;
+}
+
+.profile-edit-img:hover #edit-profile-photo {
+  display: block;
 }
