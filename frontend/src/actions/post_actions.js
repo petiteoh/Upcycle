@@ -17,7 +17,6 @@ export const receivePost = (post) => {
 }};
 
 export const receivePostToEdit = (post) => {
-  debugger
   return {
     type: RECEIVE_EDIT_POST,
     post
@@ -68,7 +67,6 @@ export const fetchPost = (id) => (dispatch) => (
 );
 
 export const fetchPostToEdit = (data) => (dispatch) => {
-  debugger
   return (
     PostAPIUtil.getPostToEdit(data)
       .then((post) => dispatch(receivePostToEdit(post)))
@@ -84,20 +82,18 @@ export const fetchPosts = () => (dispatch) => (
 );
 
 export const fetchUserPosts = (id) => (dispatch) => {
-  // debugger
   return PostAPIUtil.getUserPosts(id)
     .then((posts) => {
-      // debugger
+      
         dispatch(receiveUserPosts(posts))})
     .catch((err) => {
-      // debugger
+      
       return (
         dispatch(receiveErrors(err.response.data)))}
   )
 };
 
 export const createPost = (data) => (dispatch) => {
-  debugger;
   return (
   PostAPIUtil.createPost(data)
     .then((post) => 

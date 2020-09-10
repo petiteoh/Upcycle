@@ -19,7 +19,7 @@ const msp = (state, ownProps) => {
     Object.values(state.categories)
       .filter((category) => category)
       .map((category => categoryNames[category._id] = category.name))
-  // debugger
+  
   return {
     posts: Object.values(state.posts),
     categories: categories,

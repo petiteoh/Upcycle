@@ -71,7 +71,7 @@ class PostForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger // Check for the currentUser
+     // Check for the currentUser
     e.preventDefault();
     
     this.singleFileUploadHandler().then(() => {
@@ -112,7 +112,7 @@ class PostForm extends React.Component {
   render() {
     const { categories, categoryObjs, categoryIds } = this.props;
     const { title, description, image, category_id } = this.state;
-// debugger
+
     const imagePreview =
       this.state.image.length > 0 ? (
         <img src={this.state.image} />
@@ -125,7 +125,7 @@ class PostForm extends React.Component {
           />
         </div>
       );
-// debugger
+
     return (
       <div className="create-post-container">
         <form className="create-post-form" onSubmit={this.handleSubmit}>

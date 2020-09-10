@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    // debugger;
+    ;
     this.state = {
       posts: [],
       categories: [],
@@ -19,14 +19,14 @@ class Profile extends React.Component {
   }
 
   onRadioChange = (e) => {
-    // debugger
+    
     this.setState({
       filterSearch: e.target.value,
     });
   };
 
   componentWillMount() {
-    // debugger
+    
     this.props.fetchUsers();
     this.props.fetchUserPosts(this.props.match.params.creator_id);
     this.props.fetchCategories();
@@ -36,14 +36,14 @@ class Profile extends React.Component {
   }
 
   // componentDidUpdate(prevProps) {
-    // debugger
+    
   //   // if (this.props.location.pathname !== prevProps.location.pathname) {
   //   //   window.location.reload();
   //   // }
   // }
 
   componentWillReceiveProps(newState) {
-    // debugger
+    
     this.setState({ posts: newState.posts });
     this.setState({ categories: newState.categories });
   }
@@ -53,7 +53,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    // debugger
+    
     let postIds = {};
       this.state.posts.forEach(post => {
         if (!postIds[post.id]) {
@@ -61,7 +61,7 @@ class Profile extends React.Component {
         }
       })
     let filtered = this.state.posts.filter((post) => {
-      // debugger
+      
       if (this.state["filterSearch"] !== "title") {
         return (
           post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -73,7 +73,7 @@ class Profile extends React.Component {
       }
     });
 
-    // debugger
+    
     // let filtered;
     // if (this.state["filterSearch"] === "title") {
     //   filtered = this.state.posts.filter((post) => {
@@ -86,7 +86,7 @@ class Profile extends React.Component {
     //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
     // }
 
-    // debugger
+    
     let allPosts;
 
     // if (this.state.posts.length === 0) {
@@ -114,7 +114,7 @@ class Profile extends React.Component {
     }
   });
     // }
-      // debugger
+      
       // this.forceUpdate();
       return (
         <div>

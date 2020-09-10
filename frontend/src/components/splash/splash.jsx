@@ -88,7 +88,7 @@ export default class Splash extends Component {
     };
 
     const topPost = () => {
-      // debugger // Check for top post user name
+       // Check for top post user name
       if (this.state.topPost) {
         const { title, image, description, upcycle_ids } = this.state.topPost;
         return (
@@ -164,8 +164,43 @@ export default class Splash extends Component {
                 data-rate="-0.6"
               />
             </div>
-            <h1>Possibilities Are Endless</h1>
-            <p> We are all guilty of throwing away items that have repurpose potential. Upcycling comes to the rescue! Give new life to those same items you didn't think had potential. With Upcycled you can showcase your projects to others in the upcycling community. At the same time reducing your total carbon footprint and gaining <span className="hero-point-span">♲</span> Hero Points while you at it!</p>
+            <h1>F.A.Q.</h1>
+            <div>
+              <label className="faq-question">
+                Q: Why did we create Upcycled?
+              </label>
+              <p>
+                A: We realized that there wasn't a hub for people to share
+                upcycled projects. Hence, Upcycled was born! With Upcycled you
+                can showcase your projects to others in the upcycling community.
+                Encouraging the reduction of global carbon footprint!
+                {/* <span className="hero-point-span">♲</span> Hero Points while you at it!*/}
+              </p>
+            </div>
+            <div>
+              <label className="faq-question">
+                Q: How do you gain Hero Points?
+              </label>
+              <p>A: Posting projects will earn each Upcycler 5 Hero Points.</p>
+            </div>
+            <div>
+              <label className="faq-question">
+                Q: Who is featured on "Upcycled Project of The Week"?
+              </label>
+              <p>
+                A: The post with the most Upcycles in week will be featured on
+                there for a full week starting Monday.
+              </p>
+            </div>
+            <div>
+              <label className="faq-question">
+                Q: How do you get on the Leaderboard?
+              </label>
+              <p>
+                A: The top 5 Upcyclers with the most Hero Points will be on the
+                leaderboard along with the badges they earned.
+              </p>
+            </div>
           </section>
           <section className="highlight-section">{topPost()}</section>
           <section className="leaderboard-section">{<Leaderboard />}</section>

@@ -7,7 +7,7 @@ import "../../search-bar.css";
 class Post extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    
     this.state = {
       posts: [],
       categories: [],
@@ -32,12 +32,12 @@ class Post extends React.Component {
   }
 
   componentWillUnmount() {
-    // debugger
+    
     this.setState({ posts: [] })
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
+    
     if (this.props.posts.length !== prevProps.posts.length) {
       this.setState({ posts: this.props.posts });
     }
@@ -70,7 +70,7 @@ class Post extends React.Component {
 
   render() {
     let filtered = this.props.posts.filter((post) => {
-      debugger // check to see if description or categoryId exist
+       // check to see if description or categoryId exist
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -95,12 +95,12 @@ class Post extends React.Component {
     //   filtered = this.state.posts.filter((post) => {
     //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
     // }
-// debugger
+
     if (this.props.posts.length === 0) {
       return <div>No Posts</div>;
     } else {
       const allPosts = filtered.map((post, idx) => {
-        // debugger
+        
         return (<PostItem 
           key={idx} 
           post={post}
@@ -113,7 +113,7 @@ class Post extends React.Component {
           deletePost={this.props.deletePost}
         />)
       });
-      // debugger
+      
       return (
         <div>
           <div className="srch">

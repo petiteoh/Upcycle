@@ -163,7 +163,7 @@ Outstanding Tasks:
 - Routes
 ### Push to Heroku
 - remove middlewares
-- debuggers/console.logs/DS.store/keys/anything on the window
+- s/console.logs/DS.store/keys/anything on the window
 ### additional
 - add meta tags for linkedIn
 - update about page with roles and angelist

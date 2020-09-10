@@ -8,7 +8,6 @@ const passport = require('passport');
 const validateRegisterInput = require ('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 router.get("/", (req, res) => {
@@ -31,26 +30,13 @@ router.get(
         });
 })
 
-
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body)
 
     if(!isValid) {
         return res.status(400).json(errors);
     }
-
-
-
-    // User.findOne({ handle: req.body.handle })
-    //     .then(user => {
-    //         if (user) { 
-    //             return res.status(400).json({
-    //                 handle: "Handle already in use!"
-    //             })
-    //         })
         
-        
-
     User.findOne({email: req.body.email, handle: req.body.handle })
         .then(user => {
             if (user) {
@@ -83,7 +69,6 @@ router.post('/register', (req, res) => {
     })
 })
 
-
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -94,8 +79,6 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   
-
-
   User.findOne({ email }).then((user) => {
     if (!user) {
       return res.status(404).json({ email: "This user does not exist" });
@@ -104,7 +87,6 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         const payload = { id: user._id, handle: user.handle, hero_points: user.hero_points, photo: user.photo };
-
         jwt.sign(
           payload,
           keys.secretOrKey,

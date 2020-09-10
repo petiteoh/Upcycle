@@ -5,7 +5,7 @@ const PostSchema = new Schema({
     creator_id: {
         type: Schema.Types.ObjectId,
         ref: 'users',
-        required: true // remove if too muhc work
+        required: true
     },
     image: {
         type: String,

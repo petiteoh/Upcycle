@@ -7,7 +7,7 @@ import trashcan from "../../images/delete.png";
 class PostItem extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    
     let userId = null;
     if (props.user.id) {
       userId = props.user.id;
@@ -58,7 +58,7 @@ class PostItem extends React.Component {
   }
 
   onClick() {
-    debugger
+    
       this.props.deletePost(this.props.post._id).then(this.forceUpdate())
   }
 
@@ -72,11 +72,11 @@ class PostItem extends React.Component {
     };
 
     const reflectUpcycleStatus = () => {
-      debugger
+      
       if(this.props.isAuthenticated && this.props.user) {
-        debugger
+        
         if (this.props.user && (this.props.post.upcycler_ids.includes(this.props.user.id) || this.props.post.upcycler_ids.includes(this.props.user._id))) {
-          debugger
+          
           return(
             <div className="upcycle-button-container">
               <button className="upcycle-button clicked" value="Upcycled">
@@ -90,7 +90,7 @@ class PostItem extends React.Component {
             </div>
           );
         } else {
-          // debugger
+          
           return (
             <div className="upcycle-button-container">
               <button
@@ -123,7 +123,7 @@ class PostItem extends React.Component {
     };
 
     const editPostAndDeleteButton = () => {
-      // debugger // Check if creator id is === currentuser id
+       // Check if creator id is === currentuser id
       if (this.props.isAuthenticated && this.props.user){
         if (this.props.post.creator_id === this.props.user.id || this.props.post.creator_id === this.props.user._id) {
           return (
@@ -139,7 +139,7 @@ class PostItem extends React.Component {
         }
       }
     }
-    debugger //Check for the this.props.user.id
+     //Check for the this.props.user.id
     // let userId = this.props.user.id ? this.props.user.id : this.props.user._id;
     let userId = null;
     if (this.props.user.id) {

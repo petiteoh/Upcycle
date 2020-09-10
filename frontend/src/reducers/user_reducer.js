@@ -4,7 +4,7 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const UserReducer = (state = {}, action) => {
   Object.freeze(state);
-  debugger;
+  ;
   switch (action.type) {
     case RECEIVE_ALL_USERS:
       return Object.assign({}, state, action.users.data);

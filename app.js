@@ -9,10 +9,8 @@ const upcycles = require("./routes/api/upcycles");
 const bodyParser = require("body-parser");
 const path = require("path");
 const upload = require("./routes/api/uploads");
-
 const passport = require('passport');
 require('./config/passport')(passport);
-
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
@@ -28,9 +26,6 @@ mongoose
   .catch((err) => console.log(err));
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-
-
-
 
 app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,11 +46,6 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 
 // AWS route
-
-
-
-
-
 
 // // TEST // DISPLAY ALL ROUTES
 // function print(path, layer) {

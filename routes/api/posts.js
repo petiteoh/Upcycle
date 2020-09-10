@@ -7,7 +7,6 @@ const User = require("../../models/User");
 const Category = require('../../models/Category');
 const Upcycle = require('../../models/Upcycle');
 
-
 router.get('/', (req, res) => {
     Post.find()
         .sort({ timeCreated: -1 })
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
         .catch(err => {
             res.status(404).json({ nopostsfound: 'No posts found' })});
 });
-
 
 router.get('/user/:creator_id', (req, res) => {
     Post.find({ creator_id: req.params.creator_id })
@@ -46,20 +44,6 @@ router.get('/:id', (req, res) => {
         );
 });
 
-// router.patch('/:id', (req, res) => {
-//   let id = req.params.id;
-//   let data = {
-//     image: req.body.image,
-//     title: req.body.title,
-//     description: req.body.description,
-//     category_id: req.body.category_id
-//   }
-//   Post.findByIdAndUpdate(id, {$set: data})
-//       .catch(err =>
-//             res.status(404).json({ nopostfound: 'No post found with that ID' })
-//   );
-// })
-
 router.patch('/:id', (req, res) => {
   Post.findByIdAndUpdate(req.params.id, {
     $set: {
@@ -74,9 +58,7 @@ router.patch('/:id', (req, res) => {
     res.status(404).json({ noteditable: "Post cannot be edited"}))
 });
 
-
 router.delete('/:id', (req, res) => {
-  debugger
   let postbeforeDelete = Post.findById(req.params.id)
   User.findByIdAndUpdate(postbeforeDelete.creator_id, {
     $inc: { hero_points: -5 }
@@ -90,13 +72,12 @@ router.delete('/:id', (req, res) => {
     }
     return res.json(post);
     })
-}
+  }
 );
 
 router.post('/create-post',
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
-      // debugger;
         const newPost = new Post(req.body);
         newPost
           .save()
@@ -126,15 +107,12 @@ router.post('/create-post',
     }
 );
 
-
-
 router.get("/:id/upcycles", (req, res) => {
     Upcycle.find({post_id: req.params.id})
         .sort({date: -1})
         .then(upcycles => res.json(upcycles))
         .catch(err => res.status(404).json({ nopostUpcycles: "There are no upcycles for this post"}))
 });
-
 
 router.post("/:id/create-upcycle", 
   passport.authenticate("jwt", { session: false }),
@@ -164,16 +142,13 @@ router.post("/:id/create-upcycle",
     .catch((err) =>
       res.status(404).json({ noupcycle: "Upcycle was not created" })
     );
-
-
-//     
+    
 //   User.findByIdAndUpdate(post.creator_id, {
 //       $inc: {hero_points: 2}
 //   }).then(user => {
 //       user.save()
 //     .catch(err => res.status(404).json({ nopointupdate: "Points were not updated"}))
 //   });
-  
 
 });
 

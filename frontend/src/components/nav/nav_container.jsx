@@ -4,7 +4,7 @@ import { logout } from '../../actions/session_actions';
 import Nav from './nav';
 
 const mapStateToProps = state => {
-  // debugger
+  
   return ({
   user: state.session.user,
   isAuthenticated: state.session.isAuthenticated
