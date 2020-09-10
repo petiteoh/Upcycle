@@ -88,7 +88,6 @@ export default class Splash extends Component {
     };
 
     const topPost = () => {
-       // Check for top post user name
       if (this.state.topPost) {
         const { title, image, description, upcycle_ids } = this.state.topPost;
         return (
@@ -208,4 +207,4 @@ export default class Splash extends Component {
       </>
     );
   }
-}
+};

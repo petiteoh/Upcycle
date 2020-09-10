@@ -11,24 +11,17 @@ class Nav extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.isAuthenticated && this.props.user){
-      
       if (prevProps.user.hero_points !== this.props.user.hero_points){
         this.forceUpdate();
       }
     }
   }
 
-  componentDidMount(){
-
-  }
-
   MegaMenu(props) {
     const [open, setOpen] = useState(false);
-
     const profileDash = () => {
 
-      if(props.isAuthenticated && props.user){
-         // Check for props.user to see what this is
+      if (props.isAuthenticated && props.user) {
         const profileImage = props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
 
         return (
@@ -61,10 +54,6 @@ class Nav extends Component {
           {open && props.children}
         </ul>
     );
-  }
-
-  logoChange(e){
-
   }
 
   render() {

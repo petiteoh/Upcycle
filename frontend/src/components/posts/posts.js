@@ -43,34 +43,12 @@ class Post extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   // if (this.props.posts !== prevProps.posts) {
-  //     this.props.fetchPosts()
-  //     this.props.fetchCategories();
-  //   }
-  
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.upcycles !== prevProps.upcycles) {
-  //     this.setState({
-  //       posts: this.props.posts
-  //     })
-  //   }
-  // }
-
-  // componentWillReceiveProps(newState) {
-    
-  //   this.setState({ posts: newState.posts });
-  //   this.setState({ categories: newState.categories });
-  // }
-
   updateSearch(e) {
     this.setState({ search: e.target.value.substr(0, 20) });
   }
 
   render() {
     let filtered = this.props.posts.filter((post) => {
-       // check to see if description or categoryId exist
       if (this.state["filterSearch"] !== "title") { 
       return (
         post.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -78,23 +56,9 @@ class Post extends React.Component {
       } else {
         return (
         this.props.categoryNames[post.category_id].toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-        // post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       );
       }
     });
-
-
-    // let filtered;
-    // if (this.state["filterSearch"] === "title") {
-    //   filtered = this.state.posts.filter((post) => {
-    //     return (post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
-    // } else {
-    //   let cat_ids;
-    //   this.state.categories.map((category) => cat_ids[category._id] === category.name);
-
-    //   filtered = this.state.posts.filter((post) => {
-    //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
-    // }
 
     if (this.props.posts.length === 0) {
       return <div>No Posts</div>;

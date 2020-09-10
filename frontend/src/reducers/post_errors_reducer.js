@@ -9,7 +9,6 @@ const nullErrors = [];
 const PostErrorsReducer = (state = nullErrors, action) => {
   Object.freeze(state);
 
-  ;
   switch (action.type) {
     case RECEIVE_ERRORS:
       return action.errors;

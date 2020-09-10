@@ -4,7 +4,6 @@ import "../../../src/post-form.css";
 import axios from "axios";
 import $ from "jquery";
 
-
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
@@ -68,29 +67,17 @@ class PostForm extends React.Component {
     }
 
     this.setState({ errors: nextProps.errors })
-  }
+  };
 
   handleSubmit(e) {
-     // Check for the currentUser
     e.preventDefault();
     
     this.singleFileUploadHandler().then(() => {
       const post = this.state;
-      // return this.props.createPost(post)
       this.props.createPost(post)
     }).then(() => {this.props.history.push("/posts")
     })
-  }
-
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {Object.keys(this.state.errors).map((error, i) => (
-  //         <li className="post-errors" key={`error-${i}`}>{this.state.errors[error]}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  };
   
   update(field) {
     return (e) =>

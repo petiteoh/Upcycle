@@ -11,17 +11,20 @@ class Upload extends React.Component {
       imageUrl: null,
     };
   }
+
   singleFileChangedHandler = (event) => {
     this.setState({
       selectedFile: event.target.files[0],
     });
   };
+
   multipleFileChangedHandler = (event) => {
     this.setState({
       selectedFiles: event.target.files,
     });
     console.log(event.target.files);
   };
+
   singleFileUploadHandler = () => {
     const data = new FormData(); // If file selected
     if (this.state.selectedFile) {
@@ -67,6 +70,7 @@ class Upload extends React.Component {
       this.ocShowAlert("Please upload file", "red");
     }
   };
+
   multipleFileUploadHandler = () => {
     const data = new FormData();
     let selectedFiles = this.state.selectedFiles; // If file selected
@@ -125,6 +129,7 @@ class Upload extends React.Component {
       $(alertEl).remove();
     }, 3000);
   };
+
   render() {
       const displayImage = () => {
         if (this.state.imageUrl) {
@@ -169,10 +174,10 @@ class Upload extends React.Component {
               </div>
             </div>
           </div>
-    
         </div>
       </div>
     );
   }
 }
+
 export default Upload;

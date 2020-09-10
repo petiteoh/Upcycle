@@ -27,14 +27,12 @@ const msp = (state, ownProps) => {
     upcycles: state.upcycles,
     user: state.session.user,
     isAuthenticated: state.session.isAuthenticated,
-    // authors: Object.values(state.users)
     authors,
     categoryNames
   };
 };
 
 const mdp = (dispatch) => {
-  
   return {
     fetchPosts: () => dispatch(fetchPosts()),
     fetchCategories: () => dispatch(fetchCategories()),

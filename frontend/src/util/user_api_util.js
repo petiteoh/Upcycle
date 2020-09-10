@@ -10,4 +10,4 @@ export const getLeaderboard = () => {
 
 export const getUsers = () => {
   return axios.get('/api/users/')
-}
+};

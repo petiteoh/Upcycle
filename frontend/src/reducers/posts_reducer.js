@@ -12,7 +12,6 @@ import {
 const PostReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState;
-  
   let posts = {};
 
   switch (action.type) {

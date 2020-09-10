@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../../css/leaderboard/badge.css";
-export default class Badge extends Component {
 
+export default class Badge extends Component {
   badgeInfo(badgeNum){
     switch (badgeNum) {
       case 1:
@@ -16,7 +16,6 @@ export default class Badge extends Component {
         return `Zero Hero Leaderboard Status`;
       case 6:
         return `Obtained 1000 Hero Points`;
-    
       default:
         return "This Badge Number Doesn't Exist!";
     }

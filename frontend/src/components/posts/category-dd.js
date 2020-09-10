@@ -11,36 +11,29 @@ class CategoryDD extends React.Component {
     };
     this.categoryType = React.createRef();
     this.update = this.update.bind(this);
-  }
+  };
 
   update(e) {      
-
     this.setState({ 
         category_id: e.target.value
-      });
-  }
+    });
+  };
 
   componentDidMount() {
       this.props.fetchCategories()
-  }
-
-//   componentDidUpdate(prevProps, prevState) {
-//       if (prevState !== this.state ) {
-//           this.setState(this.state.category_id)
-//       };
-//   }
+  };
 
   handleClickOutside() {
     this.setState({
       listOpen: false,
     });
-  }
+  };
 
   toggleList() {
     this.setState((prevState) => ({
       listOpen: !prevState.listOpen,
     }));
-  }
+  };
 
   render() {
     const { categories, categoryObjs, categoryIds } = this.props;
@@ -70,6 +63,6 @@ class CategoryDD extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default CategoryDD;

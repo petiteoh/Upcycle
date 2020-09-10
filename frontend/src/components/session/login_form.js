@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
     this.props.login(this.state)
         .then(null, (error) => {
             this.setState({ errors: this.renderErrors() })
-      })
+        })
   }
 
   renderErrors() {
@@ -98,6 +98,6 @@ class LoginForm extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default withRouter(LoginForm);

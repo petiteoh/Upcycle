@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    ;
+
     this.state = {
       posts: [],
       categories: [],
@@ -19,41 +19,27 @@ class Profile extends React.Component {
   }
 
   onRadioChange = (e) => {
-    
     this.setState({
       filterSearch: e.target.value,
     });
   };
 
   componentWillMount() {
-    
     this.props.fetchUsers();
     this.props.fetchUserPosts(this.props.match.params.creator_id);
     this.props.fetchCategories();
-    // if (this.props.location.pathname !== prevProps.location.pathname) {
-    //   window.location.reload();
-    // }
-  }
-
-  // componentDidUpdate(prevProps) {
-    
-  //   // if (this.props.location.pathname !== prevProps.location.pathname) {
-  //   //   window.location.reload();
-  //   // }
-  // }
+  };
 
   componentWillReceiveProps(newState) {
-    
     this.setState({ posts: newState.posts });
     this.setState({ categories: newState.categories });
-  }
+  };
 
   updateSearch(e) {
     this.setState({ search: e.target.value.substr(0, 20) });
-  }
+  };
 
   render() {
-    
     let postIds = {};
       this.state.posts.forEach(post => {
         if (!postIds[post.id]) {
@@ -73,33 +59,16 @@ class Profile extends React.Component {
       }
     });
 
-    
-    // let filtered;
-    // if (this.state["filterSearch"] === "title") {
-    //   filtered = this.state.posts.filter((post) => {
-    //     return (post.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
-    // } else {
-    //   let cat_ids;
-    //   this.state.categories.map((category) => cat_ids[category._id] === category.name);
-
-    //   filtered = this.state.posts.filter((post) => {
-    //     return (post.category_id.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);});
-    // }
-
-    
     let allPosts;
+    let uniquePostIds = []
 
-    // if (this.state.posts.length === 0) {
-    //   return <div>No Posts</div>;
-    // } else {
-      let uniquePostIds = []
-      allPosts = filtered.map((post, idx) => {
-        let currentProfileUserId = this.props.location.pathname.split("/")[3]
-        if (post.creator_id === currentProfileUserId && !uniquePostIds.includes(post._id)) 
-        {
-        uniquePostIds.push(post._id)
-        
-        return (
+    allPosts = filtered.map((post, idx) => {
+      let currentProfileUserId = this.props.location.pathname.split("/")[3]
+      if (post.creator_id === currentProfileUserId && !uniquePostIds.includes(post._id)) 
+      {
+      uniquePostIds.push(post._id)
+      
+      return (
         <PostItem 
           key={idx} 
           post={post} 
@@ -109,13 +78,11 @@ class Profile extends React.Component {
           upcyclePost={this.props.upcyclePost} 
           upcycles={post.upcycle_ids.length}
           isAuthenticated={this.props.isAuthenticated}
-          />
-          )
+        />
+      )
     }
   });
-    // }
-      
-      // this.forceUpdate();
+
       return (
         <div>
           <div className="search">

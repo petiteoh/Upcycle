@@ -24,22 +24,16 @@ export const receiveUserSignIn = () => ({
   type: RECEIVE_USER_SIGN_IN,
 });
 
-// export const signup = (user) => (dispatch) =>
-//   APIUtil.signup(user).then((user) => dispatch(receiveCurrentUser(user)),
-//     (err) => dispatch(receiveErrors(err.response.data))
-// );
-
 export const signup = user => dispatch => {
   return (
     APIUtil.signup(user).then(res => {
         dispatch(login(user))
-    })
-    .catch(err => {
-        dispatch(receiveErrors(err.response.data));
-    })
-
+    }
+  ).catch(err => { 
+          dispatch(receiveErrors(err.response.data));
+  })
   )
-}
+};
 
 export const login = user => dispatch => {
   return (
@@ -53,9 +47,9 @@ export const login = user => dispatch => {
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
     })
-
   )
-}
+};
+
 export const logout = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
   APIUtil.setAuthToken(false);

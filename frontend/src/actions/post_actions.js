@@ -12,16 +12,17 @@ export const RECEIVE_UPCYCLE = "RECEIVE_UPCYCLE";
 
 export const receivePost = (post) => {
   return {
-  type: RECEIVE_POST,
-  post
-}};
+    type: RECEIVE_POST,
+    post
+  }
+};
 
 export const receivePostToEdit = (post) => {
   return {
     type: RECEIVE_EDIT_POST,
     post
   }
-}
+};
 
 export const receivePosts = (posts) => ({
   type: RECEIVE_POSTS,
@@ -51,12 +52,12 @@ export const receiveErrors = (errors) => ({
 export const receivePostUpcycles = (upcycles) => ({
   type: RECEIVE_POST_UPCYCLES,
   upcycles
-})
+});
 
 export const receiveUpcycle = (upcycle) => ({
   type: RECEIVE_UPCYCLE,
   upcycle
-})
+});
 
 export const fetchPost = (id) => (dispatch) => (
   PostAPIUtil.getPost(id)
@@ -72,7 +73,7 @@ export const fetchPostToEdit = (data) => (dispatch) => {
       .then((post) => dispatch(receivePostToEdit(post)))
       // .catch(err => dispatch(receiveErrors(err.response.data)))
   )
-}
+};
 
 export const fetchPosts = () => (dispatch) => (
   PostAPIUtil.getPosts()
@@ -95,28 +96,28 @@ export const fetchUserPosts = (id) => (dispatch) => {
 
 export const createPost = (data) => (dispatch) => {
   return (
-  PostAPIUtil.createPost(data)
-    .then((post) => 
-        dispatch(createNewPost(post)))
-    .catch((err) => 
-        dispatch(receiveErrors(err.response.data)))
-)};
+    PostAPIUtil.createPost(data)
+      .then((post) => 
+          dispatch(createNewPost(post)))
+      .catch((err) => 
+          dispatch(receiveErrors(err.response.data)))
+  )
+};
 
 export const deletePost = (id) => (dispatch) => (
   PostAPIUtil.deletePost(id)
     .then((postId) => 
         dispatch(removePost(postId)))
     .catch((err) => 
-        dispatch(receiveErrors(err.response.data))
-  )
+        dispatch(receiveErrors(err.response.data)))
 );
 
 export const fetchPostUpcycles = (id) => dispatch => (
   PostAPIUtil.getPostUpcycles(id)
     .then(upcycles => dispatch(receivePostUpcycles(upcycles)))
-)
+);
 
 export const upcyclePost = (id) => (dispatch) => {
   PostAPIUtil.createPostUpcycle(id)
     .then((upcycle) => dispatch(receiveUpcycle(upcycle)))
-}
+};

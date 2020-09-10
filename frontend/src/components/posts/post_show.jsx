@@ -8,7 +8,6 @@ class PostShow extends React.Component {
   }
 
   render() {
-    ;
     return (
       <div>
         <div>
@@ -22,7 +21,6 @@ class PostShow extends React.Component {
     );
   }
 }
-
 
 export default withRouter(PostShow);
 

@@ -1,6 +1,5 @@
 .leaderboard-rankings {
   display: flex;
-  /* align-items: center; */
   background-color: rgb(250, 250, 250);
   flex-direction: column;
   border-radius: 10px;

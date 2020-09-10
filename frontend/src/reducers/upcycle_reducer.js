@@ -11,6 +11,6 @@ const UpcycleReducer = ( state = {}, action ) => {
     default:
         return state;
   }
-}
+};
 
 export default UpcycleReducer;

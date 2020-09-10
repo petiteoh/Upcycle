@@ -1,13 +1,12 @@
 import axios from "axios";
 
 export const getPost = (id) => {
-  ;
   return axios.get(`/api/posts/${id}`);
 };
 
 export const getPostToEdit = (data) => {
   return axios.patch(`/api/posts/${data._id}`, data);
-}
+};
 
 export const getPosts = () => {
   return axios.get("/api/posts");
@@ -18,7 +17,6 @@ export const getUserPosts = (id) => {
 };
 
 export const createPost = (data) => {
-  
   return axios.post("/api/posts/create-post", data);
 };
 
@@ -32,8 +30,8 @@ export const getPostUpcycles = (id) => {
 
 export const createPostUpcycle = (id) => {
   return axios.post(`/api/posts/${id}/create-upcycle`);
-}
+};
 
 export const getTopPost = () => {
   return axios.get(`/api/posts/top-post`);
-}
+};

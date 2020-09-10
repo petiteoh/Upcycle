@@ -24,17 +24,9 @@ export default function (state = initialState, action) {
       return {
         isAuthenticated: true,
         user: action.currentUser.data
-        // user: {
-        //   email: action.currentUser.data.email,
-        //   handle: action.currentUser.data.handle,
-        //   hero_points: action.currentUser.data.hero_points,
-        //   photo: action.currentUser.data.photo
-        // },
       };
 
     case RECEIVE_ALL_USERS:
-       // Find what way to grab the current user
-      // let currentUserId = state.user.id || state.user._id; 
       let currentUser = null;
       if (state.isAuthenticated){
         action.users.data.forEach(user => {
@@ -49,4 +41,4 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-}
+};

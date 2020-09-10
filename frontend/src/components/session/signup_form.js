@@ -15,7 +15,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
@@ -23,14 +23,14 @@ class SignupForm extends React.Component {
     }
 
     this.setState({ errors: nextProps.errors });
-  }
+  };
 
   update(field) {
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
       });
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
       .then(null, (error) => {
         this.setState({ errors: this.renderErrors() })
       })
-  }
+  };
 
   renderErrors() {
     return (
@@ -48,7 +48,7 @@ class SignupForm extends React.Component {
         ))}
       </ul>
     );
-  }
+  };
 
   render() {
     return (
@@ -110,6 +110,6 @@ class SignupForm extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default withRouter(SignupForm);

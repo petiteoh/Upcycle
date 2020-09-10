@@ -10,6 +10,7 @@ export default class LeaderboardItem extends Component {
       badges: this.props.user.badge_ids
     };
   }
+  
   render() {
     const profileImage = this.props.user.photo || "https://medio-app-seed.s3.amazonaws.com/3niwMHz8HACEcENzLnva4QtZ.jpg";
     return (
