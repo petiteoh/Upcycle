@@ -9,13 +9,13 @@ class Nav extends Component {
     this.state = null;
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.isAuthenticated && this.props.user){
-      if (prevProps.user.hero_points !== this.props.user.hero_points){
-        this.forceUpdate();
-      }
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.isAuthenticated && this.props.user){
+  //     if (prevProps.user.hero_points !== this.props.user.hero_points){
+  //       this.forceUpdate();
+  //     }
+  //   }
+  // }
 
   MegaMenu(props) {
     const [open, setOpen] = useState(false);
