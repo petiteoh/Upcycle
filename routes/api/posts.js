@@ -27,7 +27,7 @@ router.get('/user/:creator_id', (req, res) => {
 
 router.get("/top-post", (req, res) => {
   Post.find()
-    .sort({ upcycle_ids: -1 })
+    .sort({ upcycle_amount: -1 })
     .limit(1)
     .then((post) => res.json(post))
     .catch((err) => {
@@ -129,7 +129,8 @@ router.post("/:id/create-upcycle",
   ;
 
   Post.findByIdAndUpdate(req.params.id, {
-    $push: { upcycler_ids: upcycle.upcycler, upcycle_ids: upcycle._id }
+    $push: { upcycler_ids: upcycle.upcycler, upcycle_ids: upcycle._id },
+    $inc: {upcycle_amount: 1}
   }).then((post) => {
     post.save()
   }).catch((err) => {
