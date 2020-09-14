@@ -6,18 +6,34 @@ At our core, Upcycled is a social sharing and media service designed to enable a
 
 ## Functionality & MVP
 
-   - [ ] Host app on Heroku
-   - [ ] User authorization: sign up and log in
-   - [ ] Display a live leaderboard on the Zero Hero with the most Hero Points
-   - [ ] Zero Hero profile page showcasing their projects, points, rank and badges
-   - [ ] Mini infograph on waste reduction overall by our Zero Hero
-   - [ ] Search functionality of posts by category, material and location
-   - [ ] Production README
-
+   - [x] Host app on Heroku
+   
+   - [x] User authorization: sign up and log in
+   
+   - [x] Ability to create, edit, delete, and "Upcycle" posts
+   
+   - [x] Display a live leaderboard on the Zero Hero with the most Hero Points
+   
+   - [x] Zero Hero profile page showcasing their projects, points, rank and badges
+   
+   - [x] Splash page with about, post of the week, and leaderboard
+   
+   - [x] Search functionality of posts by category and description
+   
+   - [x] Production README
 
 #### Bonus Features
    - [ ] A calculator that Zero Heroes can use to calculate the carbon footprint saved based on their creation
+   
    - [ ] Adding comments below each post
+
+#### Highlighted Features
+
+Live-updated post upcycling<br>
+![](https://media.giphy.com/media/QyEPP9j87cmp4A3jRN/giphy.gif)
+
+Dynamic category and description search<br>
+![](https://media.giphy.com/media/Xd7GvBZH2TClC8Twq8/giphy.gif)
 
 ## WireFrames
 User Auth Modal
@@ -115,77 +131,9 @@ Technical challenges:
   - Debugging and pushing to Heroku - **All Members**
   - Complete Production Readme - **All Members**
 
+### Updates
+   
 
-Outstanding Tasks:
 
-### Login/signup form
-- Needs to render errors
-### Logout
-- Pop up to show that user has successfully logged out
-### State
-- Needs to be normalized
-### Search bar
-- Add in categories
-- Debouncing to search as you type
-- reorganize the CSS code instead of hardcode
-- add background color to hide posts as it scrolls
-### Upcycle
-- Un-upcycle a post
-### URL paths
-- Need to fix it from duplication and breaking
-### Create post form
-- Should be brought back to the page it which the button was clicked
-### Upcycle featured post
-- Styling
-- Consistent with posts page
-### Upcycle featured post
-- Needs to render the post with the most hero points
-### Update Upcycle to Upcycled on the browser tab
-### Require image for posts
-- Frontend validations and backend validations
-### Badge logic
-- Badge given according to hero point tiers
-### Pencil to edit user profile picture and profile name
-### Edit posts
-### Delete posts
-### Following other users
-### Responsiveness
-- Make it mobile friendly
-### Accessibility
-- Make it accessibility friendly
-- Add ** for color blind
-### Notifications
-### Post index
-- Infinite scroll
-### Update ReadMe
-- Wireframes
-- State
-- Routes
-### Push to Heroku
-- remove middlewares
-- s/console.logs/DS.store/keys/anything on the window
-### additional
-- add meta tags for linkedIn
-- update about page with roles and angelist
 
-### from IDB
-- ARTEM - Auth: don't let user sign up or login with invalid credentials; render the same form with error messages (instead of redirecting to `/posts`)
-- ARTEM - Posts / Articles: 1) Render the actual author's name for each post (right now it seems to show that the post was authored by the currently logged in user).
-- NIKKI - Posts / Articles: 2) Creating a post: when successful, the form should automatically close and the user should be redirected to the posts page. (Right now nothing happens when I submit the form, so I as the user don't know if my new post went through.) When unsuccessful, you should render error messages to the user. (Right now, I see errors in the console but no indication that I, the user, gave bad input.)
-- NIKKI (current) Posts / Articles: 3) Add update and destroy functionality; a logged in user should be able to edit and delete their own posts. (When deleting a post, all the corresponding hero points and upcycles should be destroyed.) 3) Render the actual author's name (right now it seems to show that the post was authored by the currently logged in user).
-- NIKKI (current) Posts / Articles: 4) I love the sample projects. I recommend varying the seed data so that there are different posts by multiple different users. You may also want to add more posts so that you can have more robust data for calculating the leaderboard.
-- CADE ARTEM - Upcycles: 0) Upcycle button not working
-- CADE - Upcycles: 1) Make to update the number of upcycles for a given post as a user clicks the upcycle button (without having to refresh the page).
-- CADE - Upcycles: 2) Style the "upcycle/upcycled" button differently depending on whether the logged in user has already upcycled the post. The slight difference in button text isn't a strong enough visual signal to tell the user whether or not they've already voted for something. I think it's fine to re-purpose the hover styling for this (green background w/ black text). If you don't want users to be able to "un-upcycle" a post, you should remove the cursor: pointer from the button when a post is already upcycled by the current user.
-- CADE - Upcycles: 3) Should a user be able to upvote their own post? If not, you should disable this button for any posts authored by the currently logged in user.
-- CADE (current) - Upcycles: 4) Should getting upcycles on your post increase your hero points? Or are hero points only calculated based on the posts that you create? If upcycles contribute to your hero points, make sure to factor this into the hero point calculation. (Right now I only see hero points that come from posts that I created. If I upcycle one of my posts, that doesn't seem to increment my hero points)
-- VIC - Leaderboard: Does this currently include real data (real hero points and real badges), or is it just dummy data? I noticed that whenever I created a new post with my test account, 5 hero points were added to my tally. This did NOT happen with the demo account (which suggests the demo account's hero points are hardcoded). 1) For the leaderboard to be considered functional, it should calculate standings based on actual data with actual users of the app. 2) Bonus: A nice touch would be to add tooltips that explain what each badge is when you hover over one of the badge icons. At the very least, there should be a description somewhere of what each of the badges means. 3) Bonus: clicking on one of the users in the leaderboard would take you to a listing of all their posts or some sort of profile page
-- ARTEM - Search: From a UX standpoint, I think it would be useful let users search / filter by category
-- VIC - Splash: 1) replace the placeholder text on the splash page: "StatsStatsStatsStats ImagesImagesImagesImages" 
-- NIKKI (pipeline) I think it's worth including more info about your app somewhere in the "Home" or "About" page. Include a brief description of what your app does, how hero points are calculated, what upcycles are, and the different badges that you can earn on the leaderboard.
-- ALL OF US (next week) Mandatory additions: For the README, add code snippets and screenshots / gifs of your app in action.
-- VIC (current) - about page alphabetical order, and iconify links into one row
-- VIC (pipeline) post of the week extravaganzaaaaaaaaa
-- VIC (pipeline) edit profile
-- link issue
-- add metatags to our project
+
