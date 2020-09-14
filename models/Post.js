@@ -50,6 +50,11 @@ const PostSchema = new Schema({
           required: false
         }
     ],
+    upcycle_amount: {
+          type: Number,
+          required: false,
+          default: 0
+    },
     timeCreated: {
         type: Date,
         default: () => { return new Date() }
