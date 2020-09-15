@@ -63,6 +63,7 @@ Technical challenges:
   - Getting components to re-render instead of having to refresh to reflect updates
   - Route path duplicating after every click
   - "can't read property of undefined"
+  - Error renderings were not showing up because "null" was not passed in the .catch
 
 ## Accomplished over the Weekend
 
