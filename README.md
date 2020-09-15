@@ -35,19 +35,6 @@ Live-updated post upcycling<br>
 Dynamic category and description search<br>
 ![](https://media.giphy.com/media/Xd7GvBZH2TClC8Twq8/giphy.gif)
 
-## WireFrames
-User Auth Modal
-![TBD](TBD)
-
-Interactive Infographic
-![TBD](TBD)
-
-Profile Page
-![TBD](TBD)
-
-Community Feed
-![TBD](TBD)
-
 ## Technologies & Technical Challenges
 
   ### Backend: MongoDB/Express/Node.js
@@ -130,8 +117,6 @@ Technical challenges:
   - Finishing styling touches - **All Members**
   - Debugging and pushing to Heroku - **All Members**
   - Complete Production Readme - **All Members**
-
-### Updates
    
 
 
