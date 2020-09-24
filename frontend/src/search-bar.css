@@ -8,6 +8,7 @@
     width:100%;
     outline:none;
     padding:0;
+    font-family: "Arvo Regular";
 }
 
 .search-input-box {
@@ -66,6 +67,7 @@
 .radio {
     margin-top: 5px;
     position: fixed;
+    font-family: "Arvo Regular";
 }
 
 .span {
@@ -96,6 +98,7 @@
     padding: 10px 20px 10px 20px;
     z-index: 6;
     width: fit-content;
+    font-family: "Arvo Regular";
 }
 
 .create-post:hover {

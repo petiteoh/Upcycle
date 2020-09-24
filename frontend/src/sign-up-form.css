@@ -33,6 +33,7 @@
     justify-content: center;
     color: #2b1e18;
     font-family: "Arvo Regular";
+    z-index: 2;
 }
 
 .signup-exit {
